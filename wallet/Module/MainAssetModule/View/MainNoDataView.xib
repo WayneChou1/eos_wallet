@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MainNoDataView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="388"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wallet.bundle/main/main_empty.png" translatesAutoresizingMaskIntoConstraints="NO" id="7BX-LS-0Xl">
+                    <rect key="frame" x="179.5" y="90" width="16" height="168"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vco-14-aCE">
+                    <rect key="frame" x="187.5" y="273" width="0.0" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pzp-sm-B6n">
+                    <rect key="frame" x="117.5" y="298" width="140" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="srt-ln-Gfp">
+                            <rect key="frame" x="0.0" y="0.0" width="140" height="40"/>
+                            <color key="backgroundColor" red="0.2274509804" green="0.47058823529999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="createBtnOnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="i7E-zi-tai"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="srt-ln-Gfp" secondAttribute="bottom" id="Njl-4f-3q6"/>
+                        <constraint firstAttribute="width" constant="140" id="STp-ra-C10"/>
+                        <constraint firstItem="srt-ln-Gfp" firstAttribute="top" secondItem="Pzp-sm-B6n" secondAttribute="top" id="Vsg-PG-q41"/>
+                        <constraint firstAttribute="height" constant="40" id="jz7-IV-EoK"/>
+                        <constraint firstItem="srt-ln-Gfp" firstAttribute="leading" secondItem="Pzp-sm-B6n" secondAttribute="leading" id="k3C-ak-scB"/>
+                        <constraint firstAttribute="trailing" secondItem="srt-ln-Gfp" secondAttribute="trailing" id="ujx-r3-TBj"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="Vco-14-aCE" firstAttribute="centerX" secondItem="7BX-LS-0Xl" secondAttribute="centerX" id="MCR-F7-Egv"/>
+                <constraint firstItem="Pzp-sm-B6n" firstAttribute="centerX" secondItem="7BX-LS-0Xl" secondAttribute="centerX" id="ODg-zO-bYC"/>
+                <constraint firstAttribute="bottom" secondItem="Pzp-sm-B6n" secondAttribute="bottom" constant="50" id="b7r-We-HBz"/>
+                <constraint firstItem="Vco-14-aCE" firstAttribute="top" secondItem="7BX-LS-0Xl" secondAttribute="bottom" constant="15" id="e76-PT-Vas"/>
+                <constraint firstItem="7BX-LS-0Xl" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-20" id="lhI-qw-JgN"/>
+                <constraint firstItem="7BX-LS-0Xl" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="nPC-Jk-etq"/>
+                <constraint firstItem="Pzp-sm-B6n" firstAttribute="top" secondItem="7BX-LS-0Xl" secondAttribute="bottom" constant="40" id="qTC-8b-sUV"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="btnBackgroudView" destination="Pzp-sm-B6n" id="yZb-E2-bIu"/>
+                <outlet property="createBtn" destination="srt-ln-Gfp" id="pca-k9-OrF"/>
+                <outlet property="emptyLab" destination="Vco-14-aCE" id="Jjb-4t-GIc"/>
+            </connections>
+            <point key="canvasLocation" x="552.5" y="-254"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Wallet.bundle/main/main_empty.png" width="16" height="16"/>
+    </resources>
+</document>

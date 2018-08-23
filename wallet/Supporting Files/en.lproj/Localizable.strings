@@ -1,0 +1,55 @@
+/* 
+  Localizable.strings
+  wallet
+
+  Created by zhouzhiwei on 2018/7/16.
+  Copyright © 2018年 eos. All rights reserved.
+*/
+
+/* 标签栏 */
+"Asset" = "Asset";
+"Profile" = "Profile";
+"Exchange" = "Exchange";
+
+/* 主页 */
+"Empty Token!" = "Empty Token!";
+"Empty Account!" = "Empty Account!";
+"Create" = "Create";
+"Insert" = "Insert";
+
+/* 钱包 */
+"Name" = "Name";
+"New Password" = "New Password";
+"Confirm Password" = "Confirm Password";
+"Create Wallet" = "Create Wallet";
+"Create Success" = "Create Success";
+"Delete" = "Delete";
+"Wallet Manager" = "Wallet Manager";
+"Password Hint" = "Password Hint";
+"Change Password" = "Change Password";
+"Export Private Key" = "Export Private Key";
+"Save" = "Save";
+
+"The wallet cannot be empty!"="The wallet cannot be empty!";
+"Passwod cannot be empty!"="Passwod cannot be empty!";
+"Entered passwords differ!"="Entered passwords differ!";
+"Local wallet name cannot repeat"="Local wallet name cannot repeat";
+
+"Input wallet password" = "Input wallet password";
+"Cancel" = "Cancel";
+"Confirm" = "Confirm";
+"Password error" = "Password error";
+"Input Your Password Prompt" = "Input Your Password Prompt";
+
+"Account error" = "Account error";
+"Keys input error" = "Keys input error";
+
+"Owner key input error" = "Owner key input error";
+"Active key input error" = "Active key input error";
+
+/* 导入私钥 */
+"I have carefully read and agree to the terms of service and privacy." = "I have carefully read and agree to the terms of service and privacy.";
+"Import" = "Import";
+"Import your account" = "Import your account";
+"Import your ownerkey" = "Import your ownerkey";
+"Import your activekey" = "Import your activekey";

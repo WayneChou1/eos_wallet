@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MainHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="424" height="211"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tuy-6t-sfB">
+                    <rect key="frame" x="203" y="80" width="19.5" height="36"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
+                    <color key="textColor" red="0.22745098039215686" green="0.47058823529411764" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmi-jo-FQX">
+                    <rect key="frame" x="183" y="80" width="15" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.2274509804" green="0.47058823529999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8NE-aV-csp">
+                    <rect key="frame" x="46" y="151" width="120" height="40"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wallet.bundle/main/main_in.png" translatesAutoresizingMaskIntoConstraints="NO" id="ONB-ok-mba">
+                            <rect key="frame" x="39" y="12" width="16" height="16"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dY-PP-fbK">
+                            <rect key="frame" x="60" y="12" width="13.5" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="6dY-PP-fbK" firstAttribute="centerY" secondItem="8NE-aV-csp" secondAttribute="centerY" id="5hN-X6-95A"/>
+                        <constraint firstAttribute="centerX" secondItem="6dY-PP-fbK" secondAttribute="leading" id="6sI-jq-7ia"/>
+                        <constraint firstAttribute="height" constant="40" id="H78-4B-2NY"/>
+                        <constraint firstItem="6dY-PP-fbK" firstAttribute="centerY" secondItem="ONB-ok-mba" secondAttribute="centerY" id="fEN-3l-ob3"/>
+                        <constraint firstAttribute="width" constant="120" id="ma1-2W-VFC"/>
+                        <constraint firstItem="6dY-PP-fbK" firstAttribute="leading" secondItem="ONB-ok-mba" secondAttribute="trailing" constant="5" id="nd1-5J-kKb"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S02-BG-P8E">
+                    <rect key="frame" x="258" y="151" width="120" height="40"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wallet.bundle/main/main_out.png" translatesAutoresizingMaskIntoConstraints="NO" id="HFY-WI-zts">
+                            <rect key="frame" x="39" y="12" width="16" height="16"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGw-Fq-Ks6">
+                            <rect key="frame" x="60" y="12" width="13.5" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="fGw-Fq-Ks6" firstAttribute="centerY" secondItem="HFY-WI-zts" secondAttribute="centerY" id="4f8-fc-UGG"/>
+                        <constraint firstItem="fGw-Fq-Ks6" firstAttribute="centerY" secondItem="S02-BG-P8E" secondAttribute="centerY" id="AAb-cV-KUN"/>
+                        <constraint firstAttribute="height" constant="40" id="WLr-ao-qEO"/>
+                        <constraint firstAttribute="width" constant="120" id="ulU-ZH-K5d"/>
+                        <constraint firstItem="fGw-Fq-Ks6" firstAttribute="leading" secondItem="HFY-WI-zts" secondAttribute="trailing" constant="5" id="v3a-ar-WUW"/>
+                        <constraint firstAttribute="centerX" secondItem="fGw-Fq-Ks6" secondAttribute="leading" id="x0o-3T-HgV"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Tuy-6t-sfB" firstAttribute="top" secondItem="gmi-jo-FQX" secondAttribute="top" id="6YE-OA-aEb"/>
+                <constraint firstItem="Tuy-6t-sfB" firstAttribute="leading" secondItem="gmi-jo-FQX" secondAttribute="trailing" constant="5" id="AWU-yQ-S97"/>
+                <constraint firstItem="Tuy-6t-sfB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="80" id="LRk-ph-1DQ"/>
+                <constraint firstItem="8NE-aV-csp" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="1:2" id="NMK-Sf-eM1"/>
+                <constraint firstItem="Tuy-6t-sfB" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="OqY-jK-lro"/>
+                <constraint firstItem="S02-BG-P8E" firstAttribute="centerY" secondItem="8NE-aV-csp" secondAttribute="centerY" id="bFE-J9-2gz"/>
+                <constraint firstAttribute="bottom" secondItem="8NE-aV-csp" secondAttribute="bottom" constant="20" id="bj1-uv-5aX"/>
+                <constraint firstItem="S02-BG-P8E" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="3:2" id="gPt-Yj-gh9"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="expenseLab" destination="fGw-Fq-Ks6" id="Ns6-2y-zfI"/>
+                <outlet property="incomeLab" destination="6dY-PP-fbK" id="UaW-8V-lK2"/>
+                <outlet property="totalAssetLab" destination="Tuy-6t-sfB" id="pCe-s7-i2z"/>
+            </connections>
+            <point key="canvasLocation" x="-68" y="270.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Wallet.bundle/main/main_in.png" width="16" height="16"/>
+        <image name="Wallet.bundle/main/main_out.png" width="16" height="16"/>
+    </resources>
+</document>

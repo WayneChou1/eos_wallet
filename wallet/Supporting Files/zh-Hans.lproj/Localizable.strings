@@ -1,0 +1,53 @@
+/* 
+  Localizable.strings
+  wallet
+
+  Created by zhouzhiwei on 2018/7/16.
+  Copyright © 2018年 eos. All rights reserved.
+*/
+/* 标签栏 */
+"Asset" = "资产";
+"Profile" = "我的";
+"Exchange" = "交易";
+
+/* 主页 */
+"Empty Token!" = "没有相关资产！";
+"Empty Account!" = "没有相关账号！";
+"Create" = "创建钱包";
+"Insert" = "导入账号";
+
+/* 钱包 */
+"Name" = "钱包名称";
+"New Password" = "钱包密码";
+"Confirm Password" = "请确认钱包密码";
+"Create Wallet" = "创建钱包";
+"Create Success" = "创建成功！";
+"Delete" = "删除";
+"Wallet Manager" = "钱包管理";
+"Password Hint" = "密码提示";
+"Change Password" = "修改密码";
+"Export Private Key" = "导出私钥";
+"Save" = "保存";
+
+"The wallet cannot be empty!" = "钱包名称不能为空!";
+"Passwod cannot be empty!" = "密码不能为空!";
+"Entered passwords differ!" = "两次输入的密码不一致!";
+"Local wallet name cannot repeat" = "本地钱包名不可重复!";
+
+"Input wallet password" = "请输入钱包密码";
+"Cancel" = "取消";
+"Confirm" = "确定";
+"Password error" = "密码错误";
+"Input Your Password Prompt" = "请输入密码提示";
+
+"Account error" = "账号名输入错误";
+"Keys input error" = "私钥格式有误";
+"Owner key input error" = "Owner key 输入有误";
+"Active key input error" = "Active key 输入有误";
+
+/* 导入私钥 */
+"I have carefully read and agree to the terms of service and privacy." = "我已经仔细阅读并同意服务及隐私条款";
+"Import" = "导入";
+"Import your account" = "输入账号";
+"Import your ownerkey" = "输入ownerkey";
+"Import your activekey" = "输入activekey";

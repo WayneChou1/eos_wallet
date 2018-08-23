@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TransactionViewController">
+            <connections>
+                <outlet property="detailLab" destination="VdK-EK-RdO" id="qi4-F5-0NK"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sty-4f-6p0">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="owu-AC-RMQ">
+                            <rect key="frame" x="147" y="80" width="80" height="80"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="80" id="6ec-X7-eDO"/>
+                                <constraint firstAttribute="height" constant="80" id="mLu-lk-toi"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="loK-7z-ix4">
+                            <rect key="frame" x="20" y="221" width="157.5" height="40"/>
+                            <color key="backgroundColor" red="0.53333333333333333" green="0.63137254901960782" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="nZp-Wt-30N"/>
+                            </constraints>
+                            <state key="normal" title="转账">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="transferBtnOnClick:" destination="-1" eventType="touchUpInside" id="7Va-gp-nEL"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EOS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VdK-EK-RdO">
+                            <rect key="frame" x="170" y="180" width="34.5" height="21"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="交易记录" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a2r-gR-uuV">
+                            <rect key="frame" x="20" y="276" width="50" height="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCW-1O-SgW">
+                            <rect key="frame" x="197.5" y="221" width="157.5" height="40"/>
+                            <color key="backgroundColor" red="0.074509803921568626" green="0.45882352941176469" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="收款">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="receiveBtnOnClick:" destination="-1" eventType="touchUpInside" id="Fyr-mN-yEz"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="a2r-gR-uuV" secondAttribute="bottom" constant="376" id="2os-lo-eaq"/>
+                        <constraint firstItem="a2r-gR-uuV" firstAttribute="top" secondItem="loK-7z-ix4" secondAttribute="bottom" constant="15" id="38O-Fd-TiJ"/>
+                        <constraint firstItem="JCW-1O-SgW" firstAttribute="leading" secondItem="loK-7z-ix4" secondAttribute="trailing" constant="20" id="6BD-sg-00S"/>
+                        <constraint firstItem="loK-7z-ix4" firstAttribute="leading" secondItem="sty-4f-6p0" secondAttribute="leading" constant="20" id="CFt-5Y-2UY"/>
+                        <constraint firstItem="JCW-1O-SgW" firstAttribute="height" secondItem="loK-7z-ix4" secondAttribute="height" id="E0k-8D-sIL"/>
+                        <constraint firstAttribute="trailing" secondItem="JCW-1O-SgW" secondAttribute="trailing" constant="20" id="Ghi-DB-LBw"/>
+                        <constraint firstItem="owu-AC-RMQ" firstAttribute="centerX" secondItem="sty-4f-6p0" secondAttribute="centerX" id="I3b-lv-p0o"/>
+                        <constraint firstItem="VdK-EK-RdO" firstAttribute="centerX" secondItem="owu-AC-RMQ" secondAttribute="centerX" id="InK-YV-cSo"/>
+                        <constraint firstItem="JCW-1O-SgW" firstAttribute="top" secondItem="VdK-EK-RdO" secondAttribute="bottom" constant="20" id="Kq0-te-V5Z"/>
+                        <constraint firstItem="loK-7z-ix4" firstAttribute="top" secondItem="JCW-1O-SgW" secondAttribute="top" id="fYf-id-1uL"/>
+                        <constraint firstItem="VdK-EK-RdO" firstAttribute="top" secondItem="owu-AC-RMQ" secondAttribute="bottom" constant="20" id="gyn-UW-m95"/>
+                        <constraint firstItem="JCW-1O-SgW" firstAttribute="width" secondItem="loK-7z-ix4" secondAttribute="width" id="hqK-8l-u9k"/>
+                        <constraint firstItem="owu-AC-RMQ" firstAttribute="top" secondItem="sty-4f-6p0" secondAttribute="top" constant="80" id="p3U-Ck-FT3"/>
+                        <constraint firstItem="a2r-gR-uuV" firstAttribute="leading" secondItem="sty-4f-6p0" secondAttribute="leading" constant="20" id="pZf-q7-mVa"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="sty-4f-6p0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="6XG-cB-eNY"/>
+                <constraint firstAttribute="trailing" secondItem="sty-4f-6p0" secondAttribute="trailing" id="7tC-hm-gSq"/>
+                <constraint firstAttribute="trailing" secondItem="JCW-1O-SgW" secondAttribute="trailing" constant="20" id="F4n-3w-sPJ"/>
+                <constraint firstAttribute="bottom" secondItem="sty-4f-6p0" secondAttribute="bottom" id="SeN-4u-srg"/>
+                <constraint firstItem="sty-4f-6p0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="kYH-bh-eUf"/>
+            </constraints>
+            <point key="canvasLocation" x="-37" y="-38"/>
+        </view>
+    </objects>
+</document>

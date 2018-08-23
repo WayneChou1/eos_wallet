@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InputPwdView">
+            <connections>
+                <outlet property="cancelBtn" destination="exB-tf-Jpf" id="wR2-4j-VU1"/>
+                <outlet property="confirmBtn" destination="Ntc-PD-Z0F" id="QDJ-5m-5ID"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="ddJ-Tw-Qgn"/>
+                <outlet property="pswTF" destination="M0O-VJ-ebU" id="enf-T3-qGN"/>
+                <outlet property="titleLab" destination="rs3-nl-ChA" id="cMP-W3-YJM"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="148"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请输入钱包密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rs3-nl-ChA">
+                    <rect key="frame" x="137" y="20" width="100" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入钱包密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M0O-VJ-ebU">
+                    <rect key="frame" x="20" y="52" width="335" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="8ex-Uj-Fwd"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exB-tf-Jpf">
+                    <rect key="frame" x="0.0" y="108" width="187.5" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Lnf-ug-H9f"/>
+                    </constraints>
+                    <state key="normal" title="Button">
+                        <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="cancelBtnOnClick:" destination="-1" eventType="touchUpInside" id="5gf-Ur-RVI"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ntc-PD-Z0F">
+                    <rect key="frame" x="187.5" y="108" width="187.5" height="40"/>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="Button">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="confirmBtnOnClick:" destination="-1" eventType="touchUpInside" id="PIM-Xn-oFp"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pce-yC-HxN">
+                    <rect key="frame" x="0.0" y="107.5" width="375" height="0.5"/>
+                    <color key="backgroundColor" red="0.85098039215686272" green="0.85098039215686272" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="K8e-3k-G8u"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="M0O-VJ-ebU" secondAttribute="trailing" constant="20" id="2Kv-ux-adv"/>
+                <constraint firstItem="exB-tf-Jpf" firstAttribute="top" secondItem="Pce-yC-HxN" secondAttribute="bottom" id="HM2-ca-QHa"/>
+                <constraint firstItem="Ntc-PD-Z0F" firstAttribute="height" secondItem="exB-tf-Jpf" secondAttribute="height" id="Hkk-bG-L5r"/>
+                <constraint firstItem="rs3-nl-ChA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="K09-Ye-xMD"/>
+                <constraint firstItem="Ntc-PD-Z0F" firstAttribute="leading" secondItem="exB-tf-Jpf" secondAttribute="trailing" id="KOW-A9-ex8"/>
+                <constraint firstAttribute="trailing" secondItem="Pce-yC-HxN" secondAttribute="trailing" id="N3p-hw-6Tx"/>
+                <constraint firstItem="M0O-VJ-ebU" firstAttribute="top" secondItem="rs3-nl-ChA" secondAttribute="bottom" constant="15" id="WJ4-3r-SwB"/>
+                <constraint firstItem="Ntc-PD-Z0F" firstAttribute="width" secondItem="exB-tf-Jpf" secondAttribute="width" id="WzT-7Q-C8B"/>
+                <constraint firstItem="exB-tf-Jpf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Xs5-Th-2E1"/>
+                <constraint firstItem="rs3-nl-ChA" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="fTH-6o-fOW"/>
+                <constraint firstAttribute="bottom" secondItem="Ntc-PD-Z0F" secondAttribute="bottom" id="g7g-Wg-PQQ"/>
+                <constraint firstItem="Pce-yC-HxN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="hkC-EA-xzP"/>
+                <constraint firstItem="M0O-VJ-ebU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="kCP-YD-BeB"/>
+                <constraint firstAttribute="trailing" secondItem="Ntc-PD-Z0F" secondAttribute="trailing" id="pUl-mb-wQW"/>
+                <constraint firstAttribute="bottom" secondItem="exB-tf-Jpf" secondAttribute="bottom" id="y9Q-VU-o9v"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="5"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="42.5" y="166"/>
+        </view>
+    </objects>
+</document>

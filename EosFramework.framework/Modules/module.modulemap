@@ -1,0 +1,6 @@
+framework module EosFramework {
+  umbrella header "EosFramework.h"
+
+  export *
+  module * { export * }
+}

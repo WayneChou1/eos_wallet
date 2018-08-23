@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Goi-VH-2Sq" customClass="WalletQRView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="533"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iN0-l3-epB">
+                    <rect key="frame" x="0.0" y="45" width="375" height="488"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Aum-9L-IMu">
+                            <rect key="frame" x="87.5" y="156.5" width="200" height="200"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="Aum-9L-IMu" secondAttribute="height" multiplier="1:1" id="tGD-Ng-Wr8"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rjd-Vf-MUk">
+                            <rect key="frame" x="87.5" y="366.5" width="200" height="40"/>
+                            <color key="backgroundColor" red="0.074509803921568626" green="0.45882352941176469" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="200" id="BBV-7K-CQK"/>
+                                <constraint firstAttribute="height" constant="40" id="Vb9-8e-dpg"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="复制">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="copyBtnOnClick:" destination="Goi-VH-2Sq" eventType="touchUpInside" id="3DU-c4-buH"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ower Key" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pAw-In-Dpz">
+                            <rect key="frame" x="150.5" y="90" width="74" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wallet.bundle/main/asset_eos" translatesAutoresizingMaskIntoConstraints="NO" id="8o9-Tu-xch">
+                            <rect key="frame" x="157.5" y="15" width="60" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="BTP-wz-2k7"/>
+                                <constraint firstAttribute="width" constant="60" id="NdK-oz-2xs"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="adress" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Dy-ZE-sd1">
+                            <rect key="frame" x="20" y="126" width="335" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.61176470588235299" green="0.61176470588235299" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="1Dy-ZE-sd1" firstAttribute="top" secondItem="pAw-In-Dpz" secondAttribute="bottom" constant="15" id="3nU-G2-bTH"/>
+                        <constraint firstItem="Rjd-Vf-MUk" firstAttribute="top" secondItem="Aum-9L-IMu" secondAttribute="bottom" constant="10" id="Ku8-kh-5HK"/>
+                        <constraint firstItem="Rjd-Vf-MUk" firstAttribute="width" secondItem="Aum-9L-IMu" secondAttribute="width" id="MhY-8S-OEM"/>
+                        <constraint firstItem="8o9-Tu-xch" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="15" id="TfT-BQ-bvH"/>
+                        <constraint firstItem="Aum-9L-IMu" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Wyh-VD-Wgh"/>
+                        <constraint firstItem="pAw-In-Dpz" firstAttribute="top" secondItem="8o9-Tu-xch" secondAttribute="bottom" constant="15" id="beW-qH-pNK"/>
+                        <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="1Dy-ZE-sd1" secondAttribute="trailing" constant="20" id="dL4-4E-qW4"/>
+                        <constraint firstItem="8o9-Tu-xch" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="eJZ-OT-LUH"/>
+                        <constraint firstItem="1Dy-ZE-sd1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="ePr-tk-w9U"/>
+                        <constraint firstItem="1Dy-ZE-sd1" firstAttribute="centerX" secondItem="pAw-In-Dpz" secondAttribute="centerX" id="fvr-dc-H7g"/>
+                        <constraint firstItem="Rjd-Vf-MUk" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="iFL-qQ-gTB"/>
+                        <constraint firstItem="pAw-In-Dpz" firstAttribute="centerX" secondItem="8o9-Tu-xch" secondAttribute="centerX" id="j3L-OO-EQv"/>
+                        <constraint firstItem="Aum-9L-IMu" firstAttribute="top" secondItem="1Dy-ZE-sd1" secondAttribute="bottom" constant="10" id="yy5-Bq-3ex"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="7xC-Mi-PAA"/>
+                <constraint firstItem="21R-e5-jne" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="V6p-rn-bfh"/>
+                <constraint firstItem="iN0-l3-epB" firstAttribute="leading" secondItem="Goi-VH-2Sq" secondAttribute="leading" id="l9D-U7-cgi"/>
+                <constraint firstItem="iN0-l3-epB" firstAttribute="top" secondItem="21R-e5-jne" secondAttribute="top" constant="25" id="qGr-Cb-Krd"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="21R-e5-jne"/>
+            <connections>
+                <outlet property="addressLab" destination="1Dy-ZE-sd1" id="6zs-1p-ttp"/>
+                <outlet property="copBtn" destination="Rjd-Vf-MUk" id="nel-aV-F2H"/>
+                <outlet property="qrImageV" destination="Aum-9L-IMu" id="AK3-qx-E93"/>
+            </connections>
+            <point key="canvasLocation" x="32" y="281"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Wallet.bundle/main/asset_eos" width="16" height="16"/>
+    </resources>
+</document>

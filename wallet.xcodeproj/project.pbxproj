@@ -77,6 +77,8 @@
 		F60AC93E212C5AAC00A19D55 /* QRModalTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = F60AC93D212C5AAC00A19D55 /* QRModalTransition.m */; };
 		F60AC941212C660600A19D55 /* QRModelPanInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = F60AC940212C660600A19D55 /* QRModelPanInteractiveTransition.m */; };
 		F60AEA24212A597C000D310C /* WalletDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F60AEA23212A597C000D310C /* WalletDetailViewController.m */; };
+		F616E90D2132DA7B00B60FAA /* ScanQRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F616E90C2132DA7B00B60FAA /* ScanQRViewController.m */; };
+		F616E9102132DE5600B60FAA /* EditorView.m in Sources */ = {isa = PBXBuildFile; fileRef = F616E90F2132DE5500B60FAA /* EditorView.m */; };
 		F6F81C3D212A60F000737503 /* WalletNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F81C3B212A60F000737503 /* WalletNameCell.m */; };
 		F6F81C3E212A60F000737503 /* WalletNameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6F81C3C212A60F000737503 /* WalletNameCell.xib */; };
 		F6F81C42212A611D00737503 /* WalletPswHintCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F81C40212A611D00737503 /* WalletPswHintCell.m */; };
@@ -235,6 +237,10 @@
 		F60AC940212C660600A19D55 /* QRModelPanInteractiveTransition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QRModelPanInteractiveTransition.m; sourceTree = "<group>"; };
 		F60AEA22212A597C000D310C /* WalletDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WalletDetailViewController.h; sourceTree = "<group>"; };
 		F60AEA23212A597C000D310C /* WalletDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WalletDetailViewController.m; sourceTree = "<group>"; };
+		F616E90B2132DA7B00B60FAA /* ScanQRViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScanQRViewController.h; sourceTree = "<group>"; };
+		F616E90C2132DA7B00B60FAA /* ScanQRViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScanQRViewController.m; sourceTree = "<group>"; };
+		F616E90E2132DE5500B60FAA /* EditorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditorView.h; sourceTree = "<group>"; };
+		F616E90F2132DE5500B60FAA /* EditorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditorView.m; sourceTree = "<group>"; };
 		F6F81C3A212A60F000737503 /* WalletNameCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WalletNameCell.h; sourceTree = "<group>"; };
 		F6F81C3B212A60F000737503 /* WalletNameCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WalletNameCell.m; sourceTree = "<group>"; };
 		F6F81C3C212A60F000737503 /* WalletNameCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletNameCell.xib; sourceTree = "<group>"; };
@@ -709,6 +715,8 @@
 				F60316E5212D94ED001E9A34 /* WalletQRView.h */,
 				F60316E6212D94ED001E9A34 /* WalletQRView.m */,
 				F60316E3212D94E1001E9A34 /* WalletQRView.xib */,
+				F616E90E2132DE5500B60FAA /* EditorView.h */,
+				F616E90F2132DE5500B60FAA /* EditorView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -725,6 +733,8 @@
 				F60226EC212B012B0086B2EB /* WalletQRViewController.h */,
 				F60226ED212B012B0086B2EB /* WalletQRViewController.m */,
 				F60226EE212B012B0086B2EB /* WalletQRViewController.xib */,
+				F616E90B2132DA7B00B60FAA /* ScanQRViewController.h */,
+				F616E90C2132DA7B00B60FAA /* ScanQRViewController.m */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -963,11 +973,13 @@
 				627449C520FC3646003F61C8 /* DicKeyConst.m in Sources */,
 				F60226EA212AFD760086B2EB /* WalletSendViewController.m in Sources */,
 				62824B9D2110149A00BCFB18 /* NSData+CommonCrypto.m in Sources */,
+				F616E9102132DE5600B60FAA /* EditorView.m in Sources */,
 				F60AEA24212A597C000D310C /* WalletDetailViewController.m in Sources */,
 				F60AC93E212C5AAC00A19D55 /* QRModalTransition.m in Sources */,
 				6265F83521085356003D8561 /* InputTextField.m in Sources */,
 				62824B9C2110149A00BCFB18 /* Base64.m in Sources */,
 				626665B62109A8A10034E3C0 /* NSString+Hash.m in Sources */,
+				F616E90D2132DA7B00B60FAA /* ScanQRViewController.m in Sources */,
 				62A0F6F320FD950F00472772 /* BaseTableViewCell.m in Sources */,
 				6274498220FC2E46003F61C8 /* AppDelegate.m in Sources */,
 				62623AD820FEE43200663644 /* UIView+Xib.m in Sources */,

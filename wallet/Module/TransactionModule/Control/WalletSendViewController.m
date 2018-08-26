@@ -8,6 +8,7 @@
 
 #import "WalletSendViewController.h"
 #import "InputTextField.h"
+#import "InputPwdView.h"
 
 @interface WalletSendViewController ()
 
@@ -35,11 +36,14 @@
     self.receiverTF.shadowColor = kMain_Color;
     self.receiverTF.cornerRadius = 5.0;
     self.receiverTF.textField.keyboardType = UIKeyboardTypeASCIICapable;
+    [self.receiverTF addTarget:self action:@selector(scanBtnOnClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.receiverTF  setImageForActionBtn:[UIImage imageNamed:@"Wallet.bundle/transation/transation_qr"] forState:UIControlStateNormal];
+    [self.receiverTF setWidthForActionBtn:40.0];
     
     self.amountTF.textField.placeholder = kLocalizable(@"填写数额");
     self.amountTF.shadowColor = kMain_Color;
     self.amountTF.cornerRadius = 5.0;
-    self.amountTF.textField.keyboardType = UIKeyboardTypeASCIICapable;
+    self.amountTF.textField.keyboardType = UIKeyboardTypeNumberPad;
     self.amountTF.textField.secureTextEntry = YES;
     
     self.memoTF.textField.placeholder = kLocalizable(@"添加备注");
@@ -53,5 +57,19 @@
 
 #pragma mark - btnOnClick
 - (IBAction)sendBtnOnClick:(UIButton *)sender {
+    
+    WEAK_SELF(weakSelf)
+    InputPwdView *inputView = [[InputPwdView alloc]initWithFrame:CGRectMake(0, 0, inputViewWidth, inputViewHeight)];
+    [inputView showInView:self.view handler:^(BOOL pwdValied, BOOL isCanceled, NSString *psw) {
+        if (!isCanceled) {
+            if (pwdValied) {
+            }
+        }
+    }];
 }
+
+- (void)scanBtnOnClick {
+    
+}
+
 @end

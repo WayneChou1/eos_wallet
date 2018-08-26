@@ -32,11 +32,12 @@
                         <outlet property="delegate" destination="-1" id="guk-9S-pYu"/>
                     </connections>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9f3-Mo-Pmz">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9f3-Mo-Pmz">
                     <rect key="frame" x="604" y="0.0" width="40" height="60"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="zqE-z4-Xcd"/>
                     </constraints>
+                    <color key="tintColor" red="0.074509803920000006" green="0.45882352939999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -9,6 +9,8 @@
 #import "TransactionViewController.h"
 #import "WalletQRViewController.h"
 #import "WalletSendViewController.h"
+#import "ScanQRViewController.h"
+#import "NavigationViewController.h"
 #import "Account.h"
 
 @interface TransactionViewController () <UIViewControllerTransitioningDelegate>
@@ -62,7 +64,9 @@
 }
 
 - (void)QRItemOnClick:(UIBarButtonItem *)item {
-    
+    ScanQRViewController *VC = [[ScanQRViewController alloc] init];
+    NavigationViewController *naVC = [[NavigationViewController alloc] initWithRootViewController:VC];
+    [self.navigationController presentViewController:naVC animated:YES completion:nil];
 }
 
 

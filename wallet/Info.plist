@@ -44,5 +44,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>wallet将通过相机读取二维码</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>wallet将通过相册读取二维码</string>
 </dict>
 </plist>

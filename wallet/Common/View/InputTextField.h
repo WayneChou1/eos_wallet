@@ -18,4 +18,13 @@
 
 @property (assign, nonatomic) UIEdgeInsets edgeInset;
 
+
+- (void)addTarget:(nullable id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents;
+
+- (void)setTitleForActionBtn:(NSString *)title forState:(UIControlState)state;
+
+- (void)setImageForActionBtn:(UIImage *)img forState:(UIControlState)state;
+
+- (void)setWidthForActionBtn:(CGFloat)width;
+
 @end

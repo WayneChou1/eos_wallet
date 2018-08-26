@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+static NSTimeInterval duration = 0.35;
+
 @interface WalletQRView : UIView
 
 - (instancetype)initWithFrame:(CGRect)frame publickey:(NSString *)publicKey;
+
+-(void)panGestureAction:(UIPanGestureRecognizer *)gesture;
+
+- (void)showQRWithDuration:(CGFloat)duration isShow:(BOOL)isShow;
 
 @end

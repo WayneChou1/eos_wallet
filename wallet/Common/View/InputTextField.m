@@ -11,13 +11,15 @@
 @interface InputTextField () <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *contentView;
+@property (weak, nonatomic) IBOutlet UIButton *actionBtn;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *actionBtnWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *toActionBtnConstraint;
 
 @end
 
 @implementation InputTextField
 
 - (instancetype)initViewWithFrame:(CGRect)frame {
-    
     return self;
 }
 
@@ -37,6 +39,27 @@
     return self;
 }
 
+- (void)addTarget:(nullable id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents {
+    [self.actionBtn addTarget:target action:action forControlEvents:controlEvents];
+}
+
+- (void)setTitleForActionBtn:(NSString *)title forState:(UIControlState)state {
+    [self.actionBtn setTitle:title forState:state];
+}
+
+- (void)setImageForActionBtn:(UIImage *)img forState:(UIControlState)state {
+    [self.actionBtn setImage:img forState:state];
+}
+
+- (void)setWidthForActionBtn:(CGFloat)width {
+    self.actionBtnWidthConstraint.constant = width;
+    if (width == 0) {
+        self.toActionBtnConstraint.constant = 0.0;
+    }else{
+        self.toActionBtnConstraint.constant = 10.0;
+    }
+}
+
 - (void)setUpSubViews {
     [[NSBundle mainBundle] loadNibNamed:@"InputTextField" owner:self options:nil];
     [self addSubview:self.contentView];
@@ -48,6 +71,10 @@
         make.top.equalTo(self);
         make.bottom.equalTo(self);
     }];
+    
+    // 默认actionBtn宽度为0
+    self.actionBtnWidthConstraint.constant = 0.0;
+    self.toActionBtnConstraint.constant = 0.0;
 }
 
 

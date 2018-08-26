@@ -11,17 +11,20 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InputTextField">
             <connections>
+                <outlet property="actionBtn" destination="9f3-Mo-Pmz" id="8YE-TB-fJe"/>
+                <outlet property="actionBtnWidthConstraint" destination="zqE-z4-Xcd" id="o2r-pE-Fal"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="u0G-JI-cY0"/>
                 <outlet property="textField" destination="Ldb-aU-12g" id="Qmv-Pj-uNm"/>
+                <outlet property="toActionBtnConstraint" destination="uy3-mJ-BFj" id="3tM-E8-1WL"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="654" height="327"/>
+            <rect key="frame" x="0.0" y="0.0" width="654" height="60"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ldb-aU-12g">
-                    <rect key="frame" x="5" y="0.0" width="644" height="327"/>
+                    <rect key="frame" x="5" y="0.0" width="589" height="60"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
@@ -29,16 +32,25 @@
                         <outlet property="delegate" destination="-1" id="guk-9S-pYu"/>
                     </connections>
                 </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9f3-Mo-Pmz">
+                    <rect key="frame" x="604" y="0.0" width="40" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="zqE-z4-Xcd"/>
+                    </constraints>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Ldb-aU-12g" secondAttribute="trailing" constant="5" id="7ft-4a-SmG"/>
                 <constraint firstItem="Ldb-aU-12g" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Dbo-Sl-7pq"/>
+                <constraint firstItem="9f3-Mo-Pmz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="JKQ-FP-i2z"/>
+                <constraint firstAttribute="trailing" secondItem="9f3-Mo-Pmz" secondAttribute="trailing" constant="10" id="WNi-Va-VpB"/>
                 <constraint firstItem="Ldb-aU-12g" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="XoK-5u-dIe"/>
                 <constraint firstAttribute="bottom" secondItem="Ldb-aU-12g" secondAttribute="bottom" id="YJK-AT-Wpw"/>
+                <constraint firstAttribute="bottom" secondItem="9f3-Mo-Pmz" secondAttribute="bottom" id="fjm-fp-xCm"/>
+                <constraint firstItem="9f3-Mo-Pmz" firstAttribute="leading" secondItem="Ldb-aU-12g" secondAttribute="trailing" constant="10" id="uy3-mJ-BFj"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-178" y="464.5"/>
+            <point key="canvasLocation" x="4" y="591"/>
         </view>
     </objects>
 </document>

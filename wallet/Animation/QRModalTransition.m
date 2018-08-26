@@ -46,14 +46,26 @@
         [containerView addSubview:toVC.view];
         
         WalletQRViewController *qrVC = (WalletQRViewController *)toVC;
-        [qrVC presentViewController:self.duration completion:^{
-            [transitionContext completeTransition:YES];
+        [qrVC show:self.duration completion:^{
+            if ([transitionContext transitionWasCancelled]) {
+                //失败了接标记失败
+                [transitionContext completeTransition:NO];
+            }else{
+                //如果成功了，我们需要标记成功，同时让vc1显示出来，然后移除截图视图，
+                [transitionContext completeTransition:YES];
+            }
         }];
     }else if ([fromVC isKindOfClass:[WalletQRViewController class]] && self.type == kQRModalTransitionDismiss) {
         // dismiss
         WalletQRViewController *qrVC = (WalletQRViewController *)fromVC;
-        [qrVC dismissViewController:self.duration completion:^{
-            [transitionContext completeTransition:YES];
+        [qrVC dismiss:self.duration completion:^{
+            if ([transitionContext transitionWasCancelled]) {
+                //失败了接标记失败
+                [transitionContext completeTransition:NO];
+            }else{
+                //如果成功了，我们需要标记成功，同时让vc1显示出来，然后移除截图视图，
+                [transitionContext completeTransition:YES];
+            }
         }];
     }
 }

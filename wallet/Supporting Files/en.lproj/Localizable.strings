@@ -28,7 +28,6 @@
 "Password Hint" = "Password Hint";
 "Change Password" = "Change Password";
 "Export Private Key" = "Export Private Key";
-"Save" = "Save";
 
 "The wallet cannot be empty!"="The wallet cannot be empty!";
 "Passwod cannot be empty!"="Passwod cannot be empty!";
@@ -53,3 +52,12 @@
 "Import your account" = "Import your account";
 "Import your ownerkey" = "Import your ownerkey";
 "Import your activekey" = "Import your activekey";
+
+/* 交易 */
+"Save" = "Save";
+"Copy" = "Copy";
+"Copy Success" = "Copy Success";
+"Receivind Account" = "Receivind Account";
+"Amount" = "Amount"
+"MEMO" = "MEMO"
+"Send" = "Send"

@@ -12,10 +12,9 @@
 #import "WalletQRView.h"
 
 static CGFloat alpha = 0.9;
-static NSTimeInterval duration = 0.35;
 
-static CGFloat qrViewHeight = 475.0;
-static CGFloat qrViewOffset = 20.0;
+//static CGFloat qrViewHeight = 475.0;
+//static CGFloat qrViewOffset = 20.0;
 
 @interface WalletQRViewController () <UIViewControllerTransitioningDelegate>
 
@@ -31,6 +30,10 @@ static CGFloat qrViewOffset = 20.0;
 
 @implementation WalletQRViewController
 
+- (void)dealloc {
+    
+}
+
 - (instancetype)initWithPublicKey:(NSString *)publicKey {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
@@ -41,6 +44,13 @@ static CGFloat qrViewOffset = 20.0;
         self.presentTransition = [QRModalTransition transitionWithType:kQRModalTransitionPresent duration:duration];
         self.dismissTransition = [QRModalTransition transitionWithType:kQRModalTransitionDismiss duration:duration];
         self.percentTransition = [[QRModelPanInteractiveTransition alloc] init];
+        
+        WEAK_SELF(weakSelf);
+        [self.percentTransition panToDismiss:self handler:^(UIPanGestureRecognizer *gesture) {
+            if (weakSelf.qrView) {
+                [weakSelf.qrView panGestureAction:gesture];
+            }
+        }];
     }
     return self;
 }
@@ -76,13 +86,8 @@ static CGFloat qrViewOffset = 20.0;
     [self.visualView.contentView addSubview:visualEffectView];
     
     // 设置二维码
-    self.qrView = [[WalletQRView alloc] initWithFrame:CGRectMake(qrViewOffset, SCREEN_HEIGHT, SCREEN_WIDTH - 2*qrViewOffset, qrViewHeight) publickey:self.publicKey];
+    self.qrView = [[WalletQRView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) publickey:self.publicKey];
     [self.view addSubview:self.qrView];
-}
-
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - UIViewControllerTransitioningDelegate
@@ -96,26 +101,15 @@ static CGFloat qrViewOffset = 20.0;
 }
 
 - (id <UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id <UIViewControllerAnimatedTransitioning>)animator{
-    return self.percentTransition;
+    return self.percentTransition.interactiveDismiss ? self.percentTransition : nil;
 }
 
 #pragma mark - public
 
-- (void)presentViewController:(NSTimeInterval)duration completion:(void(^)(void))completion{
-//    [UIView animateWithDuration:duration animations:^{
-//        self.visualView.alpha = alpha;
-//        self.qrView.center = self.view.center;
-//    } completion:^(BOOL finished) {
-//        if (finished) {
-//            if (completion) {
-//                completion();
-//            }
-//        }
-//    }];
-    
+- (void)show:(NSTimeInterval)duration completion:(void(^)(void))completion{
+    [self.qrView showQRWithDuration:duration isShow:YES];
     [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.visualView.alpha = alpha;
-        self.qrView.center = self.view.center;
     } completion:^(BOOL finished) {
         if (finished) {
             if (completion) {
@@ -125,20 +119,10 @@ static CGFloat qrViewOffset = 20.0;
     }];
 }
 
-- (void)dismissViewController:(NSTimeInterval)duration completion:(void (^)(void))completion {
-//    [UIView animateWithDuration:duration animations:^{
-//        self.visualView.alpha = 0.0;
-//        self.qrView.frame = CGRectMake(qrViewOffset, SCREEN_HEIGHT, SCREEN_WIDTH - 2*qrViewOffset, qrViewHeight);
-//    } completion:^(BOOL finished) {
-//        if (finished) {
-//            if (completion) {
-//                completion();
-//            }
-//        }
-//    }];
+- (void)dismiss:(NSTimeInterval)duration completion:(void (^)(void))completion {
+    
     [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.visualView.alpha = 0.0;
-        self.qrView.frame = CGRectMake(qrViewOffset, SCREEN_HEIGHT, SCREEN_WIDTH - 2*qrViewOffset, qrViewHeight);
     } completion:^(BOOL finished) {
         if (finished) {
             if (completion) {
@@ -146,6 +130,10 @@ static CGFloat qrViewOffset = 20.0;
             }
         }
     }];
+}
+
+- (void)panViewController:(CGFloat)percent {
+    self.visualView.alpha = (1 - percent)*0.9;
 }
 
 

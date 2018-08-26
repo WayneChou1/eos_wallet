@@ -27,7 +27,6 @@
 "Password Hint" = "密码提示";
 "Change Password" = "修改密码";
 "Export Private Key" = "导出私钥";
-"Save" = "保存";
 
 "The wallet cannot be empty!" = "钱包名称不能为空!";
 "Passwod cannot be empty!" = "密码不能为空!";
@@ -51,3 +50,13 @@
 "Import your account" = "输入账号";
 "Import your ownerkey" = "输入ownerkey";
 "Import your activekey" = "输入activekey";
+
+
+/* 交易 */
+"Save" = "保存";
+"Copy" = "复制";
+"Copy Success" = "复制成功";
+"Receivind Account" = "转账账号";
+"Amount" = "填写数额"
+"MEMO" = "添加备注"
+"Send" = "确认转账"

@@ -8,8 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+@class WalletQRViewController;
+
+typedef void(^ModelPanHandler)(UIPanGestureRecognizer *gesture);
+
 @interface QRModelPanInteractiveTransition : UIPercentDrivenInteractiveTransition
 
--(void)panToDismiss:(UIViewController *)viewcontroller;
+@property (assign, nonatomic)  BOOL interactiveDismiss;
+
+-(void)panToDismiss:(WalletQRViewController *)viewcontroller handler:(ModelPanHandler)handler;
 
 @end

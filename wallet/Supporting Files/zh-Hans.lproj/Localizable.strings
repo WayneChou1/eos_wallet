@@ -57,6 +57,6 @@
 "Copy" = "复制";
 "Copy Success" = "复制成功";
 "Receivind Account" = "转账账号";
-"Amount" = "填写数额"
-"MEMO" = "添加备注"
-"Send" = "确认转账"
+"Amount" = "填写数额";
+"MEMO" = "添加备注";
+"Send" = "确认转账";

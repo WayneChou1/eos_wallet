@@ -8,6 +8,7 @@
 
 #import "TransactionViewController.h"
 #import "WalletQRViewController.h"
+#import "WalletSendViewController.h"
 #import "Account.h"
 
 @interface TransactionViewController () <UIViewControllerTransitioningDelegate>
@@ -50,14 +51,14 @@
 #pragma mark - btnOnClick
 
 - (IBAction)receiveBtnOnClick:(UIButton *)sender {
-    
     NSString *publicKey = self.account.ownerPublickKey;
-    
     WalletQRViewController *VC = [[WalletQRViewController alloc] initWithPublicKey:publicKey];
     [self presentViewController:VC animated:YES completion:nil];
 }
 
 - (IBAction)transferBtnOnClick:(UIButton *)sender {
+    WalletSendViewController *VC = [[WalletSendViewController alloc] init];
+    [self.navigationController pushViewController:VC animated:YES];
 }
 
 - (void)QRItemOnClick:(UIBarButtonItem *)item {

@@ -22,6 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"";
+    [self setUpSubViews];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol ScanEditorDelegate <NSObject>
+
+- (void)light:(BOOL)on;
+
+@end
+
 @interface EditorView : UIView
+
+@property (weak, nonatomic) id <ScanEditorDelegate> delegate;
+
+- (void)showLightBtn;
+- (void)hidLightBtn;
 
 @end

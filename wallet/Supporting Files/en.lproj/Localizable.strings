@@ -61,3 +61,7 @@
 "Amount" = "Amount";
 "MEMO" = "MEMO";
 "Send" = "Send";
+
+/* 扫码 */
+"Turn on the light" = "Turn on the light";
+"Turn off the light" = "Turn off the light";

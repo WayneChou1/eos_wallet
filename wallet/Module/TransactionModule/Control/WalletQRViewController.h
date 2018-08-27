@@ -19,7 +19,7 @@
  */
 - (instancetype)initWithPublicKey:(NSString *)publicKey;
 
-- (void)show:(NSTimeInterval)duration completion:(void(^)(void))completion;
+- (void)show:(NSTimeInterval)duration present:(BOOL)present completion:(void(^)(void))completion;
 - (void)dismiss:(NSTimeInterval)duration completion:(void(^)(void))completion;
 - (void)panViewController:(CGFloat)percent;
 

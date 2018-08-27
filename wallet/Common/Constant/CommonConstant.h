@@ -41,6 +41,9 @@
 /** 主题色 */
 #define kMain_Color [UIColor colorWithHex:0x3A78F6]
 
+/** 字体 */
+#define kSys_font(font) [UIFont systemFontOfSize:font]
+
 
 /** 当前钱包 */
 #define kCurrentWallet_UUID [kUserDefault objectForKey:kCurrent_wallet]

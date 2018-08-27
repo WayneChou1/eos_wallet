@@ -8,9 +8,11 @@
 
 #import "EditorView.h"
 
-#define editLineH 20
-#define cornerLineW 4
-#define lineW 2
+static CGFloat editLineH = 20;
+static CGFloat cornerLineW = 4;
+static CGFloat lineW = 2;
+static CGFloat duration = 0.25;
+
 
 @interface EditorView(){
 //    BOOL _canScale;
@@ -18,34 +20,96 @@
     CGPoint  _lastPoint;
 }
 
+@property (strong, nonatomic) UIButton *lightBtn;
+
 @end
 
 @implementation EditorView
 
 
--(instancetype)initWithCoder:(NSCoder *)aDecoder{
-    
+- (instancetype)initWithCoder:(NSCoder *)aDecoder{
     self = [super initWithCoder:aDecoder];
-    
     if (self) {
         self.contentMode = UIViewContentModeRedraw;
+        [self setUpLightBtn];
     }
-    
     return self;
-    
 }
 
 
--(instancetype)initWithFrame:(CGRect)frame{
-    
+- (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
-    
     if (self) {
         self.contentMode = UIViewContentModeRedraw;
+        [self setUpLightBtn];
+    }
+    return self;
+}
+
+- (void)setUpLightBtn {
+    CGFloat width = 80.0;
+    CGFloat height = 100.0;
+    self.lightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.lightBtn.frame = CGRectMake(self.frame.size.width/2.0 - width/2.0, self.frame.size.height - height, width, height);
+    [self.lightBtn setImage:[UIImage imageNamed:@"Wallet.bundle/transation/transation_light_off"] forState:UIControlStateNormal];
+    [self.lightBtn setImage:[UIImage imageNamed:@"Wallet.bundle/transation/transation_light_on"] forState:UIControlStateSelected];
+    [self.lightBtn setTitle:kLocalizable(@"开启灯光") forState:UIControlStateNormal];
+    [self.lightBtn.titleLabel setFont:kSys_font(10)];
+    [self.lightBtn setTitle:kLocalizable(@"关闭灯光") forState:UIControlStateSelected];
+    [self.lightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.lightBtn setTitleColor:kMain_Color forState:UIControlStateSelected];
+    [self.lightBtn addTarget:self action:@selector(lightBtnOnClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.lightBtn setTitleEdgeInsets:UIEdgeInsetsMake(self.lightBtn.imageView.frame.size.height + self.lightBtn.titleLabel.bounds.size.height + 10,-self.lightBtn.imageView.frame.size.width, 0.0,0.0)];//文字距离上边框的距离增加imageView的高度，距离左边框减少imageView的宽度，距离下边框和右边框距离不变
+    [self.lightBtn setImageEdgeInsets:UIEdgeInsetsMake(0.0, 0.0,0.0, -self.lightBtn.titleLabel.bounds.size.width)];//图片距离右边框距离减少图片的宽度，其它不边
+
+    [self addSubview:self.lightBtn];
+}
+
+- (void)showLightBtn {
+    if (self.lightBtn.hidden == NO) return;
+    self.lightBtn.hidden = NO;
+    self.lightBtn.layer.opacity = 1.0;
+    [self.lightBtn.layer addAnimation:[self opacityForever_Animation:duration hidden:NO] forKey:nil];
+}
+
+- (void)hidLightBtn {
+    if (self.lightBtn.hidden == YES) return;
+    self.lightBtn.hidden = YES;
+    self.lightBtn.layer.opacity = 0.0;
+}
+
+
+#pragma mark === 永久闪烁的动画 ======
+-(CABasicAnimation *)opacityForever_Animation:(float)time hidden:(BOOL)hidden {
+    
+    CGFloat fromValue = hidden?0:1;
+    CGFloat toValue = hidden?1:0;
+    
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"opacity"];//必须写opacity才行。
+    animation.fromValue = [NSNumber numberWithFloat:fromValue];
+    animation.toValue = [NSNumber numberWithFloat:toValue];//这是透明度。
+    animation.autoreverses = YES;
+    animation.duration = time;
+    animation.repeatCount = 3;
+    animation.removedOnCompletion = YES;
+    animation.fillMode = kCAFillModeForwards;
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];///没有的话是均匀的动画。
+    return animation;
+}
+
+#pragma mark - btnOnClick
+
+- (void)lightBtnOnClick:(UIButton *)btn {
+    // 如果btn为选中状态，直接调用隐藏方法
+    if (btn.selected) {
+        [self hidLightBtn];
     }
     
-    return self;
-    
+    btn.selected = !btn.selected;
+    if ([self.delegate respondsToSelector:@selector(light:)]) {
+        [self.delegate light:btn.isSelected];
+    }
 }
 
 

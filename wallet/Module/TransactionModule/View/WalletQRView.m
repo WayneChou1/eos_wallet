@@ -57,7 +57,7 @@ static CGFloat top_offset = 40.0;
 
 - (void)showQRWithDuration:(CGFloat)duration isShow:(BOOL)isShow{
     
-    [UIView animateWithDuration:duration delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:0.6 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    [UIView animateWithDuration:duration delay:0 usingSpringWithDamping:1.8 initialSpringVelocity:1.6 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         if (isShow) {
             self.contentView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
         }else{
@@ -69,11 +69,10 @@ static CGFloat top_offset = 40.0;
 }
 
 
-
 #pragma mark - public
 
 -(void)panGestureAction:(UIPanGestureRecognizer *)gesture {
-    CGPoint translation = [gesture translationInView:self];
+    CGPoint translation = [gesture translationInView:gesture.view];
     
     switch (gesture.state) {
         case UIGestureRecognizerStateChanged:{
@@ -81,17 +80,16 @@ static CGFloat top_offset = 40.0;
             [self panViewWithPoint:translation];
             if (translation.y >= max_pan_height) {
                 _canDismiss = YES;
-                [self setNeedsDisplay];
             }else{
                 _canDismiss = NO;
-                [self setNeedsDisplay];
             }
             break;
         }
+        case UIGestureRecognizerStateFailed:
         case UIGestureRecognizerStateCancelled:
         case UIGestureRecognizerStateEnded:{
             //2
-            if (gesture.state == UIGestureRecognizerStateCancelled) {
+            if (gesture.state == UIGestureRecognizerStateCancelled || gesture.state == UIGestureRecognizerStateFailed) {
                 [self showQRWithDuration:duration isShow:YES];
             }else{
                 if (translation.y >= max_pan_height) {
@@ -99,7 +97,6 @@ static CGFloat top_offset = 40.0;
                 }else{
                     [self showQRWithDuration:duration isShow:YES];
                 }
-                
             }
             break;
         }
@@ -113,6 +110,7 @@ static CGFloat top_offset = 40.0;
 - (void)panViewWithPoint:(CGPoint)point {
     // 移动二维码视图
     self.contentView.frame = CGRectMake(self.contentFrame.origin.x, self.contentFrame.origin.y + point.y, self.contentFrame.size.width, self.contentFrame.size.height);
+    [self setNeedsDisplay];
 }
 
 

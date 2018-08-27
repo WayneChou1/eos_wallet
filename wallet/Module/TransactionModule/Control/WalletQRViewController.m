@@ -106,8 +106,10 @@ static CGFloat alpha = 0.9;
 
 #pragma mark - public
 
-- (void)show:(NSTimeInterval)duration completion:(void(^)(void))completion{
-    [self.qrView showQRWithDuration:duration isShow:YES];
+- (void)show:(NSTimeInterval)duration present:(BOOL)present completion:(void(^)(void))completion{
+    
+    if (present) [self.qrView showQRWithDuration:duration isShow:YES];
+    
     [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.visualView.alpha = alpha;
     } completion:^(BOOL finished) {
@@ -120,7 +122,6 @@ static CGFloat alpha = 0.9;
 }
 
 - (void)dismiss:(NSTimeInterval)duration completion:(void (^)(void))completion {
-    
     [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.visualView.alpha = 0.0;
     } completion:^(BOOL finished) {

@@ -8,12 +8,13 @@
 
 #import "ScanQRViewController.h"
 #import "EditorView.h"
+#import "UIImage+Color.h"
 #import <AVKit/AVKit.h>
 
 static const char *scan_qr_code_queueName = "scanQRCodeQueueName";
 static NSString * const scan_line_move    = @"scanLineMove";
 
-@interface ScanQRViewController ()<AVCaptureMetadataOutputObjectsDelegate>
+@interface ScanQRViewController ()<AVCaptureMetadataOutputObjectsDelegate,AVCaptureVideoDataOutputSampleBufferDelegate,ScanEditorDelegate>
 
 //捕获设备，通常是前置摄像头，后置摄像头，麦克风（音频输入）
 @property(nonatomic)AVCaptureDevice *device;
@@ -42,6 +43,8 @@ static NSString * const scan_line_move    = @"scanLineMove";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setNavigationBar];
+    [self setNav];
     [self setUpSubview];
 }
 
@@ -61,7 +64,9 @@ static NSString * const scan_line_move    = @"scanLineMove";
     [self stopReading];
 }
 
+
 #pragma mark - 初始化界面
+
 -(void)setUpSubview{
     
     //预览图层
@@ -78,8 +83,9 @@ static NSString * const scan_line_move    = @"scanLineMove";
     }
     
     //扫描框
-    _boxView = [[EditorView alloc] initWithFrame:CGRectMake(_viewPreview.bounds.size.width * 0.1f, _viewPreview.bounds.size.height * 0.1f, _viewPreview.bounds.size.width * 0.8, _viewPreview.bounds.size.width * 0.8)];
+    _boxView = [[EditorView alloc] initWithFrame:CGRectMake(_viewPreview.bounds.size.width * 0.1f, _viewPreview.bounds.size.height * 0.2f, _viewPreview.bounds.size.width * 0.8, _viewPreview.bounds.size.width * 0.8)];
     _boxView.backgroundColor = [UIColor clearColor];
+    _boxView.delegate = self;
     [_viewPreview addSubview:_boxView];
     
     //扫描线
@@ -114,6 +120,18 @@ static NSString * const scan_line_move    = @"scanLineMove";
     [_viewPreview addSubview:viewBottom];
 }
 
+- (void)setNav {
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"Wallet.bundle/wallet/wallet_close"] style:0 target:self action:@selector(closeItemOnClick:)];
+}
+
+- (void)setNavigationBar {
+    // 设置导航栏透明
+    self.navigationController.navigationBar.translucent = YES;
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor clearColor]] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    self.navigationController.navigationBar.subviews.firstObject.alpha = 0.0;
+}
+
 - (BOOL)creatCaptureDevice{
     
     NSError *error;
@@ -131,6 +149,9 @@ static NSString * const scan_line_move    = @"scanLineMove";
     //3.创建媒体数据输出流
     AVCaptureMetadataOutput *captureMetadataOutput = [[AVCaptureMetadataOutput alloc] init];
     
+    AVCaptureVideoDataOutput *videoOutput = [[AVCaptureVideoDataOutput alloc] init];
+    [videoOutput setSampleBufferDelegate:self queue:dispatch_get_main_queue()];
+    
     //4.实例化捕捉会话
     self.session = [[AVCaptureSession alloc] init];
     
@@ -138,7 +159,32 @@ static NSString * const scan_line_move    = @"scanLineMove";
     [self.session addInput:input];
     
     //4.2.将媒体输出流添加到会话中
-    [self.session addOutput:captureMetadataOutput];
+    if (captureMetadataOutput) {
+        [self.session addOutput:captureMetadataOutput];
+        NSMutableArray *a = [[NSMutableArray alloc] init];
+        
+        if ([captureMetadataOutput.availableMetadataObjectTypes containsObject:AVMetadataObjectTypeQRCode]) {
+            [a addObject:AVMetadataObjectTypeQRCode];
+        }
+        
+        if ([captureMetadataOutput.availableMetadataObjectTypes containsObject:AVMetadataObjectTypeEAN13Code]) {
+            [a addObject:AVMetadataObjectTypeEAN13Code];
+        }
+        
+        if ([captureMetadataOutput.availableMetadataObjectTypes containsObject:AVMetadataObjectTypeEAN8Code]) {
+            [a addObject:AVMetadataObjectTypeEAN8Code];
+        }
+        
+        if ([captureMetadataOutput.availableMetadataObjectTypes containsObject:AVMetadataObjectTypeCode128Code]) {
+            [a addObject:AVMetadataObjectTypeCode128Code];
+        }
+        captureMetadataOutput.metadataObjectTypes = a;
+    }
+    
+    if (videoOutput) {
+        [self.session addOutput:videoOutput];
+    }
+    
     
     //5.创建串行队列，并加媒体输出流添加到队列当中
     dispatch_queue_t dispatchQueue;
@@ -209,11 +255,9 @@ static NSString * const scan_line_move    = @"scanLineMove";
     self.scanLayer.opacity = 0.;
 }
 
-#pragma mark 输出的代理
-
+#pragma mark AVCaptureMetadataOutputObjectsDelegate
 //metadataObjects ：把识别到的内容放到该数组中
-- (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection
-{
+- (void)captureOutput:(AVCaptureOutput *)output didOutputMetadataObjects:(NSArray<__kindof AVMetadataObject *> *)metadataObjects fromConnection:(AVCaptureConnection *)connection {
     //停止扫描
     [self.session stopRunning];
     if ([metadataObjects count] >= 1) {
@@ -222,6 +266,54 @@ static NSString * const scan_line_move    = @"scanLineMove";
         //拿到扫描内容在这里进行个性化处理
         NSLog(@"识别成功%@",qrObject.stringValue);
     }
+}
+
+#pragma mark AVCaptureVideoDataOutputSampleBufferDelegate
+- (void)captureOutput:(AVCaptureOutput *)output didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {
+    CFDictionaryRef metadataDict = CMCopyDictionaryOfAttachments(NULL,sampleBuffer, kCMAttachmentMode_ShouldPropagate);
+    NSDictionary *metadata = [[NSMutableDictionary alloc] initWithDictionary:(__bridge NSDictionary*)metadataDict];
+    CFRelease(metadataDict);
+    NSDictionary *exifMetadata = [[metadata objectForKey:(NSString *)kCGImagePropertyExifDictionary] mutableCopy];
+    float brightnessValue = [[exifMetadata objectForKey:(NSString *)kCGImagePropertyExifBrightnessValue] floatValue];
+    
+    wLog(@"%f",brightnessValue);
+    
+    // 根据brightnessValue的值来打开和关闭闪光灯
+    AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    BOOL result = [device hasTorch];
+    // 判断设备是否有闪光灯
+    if ((brightnessValue < 0) && result) {
+        [_boxView showLightBtn];
+    }else if((brightnessValue > 0) && result) {
+        // 如果已经开启，不隐藏按钮
+        if (!device.torchActive) {
+            [_boxView hidLightBtn];
+        }
+    }
+}
+
+#pragma mark - ScanEditorDelegate
+- (void)light:(BOOL)on {
+    AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    if (on) {
+        // 打开闪光灯
+        [device lockForConfiguration:nil];
+        [device setTorchMode: AVCaptureTorchModeOn];
+        //开
+        [device unlockForConfiguration];
+    }else{
+        // 关闭闪光灯
+        [device lockForConfiguration:nil];
+        [device setTorchMode: AVCaptureTorchModeOff];
+        //关
+        [device unlockForConfiguration];
+    }
+}
+
+#pragma mark - btnOnClick
+
+- (void)closeItemOnClick:(UIBarButtonItem *)item {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

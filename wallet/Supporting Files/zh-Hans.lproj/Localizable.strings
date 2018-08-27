@@ -60,3 +60,7 @@
 "Amount" = "填写数额";
 "MEMO" = "添加备注";
 "Send" = "确认转账";
+
+/* 扫码 */
+"Turn on the light" = "开启灯光";
+"Turn off the light" = "关闭灯光";

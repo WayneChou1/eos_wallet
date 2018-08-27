@@ -41,10 +41,12 @@ static CGFloat max_pan_height = 100.0;
         case UIGestureRecognizerStateChanged:{
             //1
             CGFloat percent = (translation.y/SCREEN_HEIGHT) <= 1 ? (translation.y/SCREEN_HEIGHT):1;
-            [self updateInteractiveTransition:percent];
             [self.presentedVC panViewController:percent];
+            [self updateInteractiveTransition:percent];
+
             break;
         }
+        case UIGestureRecognizerStateFailed:
         case UIGestureRecognizerStateCancelled:
         case UIGestureRecognizerStateEnded:{
             //2
@@ -59,9 +61,8 @@ static CGFloat max_pan_height = 100.0;
                     }];
                 }else{
                     self.interactiveDismiss = NO;
-                    
                     NSTimeInterval d = (translation.y/SCREEN_HEIGHT) * duration;
-                    [self.presentedVC show:d completion:^{
+                    [self.presentedVC show:d present:NO completion:^{
                         [self cancelInteractiveTransition];
                     }];
                 }

@@ -46,7 +46,7 @@
         [containerView addSubview:toVC.view];
         
         WalletQRViewController *qrVC = (WalletQRViewController *)toVC;
-        [qrVC show:self.duration completion:^{
+        [qrVC show:self.duration present:YES completion:^{
             if ([transitionContext transitionWasCancelled]) {
                 //失败了接标记失败
                 [transitionContext completeTransition:NO];

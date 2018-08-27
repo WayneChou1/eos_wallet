@@ -99,10 +99,9 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" constant="20" id="7xC-Mi-PAA"/>
                 <constraint firstItem="iN0-l3-epB" firstAttribute="leading" secondItem="Goi-VH-2Sq" secondAttribute="leading" constant="20" id="l9D-U7-cgi"/>
-                <constraint firstItem="iN0-l3-epB" firstAttribute="top" secondItem="21R-e5-jne" secondAttribute="top" constant="50" id="qGr-Cb-Krd"/>
+                <constraint firstItem="iN0-l3-epB" firstAttribute="top" secondItem="Goi-VH-2Sq" secondAttribute="top" constant="70" id="qGr-Cb-Krd"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="21R-e5-jne"/>
             <point key="canvasLocation" x="-115" y="188"/>
         </view>
     </objects>

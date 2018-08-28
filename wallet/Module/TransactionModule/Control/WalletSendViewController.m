@@ -9,17 +9,44 @@
 #import "WalletSendViewController.h"
 #import "InputTextField.h"
 #import "InputPwdView.h"
+#import "AccountManager.h"
+#import "BlockChain.h"
+#import "NSDate+ExFoundation.h"
+#import "NSData+CommonCrypto.h"
+#import "NSObject+Extension.h"
+#import "AESCrypt.h"
+#import <JavaScriptCore/JavaScriptCore.h>
 
 @interface WalletSendViewController ()
 
 @property (weak, nonatomic) IBOutlet InputTextField *receiverTF;
 @property (weak, nonatomic) IBOutlet InputTextField *amountTF;
 @property (weak, nonatomic) IBOutlet InputTextField *memoTF;
-
 @property (weak, nonatomic) IBOutlet UIButton *sendBtn;
+
+@property (strong, nonatomic) Account *account;
+@property (nonatomic, strong) JSContext *context;
+@property (nonatomic, copy) NSString *ref_block_prefix;
+@property (nonatomic, copy) NSString *ref_block_num;
+@property (nonatomic, strong) NSData *chain_Id;
+@property (nonatomic, copy) NSString *expiration;
+@property (nonatomic, copy) NSString *required_Publickey;
+@property (nonatomic, copy) NSString *binargs;
+
+@property (nonatomic, copy) NSString *password;
+
 @end
 
 @implementation WalletSendViewController
+
+- (instancetype)initWithAccount:(Account *)account {
+    self = [super initWithNibName:nil bundle:nil];
+    if (self) {
+        self.account = account;
+        self.title = @"EOS";
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -43,17 +70,181 @@
     self.amountTF.textField.placeholder = kLocalizable(@"填写数额");
     self.amountTF.shadowColor = kMain_Color;
     self.amountTF.cornerRadius = 5.0;
-    self.amountTF.textField.keyboardType = UIKeyboardTypeNumberPad;
-    self.amountTF.textField.secureTextEntry = YES;
+    self.amountTF.textField.keyboardType = UIKeyboardTypeDecimalPad;
     
     self.memoTF.textField.placeholder = kLocalizable(@"添加备注");
     self.memoTF.shadowColor = kMain_Color;
     self.memoTF.cornerRadius = 5.0;
     self.memoTF.textField.keyboardType = UIKeyboardTypeASCIICapable;
-    self.memoTF.textField.secureTextEntry = YES;
     
     [self.sendBtn setTitle:kLocalizable(@"确认转账") forState:UIControlStateNormal];
 }
+
+#pragma mark - transaction
+
+- (void)transfer {
+    [self getBinargs:^(id response) {
+        if ([response isKindOfClass:[NSDictionary class]]) {
+            NSDictionary *d = (NSDictionary *)response;
+            self.binargs = [d objectForKey:@"binargs"];
+            
+            [self getInfoSuccess:^(id response) {
+                BlockChain *model = [BlockChain yy_modelWithDictionary:response];// [@"data"]
+                
+//                model.head_block_num = @(13461365);
+//                model.head_block_id = @"00cd68bcde14ab753a16681ac305f3f6383484dc5e671ae8db48af93354e7dda";
+//                model.chain_id = @"aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906";
+                
+                self.expiration = [[[NSDate dateFromString: model.head_block_time] dateByAddingTimeInterval: 30] formatterToISO8601];
+                self.ref_block_num = [NSString stringWithFormat:@"%@",model.head_block_num];
+                
+                NSString *js = @"function readUint32( tid, data, offset ){var hexNum= data.substring(2*offset+6,2*offset+8)+data.substring(2*offset+4,2*offset+6)+data.substring(2*offset+2,2*offset+4)+data.substring(2*offset,2*offset+2);var ret = parseInt(hexNum,16).toString(10);return(ret)}";
+                [self.context evaluateScript:js];
+                JSValue *n = [self.context[@"readUint32"] callWithArguments:@[@8,VALIDATE_STRING(model.head_block_id) , @8]];
+                self.ref_block_prefix = [n toString];
+                
+                self.chain_Id = [NSData convertHexStrToData:model.chain_id];
+                wLog(@"get_block_info_success:%@, %@---%@-%@", self.expiration , self.ref_block_num, self.ref_block_prefix, self.chain_Id);
+                
+                [self getRequiredPublicKeyRequestOperationSuccess:^(id response) {
+                    if ([response isKindOfClass:[NSDictionary class]]) {
+                        self.required_Publickey = response[@"required_keys"][0];
+                        [self pushTransactionRequestOperationSuccess:^(id response) {
+                            
+                        }];
+                    }
+                }];
+            }];
+        }
+    }];
+}
+
+#pragma mark - 获取行动代码
+
+- (void)getBinargs:(void(^)(id response))handler {
+    [[HTTPRequestManager shareManager] sendPOSTDataWithPath:eos_abi_json_to_bin withParamters:[self getAbiJsonToBinParamters] success:^(BOOL isSuccess, id responseObject) {
+        if (isSuccess) {
+            handler(responseObject);
+        }
+    } failure:nil inView:self.view showFaliureDescription:YES];
+}
+
+#pragma mark - 获取最新区块
+
+- (void)getInfoSuccess:(void(^)(id response))handler{
+
+    [[HTTPRequestManager shareManager] sendPOSTDataWithPath:eos_get_info withParamters:nil success:^(BOOL isSuccess, id responseObject) {
+        if (isSuccess) {
+            handler(responseObject);
+        }
+    } failure:^(NSError *error) {
+        wLog(@"URL_GET_INFO_ERROR ==== %@",error.description);
+    }];
+}
+
+#pragma mark - 获取公钥
+
+- (void)getRequiredPublicKeyRequestOperationSuccess:(void(^)(id response))handler {
+    wLog(@"URL_GET_REQUIRED_KEYS parameters ============ %@",[[self getPramatersForRequiredKeys] yy_modelToJSONString]);
+    [[HTTPRequestManager shareManager] sendPOSTDataWithPath:eos_get_required_keys withParamters:[self getPramatersForRequiredKeys] success:^(BOOL isSuccess, id responseObject) {
+        if (isSuccess) {
+            handler(responseObject);
+        }
+    } failure:^(NSError *error) {
+        wLog(@"URL_GET_REQUIRED_KEYS ==== %@",error.description);
+    }];
+}
+
+#pragma mark -
+
+- (void)pushTransactionRequestOperationSuccess:(void(^)(id response))handler {
+    NSDictionary *transacDic = [self getPramatersForRequiredKeys];
+    
+    Account *accout = [[AccountManager shareManager] selectAccountsFromAccountName:self.account.accountName];
+    
+    NSString *wif;
+    if ([accout.ownerPublickKey isEqualToString:self.required_Publickey]) {
+        wif = [AESCrypt decrypt:accout.ownerPrivatekKey password:self.password];
+    }else if ([accout.activePublickKey isEqualToString:self.required_Publickey]) {
+        wif = [AESCrypt decrypt:accout.activePrivatekKey password:self.password];
+    }else{
+        return;
+    }
+    
+    const int8_t *private_key = [[EosEncode getRandomBytesDataWithWif:wif] bytes];
+    if (!private_key) {
+        [MBProgressHUD zj_showViewAfterSecondWithView:self.view title:kLocalizable(@"请检查私钥是否正确") afterSecond:1];
+        return;
+    }
+    
+    NSData *d = [EosByteWriter getBytesForSignature:self.chain_Id andParams:[[self getPramatersForRequiredKeys] objectForKey:@"transaction"] andCapacity:255];
+    NSString *signatureStr = [EosSignature initWithbytesForSignature:d privateKey:private_key];
+    NSString *packed_trxHexStr = [[EosByteWriter getBytesForSignature:nil andParams:[[self getPramatersForRequiredKeys] objectForKey:@"transaction"] andCapacity:512] hexadecimalString];
+    
+    NSMutableDictionary *pushDic = [NSMutableDictionary dictionary];
+    [pushDic setObject:VALIDATE_STRING(packed_trxHexStr) forKey:@"packed_trx"];
+    [pushDic setObject:@[signatureStr] forKey:@"signatures"];
+    [pushDic setObject:@"none" forKey:@"compression"];
+    [pushDic setObject:@"00" forKey:@"packed_context_free_data"];
+    
+    wLog(@"pushDic ============= %@",[pushDic yy_modelToJSONString]);
+    
+//    [[HTTPRequestManager shareManager] sendPOSTDataWithPath:eos_push_transaction withParamters:pushDic success:^(BOOL isSuccess, id responseObject) {
+//        if (isSuccess) {
+//            handler(responseObject);
+//        }
+//    } failure:nil inView:self.view showFaliureDescription:YES];
+}
+
+#pragma mark - Get Paramter
+
+- (NSDictionary *)getAbiJsonToBinParamters {
+    // 交易JSON序列化
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject: @"eosio.token" forKey:@"code"];
+    [params setObject:@"transfer" forKey:@"action"];
+    NSMutableDictionary *args = [NSMutableDictionary dictionary];
+    [args setObject:VALIDATE_STRING(self.account.accountName) forKey:@"from"];
+    [args setObject:VALIDATE_STRING(self.receiverTF.textField.text) forKey:@"to"];
+    [args setObject:VALIDATE_STRING(self.memoTF.textField.text) forKey:@"memo"];
+    [args setObject:[NSString stringWithFormat:@"%@ EOS",VALIDATE_STRING(self.amountTF.textField.text)] forKey:@"quantity"];
+    [params setObject:args forKey:@"args"];
+    return params;
+}
+
+- (NSDictionary *)getPramatersForRequiredKeys {
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    NSMutableDictionary *transacDic = [NSMutableDictionary dictionary];
+    [transacDic setObject:VALIDATE_STRING(self.ref_block_prefix) forKey:@"ref_block_prefix"];
+    [transacDic setObject:VALIDATE_STRING(self.ref_block_num) forKey:@"ref_block_num"];
+    [transacDic setObject:VALIDATE_STRING(self.expiration) forKey:@"expiration"];
+    
+    [transacDic setObject:@[] forKey:@"context_free_data"];
+    [transacDic setObject:@[] forKey:@"signatures"];
+    [transacDic setObject:@[] forKey:@"context_free_actions"];
+    [transacDic setObject:@0 forKey:@"delay_sec"];
+    [transacDic setObject:@0 forKey:@"max_kcpu_usage"];
+    [transacDic setObject:@0 forKey:@"max_net_usage_words"];
+    
+    
+    NSMutableDictionary *actionDict = [NSMutableDictionary dictionary];
+    [actionDict setObject:@"eosio.token" forKey:@"account"];
+    [actionDict setObject:@"transfer" forKey:@"name"];
+    [actionDict setObject:VALIDATE_STRING(self.binargs) forKey:@"data"];
+    
+    NSMutableDictionary *authorizationDict = [NSMutableDictionary dictionary];
+    [authorizationDict setObject:self.account.accountName forKey:@"actor"];
+    [authorizationDict setObject:@"active" forKey:@"permission"];
+    [actionDict setObject:@[authorizationDict] forKey:@"authorization"];
+    [transacDic setObject:@[actionDict] forKey:@"actions"];
+    
+    [params setObject:transacDic forKey:@"transaction"];
+    
+    [params setObject:@[self.account.ownerPublickKey,self.account.activePublickKey] forKey:@"available_keys"];
+    return params;
+}
+
 
 #pragma mark - btnOnClick
 - (IBAction)sendBtnOnClick:(UIButton *)sender {
@@ -63,6 +254,8 @@
     [inputView showInView:self.view handler:^(BOOL pwdValied, BOOL isCanceled, NSString *psw) {
         if (!isCanceled) {
             if (pwdValied) {
+                weakSelf.password = psw;
+                [weakSelf transfer];
             }
         }
     }];
@@ -70,6 +263,16 @@
 
 - (void)scanBtnOnClick {
     
+}
+
+
+#pragma mark - getter
+
+- (JSContext *)context {
+    if (!_context) {
+        _context = [[JSContext alloc] init];
+    }
+    return _context;
 }
 
 @end

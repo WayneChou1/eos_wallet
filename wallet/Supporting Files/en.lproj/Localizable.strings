@@ -61,6 +61,7 @@
 "Amount" = "Amount";
 "MEMO" = "MEMO";
 "Send" = "Send";
+"Please check the private key" = "Please check the private key";
 
 /* 扫码 */
 "Turn on the light" = "Turn on the light";

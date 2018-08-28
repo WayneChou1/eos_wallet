@@ -7,7 +7,7 @@
 //
 
 #import "MainAssetCell.h"
-#import "Account.h"
+#import "AccountInfo.h"
 
 @interface MainAssetCell ()
 
@@ -45,14 +45,13 @@
     [super setSelected:selected animated:animated];
 }
 
-- (void)setInfo:(Account *)info {
+- (void)setInfo:(AccountInfo *)info {
     _info = info;
     
     self.iconImgV.image = [UIImage imageNamed:@"Wallet.bundle/main/asset_eos"];
     self.assetNameLab.text = @"EOS";
-    self.addressLab.text = info.ownerPublickKey;
-//    self.addressLab.text = info.localAccout.ownerPublickKey;
-//    self.assetCountLab.text = info.core_liquid_balance;
+    self.addressLab.text = info.localAccout.ownerPublickKey;
+    self.assetCountLab.text = info.core_liquid_balance;
     self.actualAssetLab.text = @"";
 }
 

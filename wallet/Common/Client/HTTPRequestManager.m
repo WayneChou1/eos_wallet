@@ -45,13 +45,15 @@ static HTTPRequestManager * defualt_shareMananger = nil;
         self.requestSerializer.timeoutInterval = timeoutInterval;
         
         //注意：默认的Response为json数据
-        AFJSONResponseSerializer *responseSerializer  = [AFJSONResponseSerializer serializer];
+//        AFJSONResponseSerializer *responseSerializer  = [AFJSONResponseSerializer serializer];
         // 在服务器返回json数据的时候，时常会出现null数据。json解析的时候，可能会将这个null解析成NSNull的对象，我们向这个NSNull对象发送消息的时候就会遇到crash的问题。
-        responseSerializer.removesKeysWithNullValues = YES;
-        self.responseSerializer = responseSerializer;
+//        responseSerializer.removesKeysWithNullValues = YES;
+//        self.responseSerializer = responseSerializer;
         // 设置请求内容的类型-- 复杂的参数类型 需要使用json传值-设置请求内容的类型】
         self.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html",@"text/json", @"text/javascript", @"text/plain", nil];
 #warning 此处可根据自己应用需求设置相应的值
+        
+        self.requestSerializer = [AFJSONRequestSerializer serializer];
         
         // allowInvalidCertificates 是否允许无效证书（也就是自建的证书），默认为NO
         // 如果是需要验证自建证书，需要设置为YES
@@ -125,40 +127,27 @@ static HTTPRequestManager * defualt_shareMananger = nil;
          showFaliureDescription:(BOOL)show{
     
     MBProgressHUD *hud;
-    if (view) {
-        hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
-    }
+    if (view) hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     
     NSURLSessionDataTask *task = [self POST:path parameters:paramters progress:^(NSProgress * _Nonnull uploadProgress) {
         
-        wLog(@"downLoadProcess = %@",uploadProgress);
-        if (progress) {
-            progress(uploadProgress.completedUnitCount / uploadProgress.totalUnitCount);
-        }
+        if (progress) progress(uploadProgress.completedUnitCount / uploadProgress.totalUnitCount);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
-        if (hud) {
-            [hud hideAnimated:YES];
-        }
+        if (hud) [hud hideAnimated:YES];
         
         wLog(@"responseObject = %@",responseObject);
-        if (success) {
+        
+        if ([HTTPRequestManager validateResponseData:responseObject HttpURLResponse:task.response]) {
+            if (IsNilOrNull(success)) return;
             success(YES,responseObject);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
-        if (hud) {
-            [hud hideAnimated:YES];
-        }
-        
-        if (show && view) {
-            [MBProgressHUD zj_showViewAfterSecondWithView:view title:error.localizedDescription afterSecond:delay];
-        }
-        
+        if (hud) [hud hideAnimated:YES];
+        if (show && view) [MBProgressHUD zj_showViewAfterSecondWithView:view title:error.localizedDescription afterSecond:delay];
         wLog(@"error = %@",error);
-        if (failure) {
-            failure(error);
-        }
+        if (failure) failure(error);
     }];
     
     return task;
@@ -462,4 +451,14 @@ static HTTPRequestManager * defualt_shareMananger = nil;
     }
 }
 
+#pragma mark Return the data validation interfaces
++ (BOOL)validateResponseData:(id) returnData HttpURLResponse: (NSURLResponse *)response{
+    //获取http 状态码
+    NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+    NSLog(@"HttpCode: %ld", (long)httpResponse.statusCode);
+    if(httpResponse.statusCode > 300){
+        return NO;
+    }
+    return YES;
+}
 @end

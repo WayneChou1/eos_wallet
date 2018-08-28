@@ -48,6 +48,15 @@
 
 
 /**
+ 根据账号查找本地导入的账号
+
+ @param accountName accountName description
+ @return return value description
+ */
+- (Account *)selectAccountsFromAccountName:(NSString *)accountName;
+
+
+/**
  删除单个账号
  
  @param accountId 钱包唯一标识

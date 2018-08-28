@@ -8,10 +8,10 @@
 
 #import "BaseTableViewCell.h"
 
-@class Account;
+@class AccountInfo;
 
 @interface MainAssetCell : BaseTableViewCell
 
-@property (nonatomic, strong) Account *info;
+@property (nonatomic, strong) AccountInfo *info;
 
 @end

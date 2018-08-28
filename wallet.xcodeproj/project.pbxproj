@@ -44,6 +44,11 @@
 		627449F220FC8342003F61C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 627449F420FC8342003F61C8 /* Localizable.strings */; };
 		627449F820FC8908003F61C8 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 627449F720FC8908003F61C8 /* ProfileViewController.m */; };
 		627449FB20FC8AC8003F61C8 /* ExchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 627449FA20FC8AC8003F61C8 /* ExchangeViewController.m */; };
+		6275DC2A2134F85B00C3CB43 /* BlockChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 6275DC282134F85B00C3CB43 /* BlockChain.m */; };
+		6275DC2D2134F8C800C3CB43 /* NSDate+ExFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6275DC2B2134F8C800C3CB43 /* NSDate+ExFoundation.m */; };
+		6275DC33213529E800C3CB43 /* Eos.js in Resources */ = {isa = PBXBuildFile; fileRef = 6275DC31213529E800C3CB43 /* Eos.js */; };
+		6275DC34213529E800C3CB43 /* Javascript.html in Resources */ = {isa = PBXBuildFile; fileRef = 6275DC32213529E800C3CB43 /* Javascript.html */; };
+		6275DC462135485800C3CB43 /* EosFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6275DC452135485800C3CB43 /* EosFramework.framework */; };
 		627A0FE3210E9AE100D834AF /* NSString+RegularExp.m in Sources */ = {isa = PBXBuildFile; fileRef = 627A0FE2210E9AE100D834AF /* NSString+RegularExp.m */; };
 		62824B84210FF92000BCFB18 /* AccountInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 62824B83210FF92000BCFB18 /* AccountInfo.m */; };
 		62824B88211003D300BCFB18 /* Account.mm in Sources */ = {isa = PBXBuildFile; fileRef = 62824B87211003D300BCFB18 /* Account.mm */; };
@@ -54,7 +59,6 @@
 		62824B9D2110149A00BCFB18 /* NSData+CommonCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 62824B962110149A00BCFB18 /* NSData+CommonCrypto.m */; };
 		62824B9E2110149A00BCFB18 /* NSObject+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 62824B982110149A00BCFB18 /* NSObject+Extension.m */; };
 		62824B9F2110149A00BCFB18 /* PBKDF2.m in Sources */ = {isa = PBXBuildFile; fileRef = 62824B9A2110149A00BCFB18 /* PBKDF2.m */; };
-		62824BA121102E5700BCFB18 /* EosFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62824BA021102E5700BCFB18 /* EosFramework.framework */; };
 		62824BA52110446C00BCFB18 /* MainAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 62824BA32110446C00BCFB18 /* MainAssetCell.m */; };
 		62824BA62110446C00BCFB18 /* MainAssetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62824BA42110446C00BCFB18 /* MainAssetCell.xib */; };
 		628D919B211149DF00F66845 /* TransactionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 628D9199211149DF00F66845 /* TransactionViewController.m */; };
@@ -178,6 +182,13 @@
 		627449F720FC8908003F61C8 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		627449F920FC8AC8003F61C8 /* ExchangeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExchangeViewController.h; sourceTree = "<group>"; };
 		627449FA20FC8AC8003F61C8 /* ExchangeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExchangeViewController.m; sourceTree = "<group>"; };
+		6275DC282134F85B00C3CB43 /* BlockChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockChain.m; sourceTree = "<group>"; };
+		6275DC292134F85B00C3CB43 /* BlockChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockChain.h; sourceTree = "<group>"; };
+		6275DC2B2134F8C800C3CB43 /* NSDate+ExFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+ExFoundation.m"; sourceTree = "<group>"; };
+		6275DC2C2134F8C800C3CB43 /* NSDate+ExFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+ExFoundation.h"; sourceTree = "<group>"; };
+		6275DC31213529E800C3CB43 /* Eos.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Eos.js; sourceTree = "<group>"; };
+		6275DC32213529E800C3CB43 /* Javascript.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Javascript.html; sourceTree = "<group>"; };
+		6275DC452135485800C3CB43 /* EosFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EosFramework.framework; sourceTree = "<group>"; };
 		627A0FE1210E9AE100D834AF /* NSString+RegularExp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+RegularExp.h"; sourceTree = "<group>"; };
 		627A0FE2210E9AE100D834AF /* NSString+RegularExp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+RegularExp.m"; sourceTree = "<group>"; };
 		62824B80210FF33300BCFB18 /* HTTPRequestUrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTPRequestUrl.h; sourceTree = "<group>"; };
@@ -199,7 +210,6 @@
 		62824B982110149A00BCFB18 /* NSObject+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Extension.m"; sourceTree = "<group>"; };
 		62824B992110149A00BCFB18 /* PBKDF2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBKDF2.h; sourceTree = "<group>"; };
 		62824B9A2110149A00BCFB18 /* PBKDF2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBKDF2.m; sourceTree = "<group>"; };
-		62824BA021102E5700BCFB18 /* EosFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EosFramework.framework; sourceTree = "<group>"; };
 		62824BA22110446C00BCFB18 /* MainAssetCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainAssetCell.h; sourceTree = "<group>"; };
 		62824BA32110446C00BCFB18 /* MainAssetCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainAssetCell.m; sourceTree = "<group>"; };
 		62824BA42110446C00BCFB18 /* MainAssetCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainAssetCell.xib; sourceTree = "<group>"; };
@@ -258,7 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1827FFBC238CE3E9ECBD27AC /* libPods-wallet.a in Frameworks */,
-				62824BA121102E5700BCFB18 /* EosFramework.framework in Frameworks */,
+				6275DC462135485800C3CB43 /* EosFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +421,8 @@
 		627449B320FC2E8E003F61C8 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				6275DC2C2134F8C800C3CB43 /* NSDate+ExFoundation.h */,
+				6275DC2B2134F8C800C3CB43 /* NSDate+ExFoundation.m */,
 				62824B952110149A00BCFB18 /* NSData+CommonCrypto.h */,
 				62824B962110149A00BCFB18 /* NSData+CommonCrypto.m */,
 				62824B972110149A00BCFB18 /* NSObject+Extension.h */,
@@ -457,6 +469,7 @@
 		627449C020FC2E9E003F61C8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6275DC30213529E800C3CB43 /* JavascriptFile */,
 				627449C120FC2EA9003F61C8 /* PrefixHeader.pch */,
 				6274498F20FC2E4C003F61C8 /* main.m */,
 				627449D920FC5677003F61C8 /* Wallet.bundle */,
@@ -538,6 +551,24 @@
 			path = MainAssetModule;
 			sourceTree = "<group>";
 		};
+		6275DC272134F84E00C3CB43 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6275DC292134F85B00C3CB43 /* BlockChain.h */,
+				6275DC282134F85B00C3CB43 /* BlockChain.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6275DC30213529E800C3CB43 /* JavascriptFile */ = {
+			isa = PBXGroup;
+			children = (
+				6275DC31213529E800C3CB43 /* Eos.js */,
+				6275DC32213529E800C3CB43 /* Javascript.html */,
+			);
+			path = JavascriptFile;
+			sourceTree = "<group>";
+		};
 		627A10DA210F065600D834AF /* WalletDB */ = {
 			isa = PBXGroup;
 			children = (
@@ -599,6 +630,7 @@
 		62824BA721105FDE00BCFB18 /* TransactionModule */ = {
 			isa = PBXGroup;
 			children = (
+				6275DC272134F84E00C3CB43 /* Model */,
 				F60316E2212D94C4001E9A34 /* View */,
 				F60AC93A212C590900A19D55 /* Control */,
 			);
@@ -703,7 +735,7 @@
 		B2581278351EEB34E25C22AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				62824BA021102E5700BCFB18 /* EosFramework.framework */,
+				6275DC452135485800C3CB43 /* EosFramework.framework */,
 				07FBD7D85EBA520E4A386C83 /* libPods-wallet.a */,
 			);
 			name = Frameworks;
@@ -856,6 +888,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6275DC33213529E800C3CB43 /* Eos.js in Resources */,
+				6275DC34213529E800C3CB43 /* Javascript.html in Resources */,
 				F60226F0212B012B0086B2EB /* WalletQRViewController.xib in Resources */,
 				6274498A20FC2E4C003F61C8 /* Assets.xcassets in Resources */,
 				628D91A62111512100F66845 /* WalletCell.xib in Resources */,
@@ -939,6 +973,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				627449E520FC7ECD003F61C8 /* MainAssetViewController.m in Sources */,
+				6275DC2D2134F8C800C3CB43 /* NSDate+ExFoundation.m in Sources */,
 				62824B84210FF92000BCFB18 /* AccountInfo.m in Sources */,
 				627449BE20FC2E8E003F61C8 /* UIImage+Compression.m in Sources */,
 				627449F820FC8908003F61C8 /* ProfileViewController.m in Sources */,
@@ -975,6 +1010,7 @@
 				62824B9D2110149A00BCFB18 /* NSData+CommonCrypto.m in Sources */,
 				F616E9102132DE5600B60FAA /* EditorView.m in Sources */,
 				F60AEA24212A597C000D310C /* WalletDetailViewController.m in Sources */,
+				6275DC2A2134F85B00C3CB43 /* BlockChain.m in Sources */,
 				F60AC93E212C5AAC00A19D55 /* QRModalTransition.m in Sources */,
 				6265F83521085356003D8561 /* InputTextField.m in Sources */,
 				62824B9C2110149A00BCFB18 /* Base64.m in Sources */,

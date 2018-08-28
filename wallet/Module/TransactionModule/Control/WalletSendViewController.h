@@ -8,6 +8,10 @@
 
 #import "BaseViewController.h"
 
+@class Account;
+
 @interface WalletSendViewController : BaseViewController
+
+- (instancetype)initWithAccount:(Account *)account;
 
 @end

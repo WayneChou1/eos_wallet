@@ -153,4 +153,14 @@ typedef NS_ENUM(NSUInteger, HTTPMethod) {
 - (void)cancelHttpRequestWithType:(NSString *)type WithPath:(NSString *)path;
 
 
+/**
+ 判断返回数据是否
+
+ @param returnData returnData description
+ @param response response description
+ @return return value description
+ */
++ (BOOL)validateResponseData:(id) returnData HttpURLResponse: (NSURLResponse *)response;
+
+
 @end

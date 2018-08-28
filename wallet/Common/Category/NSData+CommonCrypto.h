@@ -59,6 +59,8 @@ extern NSString * const kCommonCryptoErrorDomain;
 - (NSData *) SHA384Hash;
 - (NSData *) SHA512Hash;
 
+- (NSString *)hexadecimalString;
+
 @end
 
 @interface NSData (CommonCryptor)

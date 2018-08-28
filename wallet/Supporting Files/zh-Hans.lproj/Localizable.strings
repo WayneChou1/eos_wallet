@@ -60,6 +60,7 @@
 "Amount" = "填写数额";
 "MEMO" = "添加备注";
 "Send" = "确认转账";
+"Please check the private key" = "请检查私钥是否正确";
 
 /* 扫码 */
 "Turn on the light" = "开启灯光";

@@ -59,7 +59,7 @@
 }
 
 - (IBAction)transferBtnOnClick:(UIButton *)sender {
-    WalletSendViewController *VC = [[WalletSendViewController alloc] init];
+    WalletSendViewController *VC = [[WalletSendViewController alloc] initWithAccount:self.account];
     [self.navigationController pushViewController:VC animated:YES];
 }
 

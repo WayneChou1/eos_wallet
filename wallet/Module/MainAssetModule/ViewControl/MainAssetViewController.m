@@ -29,6 +29,7 @@ static CGFloat header_height = 200.0;
 @property (nonatomic, strong) UIImageView *barImageView;  // nav背景图
 @property (nonatomic, strong) MainHeaderView *headerView; // 头视图
 @property (nonatomic, strong) Account *info;
+@property (nonatomic, strong) AccountInfo *accountInfo;
 
 @end
 
@@ -122,7 +123,6 @@ static CGFloat header_height = 200.0;
     }
     
     if (account) {
-//        self.info.localAccout = account;
         self.info = account;
         [self.tableView reloadData];
     }
@@ -135,17 +135,18 @@ static CGFloat header_height = 200.0;
         accountName = walletArr.firstObject.accountName;
     }
     
-//    NSDictionary *dic = @{@"account_name":VALIDATE_STRING(accountName)};
-//    [[HTTPRequestManager shareManager] sendPOSTDataWithPath:eos_get_account withParamters:dic success:^(BOOL isSuccess, id responseObject) {
-//        if (isSuccess) {
-//            AccountInfo *info = [AccountInfo yy_modelWithJSON:responseObject];
-////            [self.dataList removeAllObjects];
-////            [self.dataList addObject:info];
-////            [self.tableView reloadData];
-//            self.info.core_liquid_balance = info.core_liquid_balance;
+    NSDictionary *dic = @{@"account_name":VALIDATE_STRING(accountName)};
+    [[HTTPRequestManager shareManager] sendPOSTDataWithPath:eos_get_account withParamters:dic success:^(BOOL isSuccess, id responseObject) {
+        if (isSuccess) {
+            AccountInfo *info = [AccountInfo yy_modelWithJSON:responseObject];
+//            [self.dataList removeAllObjects];
+//            [self.dataList addObject:info];
 //            [self.tableView reloadData];
-//        }
-//    } failure:nil inView:nil showFaliureDescription:YES];
+            self.accountInfo = info;
+            self.accountInfo.localAccout = self.info;
+            [self.tableView reloadData];
+        }
+    } failure:nil inView:nil showFaliureDescription:YES];
 }
 
 
@@ -160,7 +161,7 @@ static CGFloat header_height = 200.0;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MainAssetCell *cell = [tableView dequeueReusableCellWithIdentifier:[MainAssetCell cellIdentifier] forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
-    cell.info = self.info;
+    cell.info = self.accountInfo;
     return cell;
 }
 

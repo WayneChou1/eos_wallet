@@ -82,9 +82,21 @@ static NSString * const DB_WCDB_NAME = @"wallet.db";
     }
     
     NSArray <Account *> *dataArr = [_database getObjectsOfClass:Account.class fromTable:TABLE_WCDB_NAME where:Account.walletID == walletId];
-    
     return dataArr;
 }
+
+- (Account *)selectAccountsFromAccountName:(NSString *)accountName {
+    if (_database == nil) {
+        [self creatDatabase];
+    }
+    NSArray <Account *> *dataArr = [_database getObjectsOfClass:Account.class fromTable:TABLE_WCDB_NAME where:Account.accountName == accountName];
+    
+    if (dataArr.count > 0) {
+        return dataArr.firstObject;
+    }
+    return nil;
+}
+
 
 - (BOOL)deleteAccountWithID:(NSString *)accountId {
     if (_database == nil) {

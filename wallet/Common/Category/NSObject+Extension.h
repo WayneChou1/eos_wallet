@@ -29,7 +29,6 @@
 // 将 bytes 转为十六进制
 - (NSString *)hexFromBytes:(unsigned char *)Hex andLength:(int)length;
 
-
 + (NSData *)convertHexStrToData:(NSString *)str;
 
 + (void)logoutByteWithNSData:(NSData *)buf andLength:(int)length;

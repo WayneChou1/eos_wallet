@@ -91,10 +91,6 @@
             [self getInfoSuccess:^(id response) {
                 BlockChain *model = [BlockChain yy_modelWithDictionary:response];// [@"data"]
                 
-//                model.head_block_num = @(13461365);
-//                model.head_block_id = @"00cd68bcde14ab753a16681ac305f3f6383484dc5e671ae8db48af93354e7dda";
-//                model.chain_id = @"aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906";
-                
                 self.expiration = [[[NSDate dateFromString: model.head_block_time] dateByAddingTimeInterval: 30] formatterToISO8601];
                 self.ref_block_num = [NSString stringWithFormat:@"%@",model.head_block_num];
                 
@@ -177,6 +173,8 @@
         return;
     }
     
+    wLog(@"getPramatersForRequiredKeys ============= %@",[self getPramatersForRequiredKeys]);
+    
     NSData *d = [EosByteWriter getBytesForSignature:self.chain_Id andParams:[[self getPramatersForRequiredKeys] objectForKey:@"transaction"] andCapacity:255];
     NSString *signatureStr = [EosSignature initWithbytesForSignature:d privateKey:private_key];
     NSString *packed_trxHexStr = [[EosByteWriter getBytesForSignature:nil andParams:[[self getPramatersForRequiredKeys] objectForKey:@"transaction"] andCapacity:512] hexadecimalString];
@@ -187,13 +185,11 @@
     [pushDic setObject:@"none" forKey:@"compression"];
     [pushDic setObject:@"00" forKey:@"packed_context_free_data"];
     
-    wLog(@"pushDic ============= %@",[pushDic yy_modelToJSONString]);
-    
-//    [[HTTPRequestManager shareManager] sendPOSTDataWithPath:eos_push_transaction withParamters:pushDic success:^(BOOL isSuccess, id responseObject) {
-//        if (isSuccess) {
-//            handler(responseObject);
-//        }
-//    } failure:nil inView:self.view showFaliureDescription:YES];
+    [[HTTPRequestManager shareManager] sendPOSTDataWithPath:eos_push_transaction withParamters:pushDic success:^(BOOL isSuccess, id responseObject) {
+        if (isSuccess) {
+            handler(responseObject);
+        }
+    } failure:nil inView:self.view showFaliureDescription:YES];
 }
 
 #pragma mark - Get Paramter
@@ -207,7 +203,7 @@
     [args setObject:VALIDATE_STRING(self.account.accountName) forKey:@"from"];
     [args setObject:VALIDATE_STRING(self.receiverTF.textField.text) forKey:@"to"];
     [args setObject:VALIDATE_STRING(self.memoTF.textField.text) forKey:@"memo"];
-    [args setObject:[NSString stringWithFormat:@"%@ EOS",VALIDATE_STRING(self.amountTF.textField.text)] forKey:@"quantity"];
+    [args setObject:[NSString stringWithFormat:@"%.4f EOS", self.amountTF.textField.text.doubleValue] forKey:@"quantity"];
     [params setObject:args forKey:@"args"];
     return params;
 }

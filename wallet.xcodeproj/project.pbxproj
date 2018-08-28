@@ -48,7 +48,6 @@
 		6275DC2D2134F8C800C3CB43 /* NSDate+ExFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6275DC2B2134F8C800C3CB43 /* NSDate+ExFoundation.m */; };
 		6275DC33213529E800C3CB43 /* Eos.js in Resources */ = {isa = PBXBuildFile; fileRef = 6275DC31213529E800C3CB43 /* Eos.js */; };
 		6275DC34213529E800C3CB43 /* Javascript.html in Resources */ = {isa = PBXBuildFile; fileRef = 6275DC32213529E800C3CB43 /* Javascript.html */; };
-		6275DC462135485800C3CB43 /* EosFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6275DC452135485800C3CB43 /* EosFramework.framework */; };
 		627A0FE3210E9AE100D834AF /* NSString+RegularExp.m in Sources */ = {isa = PBXBuildFile; fileRef = 627A0FE2210E9AE100D834AF /* NSString+RegularExp.m */; };
 		62824B84210FF92000BCFB18 /* AccountInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 62824B83210FF92000BCFB18 /* AccountInfo.m */; };
 		62824B88211003D300BCFB18 /* Account.mm in Sources */ = {isa = PBXBuildFile; fileRef = 62824B87211003D300BCFB18 /* Account.mm */; };
@@ -81,6 +80,8 @@
 		F60AC93E212C5AAC00A19D55 /* QRModalTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = F60AC93D212C5AAC00A19D55 /* QRModalTransition.m */; };
 		F60AC941212C660600A19D55 /* QRModelPanInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = F60AC940212C660600A19D55 /* QRModelPanInteractiveTransition.m */; };
 		F60AEA24212A597C000D310C /* WalletDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F60AEA23212A597C000D310C /* WalletDetailViewController.m */; };
+		F6128F6721357B7700E03583 /* Sha256.m in Sources */ = {isa = PBXBuildFile; fileRef = F6128F6621357B7700E03583 /* Sha256.m */; };
+		F6128F6D21357E0100E03583 /* EosFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6128F6C21357E0100E03583 /* EosFramework.framework */; };
 		F616E90D2132DA7B00B60FAA /* ScanQRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F616E90C2132DA7B00B60FAA /* ScanQRViewController.m */; };
 		F616E9102132DE5600B60FAA /* EditorView.m in Sources */ = {isa = PBXBuildFile; fileRef = F616E90F2132DE5500B60FAA /* EditorView.m */; };
 		F6F81C3D212A60F000737503 /* WalletNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F81C3B212A60F000737503 /* WalletNameCell.m */; };
@@ -188,7 +189,6 @@
 		6275DC2C2134F8C800C3CB43 /* NSDate+ExFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+ExFoundation.h"; sourceTree = "<group>"; };
 		6275DC31213529E800C3CB43 /* Eos.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Eos.js; sourceTree = "<group>"; };
 		6275DC32213529E800C3CB43 /* Javascript.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Javascript.html; sourceTree = "<group>"; };
-		6275DC452135485800C3CB43 /* EosFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EosFramework.framework; sourceTree = "<group>"; };
 		627A0FE1210E9AE100D834AF /* NSString+RegularExp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+RegularExp.h"; sourceTree = "<group>"; };
 		627A0FE2210E9AE100D834AF /* NSString+RegularExp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+RegularExp.m"; sourceTree = "<group>"; };
 		62824B80210FF33300BCFB18 /* HTTPRequestUrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTPRequestUrl.h; sourceTree = "<group>"; };
@@ -247,6 +247,9 @@
 		F60AC940212C660600A19D55 /* QRModelPanInteractiveTransition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QRModelPanInteractiveTransition.m; sourceTree = "<group>"; };
 		F60AEA22212A597C000D310C /* WalletDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WalletDetailViewController.h; sourceTree = "<group>"; };
 		F60AEA23212A597C000D310C /* WalletDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WalletDetailViewController.m; sourceTree = "<group>"; };
+		F6128F6521357B7700E03583 /* Sha256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sha256.h; sourceTree = "<group>"; };
+		F6128F6621357B7700E03583 /* Sha256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sha256.m; sourceTree = "<group>"; };
+		F6128F6C21357E0100E03583 /* EosFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EosFramework.framework; sourceTree = "<group>"; };
 		F616E90B2132DA7B00B60FAA /* ScanQRViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScanQRViewController.h; sourceTree = "<group>"; };
 		F616E90C2132DA7B00B60FAA /* ScanQRViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScanQRViewController.m; sourceTree = "<group>"; };
 		F616E90E2132DE5500B60FAA /* EditorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditorView.h; sourceTree = "<group>"; };
@@ -268,7 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1827FFBC238CE3E9ECBD27AC /* libPods-wallet.a in Frameworks */,
-				6275DC462135485800C3CB43 /* EosFramework.framework in Frameworks */,
+				F6128F6D21357E0100E03583 /* EosFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,6 +612,8 @@
 		62824B8F2110148500BCFB18 /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
+				F6128F6521357B7700E03583 /* Sha256.h */,
+				F6128F6621357B7700E03583 /* Sha256.m */,
 				62824B902110149A00BCFB18 /* AESCrypt */,
 			);
 			path = 3rd;
@@ -735,7 +740,7 @@
 		B2581278351EEB34E25C22AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6275DC452135485800C3CB43 /* EosFramework.framework */,
+				F6128F6C21357E0100E03583 /* EosFramework.framework */,
 				07FBD7D85EBA520E4A386C83 /* libPods-wallet.a */,
 			);
 			name = Frameworks;
@@ -1028,6 +1033,7 @@
 				628D919B211149DF00F66845 /* TransactionViewController.m in Sources */,
 				627449CD20FC3C6E003F61C8 /* UIColor+Code.m in Sources */,
 				F6F81C42212A611D00737503 /* WalletPswHintCell.m in Sources */,
+				F6128F6721357B7700E03583 /* Sha256.m in Sources */,
 				627449E120FC7CD7003F61C8 /* UIImage+Color.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

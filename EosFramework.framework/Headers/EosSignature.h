@@ -13,7 +13,7 @@
 
 @property(nonatomic, strong, readonly) NSData *mHashBytesData;
 // sha256result with hex encoding
-@property(nonatomic, copy, readonly) NSString *sha256;
+@property(nonatomic, strong, readonly) NSString *sha256;
 
 @end
 
@@ -21,7 +21,7 @@
 
 @property (nonatomic, strong, readonly) EosSign *signatur;
 
-@property (nonatomic, copy, readonly) NSString *signaturText;
+@property (nonatomic, strong, readonly) NSString *signaturText;
 
 + (NSString *)initWithbytesForSignature:(NSData *)bytesForSignature privateKey:(int8_t *)privateKey;
 

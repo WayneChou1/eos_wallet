@@ -41,6 +41,9 @@
 /** 主题色 */
 #define kMain_Color [UIColor colorWithHex:0x3A78F6]
 
+/** 严重 */
+#define kWarning_Text_Color [UIColor colorWithHex:0xFF0F26]
+
 /** 字体 */
 #define kSys_font(font) [UIFont systemFontOfSize:font]
 

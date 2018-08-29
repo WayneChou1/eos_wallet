@@ -155,7 +155,10 @@ static CGFloat header_height = 200.0;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 //    return self.dataList.count;
 #warning 目前只支持EOS
-    return 1;
+    if (kCurrentWallet) {
+        return 1;
+    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -193,14 +196,14 @@ static CGFloat header_height = 200.0;
 
 - (UIView *)customViewForEmptyDataSet:(UIScrollView *)scrollView {
     
-    BOOL isNoWallet = NO;
-    BOOL isNoAccount = NO;
+    BOOL isNoWallet = YES;
+    BOOL isNoAccount = YES;
     
     if (kCurrentWallet) {
-        isNoWallet = YES;
+        isNoWallet = NO;
         NSArray *accArr = [[AccountManager shareManager] selectAccountsFromWalletID:kCurrentWallet_UUID];
         if (accArr.count == 0 || !accArr) {
-            isNoAccount = YES;
+            isNoAccount = NO;
         }
     }
     

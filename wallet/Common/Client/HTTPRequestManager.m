@@ -20,8 +20,8 @@ static CGFloat timeoutInterval = 10.0;
 
 @implementation HTTPRequestManager
 
-static HTTPRequestManager * defualt_shareMananger = nil;
 static HTTPRequestManager * defualt_monitor_shareMananger = nil;
+static HTTPRequestManager * defualt_shareMananger = nil;
 
 + (instancetype)shareManager {
     
@@ -35,17 +35,18 @@ static HTTPRequestManager * defualt_monitor_shareMananger = nil;
     return defualt_shareMananger;
 }
 
-//+ (instancetype)shareMonitorManager {
-//
-//    static dispatch_once_t onceToken;
-//    _dispatch_once(&onceToken, ^{
-//
-//        if (defualt_monitor_shareMananger == nil) {
-//            defualt_monitor_shareMananger = [[self alloc] initWithBaseURL:[NSURL URLWithString:eos_monitor_base_url]];
-//        }
-//    });
-//    return defualt_monitor_shareMananger;
-//}
++ (instancetype)shareMonitorManager {
+
+    static dispatch_once_t onceToken;
+    _dispatch_once(&onceToken, ^{
+
+        if (defualt_monitor_shareMananger == nil) {
+            defualt_monitor_shareMananger = [[self alloc] initWithBaseURL:[NSURL URLWithString:eos_monitor_base_url]];
+        }
+    });
+    wLog(@"eos_monitor_base_url ===== %@",defualt_monitor_shareMananger.baseURL.absoluteString);
+    return defualt_monitor_shareMananger;
+}
 
 #pragma mark 重写
 - (instancetype)initWithBaseURL:(NSURL *)url {
@@ -63,22 +64,9 @@ static HTTPRequestManager * defualt_monitor_shareMananger = nil;
 //        AFJSONResponseSerializer *responseSerializer  = [AFJSONResponseSerializer serializer];
         // 在服务器返回json数据的时候，时常会出现null数据。json解析的时候，可能会将这个null解析成NSNull的对象，我们向这个NSNull对象发送消息的时候就会遇到crash的问题。
 //        responseSerializer.removesKeysWithNullValues = YES;
-//        self.responseSerializer = responseSerializer;
         // 设置请求内容的类型-- 复杂的参数类型 需要使用json传值-设置请求内容的类型】
         self.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html",@"text/json", @"text/javascript", @"text/plain", nil];
-#warning 此处可根据自己应用需求设置相应的值
-        
         self.requestSerializer = [AFJSONRequestSerializer serializer];
-        
-        // allowInvalidCertificates 是否允许无效证书（也就是自建的证书），默认为NO
-        // 如果是需要验证自建证书，需要设置为YES
-        //         self.securityPolicy.allowInvalidCertificates = YES;
-        
-        // 设置apikey--类似于自己应用中的tokken---此处仅仅作为测试使用
-        //        [self.requestSerializer setValue:apikey forHTTPHeaderField:@"apikey"];
-        
-        // 设置接受的类型
-        //        [self.responseSerializer setAcceptableContentTypes:[NSSet setWithObjects:@"text/plain",@"application/json",@"text/json",@"text/javascript",@"text/html", nil]];
     }
     return self;
 }
@@ -98,7 +86,7 @@ static HTTPRequestManager * defualt_monitor_shareMananger = nil;
     MBProgressHUD *hud;
     if (view) hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     
-    [[HTTPRequestManager shareManager] GET:path parameters:paramters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [self GET:path parameters:paramters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (hud) [hud hideAnimated:YES];
         
         wLog(@"responseObject = %@",responseObject);

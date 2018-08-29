@@ -29,7 +29,6 @@
 		627449A520FC2E4C003F61C8 /* walletUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 627449A420FC2E4C003F61C8 /* walletUITests.m */; };
 		627449BD20FC2E8E003F61C8 /* MBProgressHUD+ZJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 627449B520FC2E8E003F61C8 /* MBProgressHUD+ZJExtension.m */; };
 		627449BE20FC2E8E003F61C8 /* UIImage+Compression.m in Sources */ = {isa = PBXBuildFile; fileRef = 627449B720FC2E8E003F61C8 /* UIImage+Compression.m */; };
-		627449BF20FC2E8E003F61C8 /* HTTPRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 627449BA20FC2E8E003F61C8 /* HTTPRequestManager.m */; };
 		627449C520FC3646003F61C8 /* DicKeyConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 627449C420FC3646003F61C8 /* DicKeyConst.m */; };
 		627449CA20FC3BE1003F61C8 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 627449C920FC3BE1003F61C8 /* BaseViewController.m */; };
 		627449CD20FC3C6E003F61C8 /* UIColor+Code.m in Sources */ = {isa = PBXBuildFile; fileRef = 627449CC20FC3C6E003F61C8 /* UIColor+Code.m */; };
@@ -77,6 +76,10 @@
 		F60226F0212B012B0086B2EB /* WalletQRViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F60226EE212B012B0086B2EB /* WalletQRViewController.xib */; };
 		F60316E4212D94E1001E9A34 /* WalletQRView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F60316E3212D94E1001E9A34 /* WalletQRView.xib */; };
 		F60316E7212D94ED001E9A34 /* WalletQRView.m in Sources */ = {isa = PBXBuildFile; fileRef = F60316E6212D94ED001E9A34 /* WalletQRView.m */; };
+		F609B7082136DCF8002B6A24 /* HTTPRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F609B7072136DCF7002B6A24 /* HTTPRequestManager.m */; };
+		F609B70D2136E3BC002B6A24 /* Exchange.m in Sources */ = {isa = PBXBuildFile; fileRef = F609B70C2136E3BC002B6A24 /* Exchange.m */; };
+		F609B7132136E785002B6A24 /* ExchangeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F609B7112136E785002B6A24 /* ExchangeCell.m */; };
+		F609B7142136E785002B6A24 /* ExchangeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F609B7122136E785002B6A24 /* ExchangeCell.xib */; };
 		F60AC93E212C5AAC00A19D55 /* QRModalTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = F60AC93D212C5AAC00A19D55 /* QRModalTransition.m */; };
 		F60AC941212C660600A19D55 /* QRModelPanInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = F60AC940212C660600A19D55 /* QRModelPanInteractiveTransition.m */; };
 		F60AEA24212A597C000D310C /* WalletDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F60AEA23212A597C000D310C /* WalletDetailViewController.m */; };
@@ -152,8 +155,6 @@
 		627449B520FC2E8E003F61C8 /* MBProgressHUD+ZJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+ZJExtension.m"; sourceTree = "<group>"; };
 		627449B620FC2E8E003F61C8 /* UIImage+Compression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Compression.h"; sourceTree = "<group>"; };
 		627449B720FC2E8E003F61C8 /* UIImage+Compression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Compression.m"; sourceTree = "<group>"; };
-		627449B920FC2E8E003F61C8 /* HTTPRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPRequestManager.h; sourceTree = "<group>"; };
-		627449BA20FC2E8E003F61C8 /* HTTPRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPRequestManager.m; sourceTree = "<group>"; };
 		627449BC20FC2E8E003F61C8 /* AppConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConstant.h; sourceTree = "<group>"; };
 		627449C120FC2EA9003F61C8 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		627449C220FC3147003F61C8 /* CommonConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonConstant.h; sourceTree = "<group>"; };
@@ -241,6 +242,13 @@
 		F60316E3212D94E1001E9A34 /* WalletQRView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletQRView.xib; sourceTree = "<group>"; };
 		F60316E5212D94ED001E9A34 /* WalletQRView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WalletQRView.h; sourceTree = "<group>"; };
 		F60316E6212D94ED001E9A34 /* WalletQRView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WalletQRView.m; sourceTree = "<group>"; };
+		F609B7062136DCF7002B6A24 /* HTTPRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPRequestManager.h; sourceTree = "<group>"; };
+		F609B7072136DCF7002B6A24 /* HTTPRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPRequestManager.m; sourceTree = "<group>"; };
+		F609B70B2136E3BC002B6A24 /* Exchange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Exchange.h; sourceTree = "<group>"; };
+		F609B70C2136E3BC002B6A24 /* Exchange.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Exchange.m; sourceTree = "<group>"; };
+		F609B7102136E785002B6A24 /* ExchangeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExchangeCell.h; sourceTree = "<group>"; };
+		F609B7112136E785002B6A24 /* ExchangeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExchangeCell.m; sourceTree = "<group>"; };
+		F609B7122136E785002B6A24 /* ExchangeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExchangeCell.xib; sourceTree = "<group>"; };
 		F60AC93C212C5AAC00A19D55 /* QRModalTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRModalTransition.h; sourceTree = "<group>"; };
 		F60AC93D212C5AAC00A19D55 /* QRModalTransition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QRModalTransition.m; sourceTree = "<group>"; };
 		F60AC93F212C660600A19D55 /* QRModelPanInteractiveTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRModelPanInteractiveTransition.h; sourceTree = "<group>"; };
@@ -451,8 +459,8 @@
 		627449B820FC2E8E003F61C8 /* Client */ = {
 			isa = PBXGroup;
 			children = (
-				627449B920FC2E8E003F61C8 /* HTTPRequestManager.h */,
-				627449BA20FC2E8E003F61C8 /* HTTPRequestManager.m */,
+				F609B7062136DCF7002B6A24 /* HTTPRequestManager.h */,
+				F609B7072136DCF7002B6A24 /* HTTPRequestManager.m */,
 				62824B80210FF33300BCFB18 /* HTTPRequestUrl.h */,
 			);
 			path = Client;
@@ -681,8 +689,9 @@
 		62A0F6E120FD77F800472772 /* ExchangeModule */ = {
 			isa = PBXGroup;
 			children = (
-				627449F920FC8AC8003F61C8 /* ExchangeViewController.h */,
-				627449FA20FC8AC8003F61C8 /* ExchangeViewController.m */,
+				F609B70E2136E61C002B6A24 /* View */,
+				F609B70A2136E39B002B6A24 /* Control */,
+				F609B7092136E396002B6A24 /* Model */,
 			);
 			path = ExchangeModule;
 			sourceTree = "<group>";
@@ -756,6 +765,42 @@
 				F616E90F2132DE5500B60FAA /* EditorView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		F609B7092136E396002B6A24 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F609B70B2136E3BC002B6A24 /* Exchange.h */,
+				F609B70C2136E3BC002B6A24 /* Exchange.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F609B70A2136E39B002B6A24 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				627449F920FC8AC8003F61C8 /* ExchangeViewController.h */,
+				627449FA20FC8AC8003F61C8 /* ExchangeViewController.m */,
+			);
+			path = Control;
+			sourceTree = "<group>";
+		};
+		F609B70E2136E61C002B6A24 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F609B70F2136E626002B6A24 /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F609B70F2136E626002B6A24 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F609B7102136E785002B6A24 /* ExchangeCell.h */,
+				F609B7112136E785002B6A24 /* ExchangeCell.m */,
+				F609B7122136E785002B6A24 /* ExchangeCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		F60AC93A212C590900A19D55 /* Control */ = {
@@ -907,6 +952,7 @@
 				627449F220FC8342003F61C8 /* Localizable.strings in Resources */,
 				F6F81C3E212A60F000737503 /* WalletNameCell.xib in Resources */,
 				6265F8372108577D003D8561 /* InputTextField.xib in Resources */,
+				F609B7142136E785002B6A24 /* ExchangeCell.xib in Resources */,
 				F60316E4212D94E1001E9A34 /* WalletQRView.xib in Resources */,
 				62824BA62110446C00BCFB18 /* MainAssetCell.xib in Resources */,
 				627449D220FC3E76003F61C8 /* BootPageViewController.xib in Resources */,
@@ -979,6 +1025,7 @@
 			files = (
 				627449E520FC7ECD003F61C8 /* MainAssetViewController.m in Sources */,
 				6275DC2D2134F8C800C3CB43 /* NSDate+ExFoundation.m in Sources */,
+				F609B70D2136E3BC002B6A24 /* Exchange.m in Sources */,
 				62824B84210FF92000BCFB18 /* AccountInfo.m in Sources */,
 				627449BE20FC2E8E003F61C8 /* UIImage+Compression.m in Sources */,
 				627449F820FC8908003F61C8 /* ProfileViewController.m in Sources */,
@@ -988,6 +1035,7 @@
 				627449D820FC4169003F61C8 /* BootPageControl.m in Sources */,
 				F60AC941212C660600A19D55 /* QRModelPanInteractiveTransition.m in Sources */,
 				625B0A57210724E300E9AB44 /* Wallet+WCTTableCoding.mm in Sources */,
+				F609B7082136DCF8002B6A24 /* HTTPRequestManager.m in Sources */,
 				627449CA20FC3BE1003F61C8 /* BaseViewController.m in Sources */,
 				62824B88211003D300BCFB18 /* Account.mm in Sources */,
 				627449DE20FC7C69003F61C8 /* TabBarViewController.m in Sources */,
@@ -1003,10 +1051,10 @@
 				626665AB210955CD0034E3C0 /* ImportAccountViewController.m in Sources */,
 				627449FB20FC8AC8003F61C8 /* ExchangeViewController.m in Sources */,
 				62824B9B2110149A00BCFB18 /* AESCrypt.m in Sources */,
+				F609B7132136E785002B6A24 /* ExchangeCell.m in Sources */,
 				6274499020FC2E4C003F61C8 /* main.m in Sources */,
 				627A0FE3210E9AE100D834AF /* NSString+RegularExp.m in Sources */,
 				62A0F6FC20FDC44000472772 /* MainNoDataView.m in Sources */,
-				627449BF20FC2E8E003F61C8 /* HTTPRequestManager.m in Sources */,
 				628D919F21114ECA00F66845 /* WalletManagerViewController.m in Sources */,
 				627449D120FC3E76003F61C8 /* BootPageViewController.m in Sources */,
 				62824B8B211003FA00BCFB18 /* Account+WCTTableCoding.mm in Sources */,

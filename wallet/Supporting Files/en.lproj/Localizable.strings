@@ -66,3 +66,6 @@
 /* 扫码 */
 "Turn on the light" = "Turn on the light";
 "Turn off the light" = "Turn off the light";
+
+/* 交易记录 */
+"Exchange" = "Exchange";

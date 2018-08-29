@@ -15,4 +15,11 @@
 #define eos_push_transaction @"v1/chain/push_transaction" // 提交区块
 #define eos_abi_json_to_bin @"v1/chain/abi_json_to_bin" // 获取行动码
 
+
+#define eos_get_transfer @"transfer"
+
+#define eosmonitor(account,action,page,pagesize) [NSString stringWithFormat:@"%@/actions?action=%@&page=%@&pagesize=%@",account,action,page,pagesize]
+
+///account/zzzzzzzzzzss/actions?action=transfer&page=1&pagesize=10
+//http://eosmonitor.io/api/v1/account/zzzzzzzzzzss/actions?action=deleteauth&page=1&pagesize=10
 #endif /* HTTPRequestUrl_h */

@@ -25,21 +25,22 @@ typedef NS_ENUM(NSUInteger, HTTPMethod) {
  *  @return 实例对象
  */
 + (instancetype)shareManager;
+
++ (instancetype)shareMonitorManager;
 #pragma mark - GET 请求网络数据
 /**
  *  请求网络数据
  *
  *  @param path             请求的地址
  *  @param paramters        请求的参数
- *  @param downLoadProgress 进度
  *  @param success          请求成功的回调
  *  @param failure          请求失败的回调
  */
-- (void)requestGETDataWithPath:(NSString *)path
-                 withParamters:(NSDictionary *)paramters
-                  withProgress:(void(^) (float progress))downLoadProgress
-                       success:(void(^) (BOOL isSuccess, id responseObject))success
-                       failure:(void(^) (NSError *error))failure;
+- (void)get:(NSString *)path paramters:(NSDictionary *)paramters success:(void (^)(BOOL isSuccess, id responseObject))success failure:(void (^)(NSError *failure))failure superView:(UIView *)view showFaliureDescription:(BOOL)show;
+
+- (void)get:(NSString *)path paramters:(NSDictionary *)paramters success:(void (^)(BOOL isSuccess, id responseObject))success failure:(void (^)(NSError *failure))failure;
+
+- (void)get:(NSString *)path paramters:(NSDictionary *)paramters success:(void (^)(BOOL isSuccess, id responseObject))success failure:(void (^)(NSError *failure))failure superView:(UIView *)view;
 
 #pragma mark - POST 传送网络数据
 /**
@@ -47,34 +48,26 @@ typedef NS_ENUM(NSUInteger, HTTPMethod) {
  *
  *  @param path           请求的地址
  *  @param paramters      请求的参数
- *  @param upLoadProgress 进度
  *  @param success        请求成功的回调
  *  @param failure        请求失败的回调
  */
-- (NSURLSessionDataTask *)sendPOSTDataWithPath:(NSString *)path
-               withParamters:(NSDictionary *)paramters
-                withProgress:(void(^) (float progress))upLoadProgress
-                     success:(void(^) (BOOL isSuccess, id responseObject))success
-                     failure:(void(^) (NSError *error))failure
-               loadingInView:(UIView *)view
-      showFaliureDescription:(BOOL)show;
+- (NSURLSessionDataTask *)post:(NSString *)path
+                     paramters:(NSDictionary *)paramters
+                       success:(void(^) (BOOL isSuccess, id responseObject))success
+                       failure:(void(^) (NSError *error))failure
+                     superView:(UIView *)view
+        showFaliureDescription:(BOOL)show;
 
-- (NSURLSessionDataTask *)sendPOSTDataWithPath:(NSString *)path
-               withParamters:(NSDictionary *)paramters
-                     success:(void(^) (BOOL isSuccess, id responseObject))success
-                     failure:(void(^) (NSError *error))failure;
+- (NSURLSessionDataTask *)post:(NSString *)path
+                     paramters:(NSDictionary *)paramters
+                       success:(void(^) (BOOL isSuccess, id responseObject))success
+                       failure:(void(^) (NSError *error))failure;
 
-- (NSURLSessionDataTask *)sendPOSTDataWithPath:(NSString *)path
-               withParamters:(NSDictionary *)paramters
-                     success:(void(^) (BOOL isSuccess, id responseObject))success
-                     failure:(void(^) (NSError *error))failure inView:(UIView *)view;
-
-- (NSURLSessionDataTask *)sendPOSTDataWithPath:(NSString *)path
-               withParamters:(NSDictionary *)paramters
-                     success:(void(^) (BOOL isSuccess, id responseObject))success
-                     failure:(void(^) (NSError *error))failure
-                      inView:(UIView *)view
-      showFaliureDescription:(BOOL)show;
+- (NSURLSessionDataTask *)post:(NSString *)path
+                     paramters:(NSDictionary *)paramters
+                       success:(void(^) (BOOL isSuccess, id responseObject))success
+                       failure:(void(^) (NSError *error))failure
+                     superView:(UIView *)view;
 
 #pragma mark POST 上传图片
 /**

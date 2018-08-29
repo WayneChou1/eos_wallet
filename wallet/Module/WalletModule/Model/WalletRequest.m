@@ -38,7 +38,7 @@
         // 判断用户名是否存在
         if (accountName) {
             NSDictionary *dic = @{@"account_name":VALIDATE_STRING(accountName)};
-            self.task = [[HTTPRequestManager shareManager] sendPOSTDataWithPath:eos_get_account withParamters:dic success:^(BOOL isSuccess, id responseObject) {
+            self.task = [[HTTPRequestManager shareManager] post:eos_get_account paramters:dic success:^(BOOL isSuccess, id responseObject) {
                 self.task = nil;
                 if (isSuccess) {
                     AccountInfo *info = [AccountInfo yy_modelWithJSON:responseObject];

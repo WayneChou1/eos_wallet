@@ -124,7 +124,7 @@
     wLog(@"public_active_key == %@ \n public_owner_key == %@",public_active_key,public_owner_key);
     
     NSDictionary *dic = @{@"account_name":VALIDATE_STRING(self.accountTF.textField.text)};
-    [[HTTPRequestManager shareManager] sendPOSTDataWithPath:eos_get_account withParamters:dic success:^(BOOL isSuccess, id responseObject) {
+    [[HTTPRequestManager shareManager] post:eos_get_account paramters:dic success:^(BOOL isSuccess, id responseObject) {
         if (isSuccess) {
             AccountInfo *info = [AccountInfo yy_modelWithJSON:responseObject];
             // 判断公钥是否相等
@@ -157,7 +157,7 @@
             }
             [self insertAccount:self.accountTF.textField.text ownerPublicKey:public_owner_key ownerPrivateKey:self.ownerTF.textField.text activePublicKey:public_active_key activePrivateKey:self.activeTF.textField.text];
         }
-    } failure:nil inView:self.view showFaliureDescription:YES];
+    } failure:nil superView:self.view showFaliureDescription:YES];
 }
 
 

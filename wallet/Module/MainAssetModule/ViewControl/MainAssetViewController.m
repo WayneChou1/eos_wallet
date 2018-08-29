@@ -136,7 +136,7 @@ static CGFloat header_height = 200.0;
     }
     
     NSDictionary *dic = @{@"account_name":VALIDATE_STRING(accountName)};
-    [[HTTPRequestManager shareManager] sendPOSTDataWithPath:eos_get_account withParamters:dic success:^(BOOL isSuccess, id responseObject) {
+    [[HTTPRequestManager shareManager] post:eos_get_account paramters:dic success:^(BOOL isSuccess, id responseObject) {
         if (isSuccess) {
             AccountInfo *info = [AccountInfo yy_modelWithJSON:responseObject];
 //            [self.dataList removeAllObjects];
@@ -146,7 +146,7 @@ static CGFloat header_height = 200.0;
             self.accountInfo.localAccout = self.info;
             [self.tableView reloadData];
         }
-    } failure:nil inView:nil showFaliureDescription:YES];
+    } failure:nil superView:nil showFaliureDescription:YES];
 }
 
 

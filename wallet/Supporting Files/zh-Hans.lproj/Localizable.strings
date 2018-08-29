@@ -65,3 +65,6 @@
 /* 扫码 */
 "Turn on the light" = "开启灯光";
 "Turn off the light" = "关闭灯光";
+
+/* 交易记录 */
+"Exchange" = "交易记录";

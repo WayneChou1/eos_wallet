@@ -118,18 +118,18 @@
 #pragma mark - 获取行动代码
 
 - (void)getBinargs:(void(^)(id response))handler {
-    [[HTTPRequestManager shareManager] sendPOSTDataWithPath:eos_abi_json_to_bin withParamters:[self getAbiJsonToBinParamters] success:^(BOOL isSuccess, id responseObject) {
+    [[HTTPRequestManager shareManager] post:eos_abi_json_to_bin paramters:[self getAbiJsonToBinParamters] success:^(BOOL isSuccess, id responseObject) {
         if (isSuccess) {
             handler(responseObject);
         }
-    } failure:nil inView:self.view showFaliureDescription:YES];
+    } failure:nil superView:self.view showFaliureDescription:YES];
 }
 
 #pragma mark - 获取最新区块
 
 - (void)getInfoSuccess:(void(^)(id response))handler{
 
-    [[HTTPRequestManager shareManager] sendPOSTDataWithPath:eos_get_info withParamters:nil success:^(BOOL isSuccess, id responseObject) {
+    [[HTTPRequestManager shareManager] post:eos_get_info paramters:nil success:^(BOOL isSuccess, id responseObject) {
         if (isSuccess) {
             handler(responseObject);
         }
@@ -142,7 +142,7 @@
 
 - (void)getRequiredPublicKeyRequestOperationSuccess:(void(^)(id response))handler {
     wLog(@"URL_GET_REQUIRED_KEYS parameters ============ %@",[[self getPramatersForRequiredKeys] yy_modelToJSONString]);
-    [[HTTPRequestManager shareManager] sendPOSTDataWithPath:eos_get_required_keys withParamters:[self getPramatersForRequiredKeys] success:^(BOOL isSuccess, id responseObject) {
+    [[HTTPRequestManager shareManager] post:eos_get_required_keys paramters:[self getPramatersForRequiredKeys] success:^(BOOL isSuccess, id responseObject) {
         if (isSuccess) {
             handler(responseObject);
         }
@@ -185,11 +185,11 @@
     [pushDic setObject:@"none" forKey:@"compression"];
     [pushDic setObject:@"00" forKey:@"packed_context_free_data"];
     
-    [[HTTPRequestManager shareManager] sendPOSTDataWithPath:eos_push_transaction withParamters:pushDic success:^(BOOL isSuccess, id responseObject) {
+    [[HTTPRequestManager shareManager] post:eos_push_transaction paramters:pushDic success:^(BOOL isSuccess, id responseObject) {
         if (isSuccess) {
             handler(responseObject);
         }
-    } failure:nil inView:self.view showFaliureDescription:YES];
+    } failure:nil superView:self.view showFaliureDescription:YES];
 }
 
 #pragma mark - Get Paramter

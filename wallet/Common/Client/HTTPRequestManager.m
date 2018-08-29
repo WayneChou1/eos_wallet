@@ -12,13 +12,16 @@
 #import <AVFoundation/AVAssetExportSession.h>
 #import "UIImage+Compression.h"
 
-static NSString * const Base_url = @"http://mainnet.eoscanada.com/";
+static NSString * const base_url = @"http://mainnet.eoscanada.com/";
+static NSString * const eos_monitor_base_url = @"http://eosmonitor.io/api/v1/account/";
+
 static CGFloat delay = 1.5;
-static CGFloat timeoutInterval = 10.;
+static CGFloat timeoutInterval = 10.0;
 
 @implementation HTTPRequestManager
 
 static HTTPRequestManager * defualt_shareMananger = nil;
+static HTTPRequestManager * defualt_monitor_shareMananger = nil;
 
 + (instancetype)shareManager {
     
@@ -26,10 +29,22 @@ static HTTPRequestManager * defualt_shareMananger = nil;
     _dispatch_once(&onceToken, ^{
         
         if (defualt_shareMananger == nil) {
-            defualt_shareMananger = [[self alloc] initWithBaseURL:[NSURL URLWithString:Base_url]];
+            defualt_shareMananger = [[self alloc] initWithBaseURL:[NSURL URLWithString:base_url]];
         }
     });
     return defualt_shareMananger;
+}
+
++ (instancetype)shareMonitorManager {
+    
+    static dispatch_once_t onceToken;
+    _dispatch_once(&onceToken, ^{
+        
+        if (defualt_monitor_shareMananger == nil) {
+            defualt_monitor_shareMananger = [[self alloc] initWithBaseURL:[NSURL URLWithString:eos_monitor_base_url]];
+        }
+    });
+    return defualt_monitor_shareMananger;
 }
 
 #pragma mark 重写
@@ -74,38 +89,37 @@ static HTTPRequestManager * defualt_shareMananger = nil;
  *
  *  @param path             请求的地址
  *  @param paramters        请求的参数
- *  @param downLoadProgress 进度
  *  @param success          请求成功的回调
  *  @param failure          请求失败的回调
  */
 
-- (void)requestGETDataWithPath:(NSString *)path
-                 withParamters:(NSDictionary *)paramters
-                  withProgress:(void(^) (float progress))downLoadProgress
-                       success:(void(^) (BOOL isSuccess, id responseObject))success
-                       failure:(void(^) (NSError *error))failure  {
+- (void)get:(NSString *)path paramters:(NSDictionary *)paramters success:(void (^)(BOOL, id))success failure:(void (^)(NSError *))failure superView:(UIView *)view showFaliureDescription:(BOOL)show {
     
-    [[HTTPRequestManager shareManager] GET:path parameters:paramters progress:^(NSProgress * _Nonnull downloadProgress) {
-        
-        wLog(@"downLoadProcess = %@",downLoadProgress);
-        if (downloadProgress) {
-            downLoadProgress(downloadProgress.completedUnitCount / downloadProgress.totalUnitCount);
-        }
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    MBProgressHUD *hud;
+    if (view) hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    
+    [[HTTPRequestManager shareManager] GET:@"http://eosmonitor.io/api/v1/account/zzzzzzzzzzss/actions?action=transfer&page=1&pagesize=10" parameters:paramters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (hud) [hud hideAnimated:YES];
         
         wLog(@"responseObject = %@",responseObject);
-        if (success) {
+        if ([HTTPRequestManager validateResponseData:responseObject HttpURLResponse:task.response]) {
+            if (IsNilOrNull(success)) return;
             success(YES,responseObject);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
+        if (hud) [hud hideAnimated:YES];
+        if (show && view) [MBProgressHUD zj_showViewAfterSecondWithView:view title:error.localizedDescription afterSecond:delay];
         wLog(@"error = %@",error);
-        if (failure) {
-            failure(error);
-        }
+        if (failure) failure(error);
     }];
-    
+}
+
+- (void)get:(NSString *)path paramters:(NSDictionary *)paramters success:(void (^)(BOOL, id))success failure:(void (^)(NSError *))failure {
+    [self get:path paramters:paramters success:success failure:failure superView:nil showFaliureDescription:nil];
+}
+
+- (void)get:(NSString *)path paramters:(NSDictionary *)paramters success:(void (^)(BOOL, id))success failure:(void (^)(NSError *))failure superView:(UIView *)view {
+    [self get:path paramters:paramters success:success failure:failure superView:view showFaliureDescription:nil];
 }
 
 #pragma mark - POST 传送网络数据
@@ -114,25 +128,20 @@ static HTTPRequestManager * defualt_shareMananger = nil;
  *
  *  @param path           请求的地址
  *  @param paramters      请求的参数
- *  @param progress 进度
  *  @param success        请求成功的回调
  *  @param failure        请求失败的回调
  */
-- (NSURLSessionDataTask *)sendPOSTDataWithPath:(NSString *)path
-               withParamters:(NSDictionary *)paramters
-                withProgress:(void(^) (float progress))progress
-                     success:(void(^) (BOOL isSuccess, id responseObject))success
-                     failure:(void(^) (NSError *error))failure
-               loadingInView:(UIView *)view
-         showFaliureDescription:(BOOL)show{
+- (NSURLSessionDataTask *)post:(NSString *)path
+                     paramters:(NSDictionary *)paramters
+                       success:(void(^) (BOOL isSuccess, id responseObject))success
+                       failure:(void(^) (NSError *error))failure
+                     superView:(UIView *)view
+        showFaliureDescription:(BOOL)show{
     
     MBProgressHUD *hud;
     if (view) hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     
-    NSURLSessionDataTask *task = [self POST:path parameters:paramters progress:^(NSProgress * _Nonnull uploadProgress) {
-        
-        if (progress) progress(uploadProgress.completedUnitCount / uploadProgress.totalUnitCount);
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    NSURLSessionDataTask *task = [self POST:path parameters:paramters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         if (hud) [hud hideAnimated:YES];
         
@@ -163,30 +172,21 @@ static HTTPRequestManager * defualt_shareMananger = nil;
  *  @param success        请求成功的回调
  *  @param failure        请求失败的回调
  */
-- (NSURLSessionDataTask *)sendPOSTDataWithPath:(NSString *)path
-               withParamters:(NSDictionary *)paramters
-                     success:(void(^) (BOOL isSuccess, id responseObject))success
-                     failure:(void(^) (NSError *error))failure{
+- (NSURLSessionDataTask *)post:(NSString *)path
+                     paramters:(NSDictionary *)paramters
+                      success:(void(^) (BOOL isSuccess, id responseObject))success
+                      failure:(void(^) (NSError *error))failure{
     
-    return [self sendPOSTDataWithPath:path withParamters:paramters withProgress:nil success:success failure:failure loadingInView:nil showFaliureDescription:NO];
+    return [self post:path paramters:paramters success:success failure:failure superView:nil showFaliureDescription:NO];
 }
 
-- (NSURLSessionDataTask *)sendPOSTDataWithPath:(NSString *)path
-               withParamters:(NSDictionary *)paramters
-                     success:(void(^) (BOOL isSuccess, id responseObject))success
-                     failure:(void(^) (NSError *error))failure inView:(UIView *)view{
-    
-    return [self sendPOSTDataWithPath:path withParamters:paramters withProgress:nil success:success failure:failure loadingInView:view showFaliureDescription:NO];
-}
-
-- (NSURLSessionDataTask *)sendPOSTDataWithPath:(NSString *)path
-               withParamters:(NSDictionary *)paramters
+- (NSURLSessionDataTask *)post:(NSString *)path
+                     paramters:(NSDictionary *)paramters
                      success:(void(^) (BOOL isSuccess, id responseObject))success
                      failure:(void(^) (NSError *error))failure
-                      inView:(UIView *)view
-      showFaliureDescription:(BOOL)show{
+                   superView:(UIView *)view{
     
-    return [self sendPOSTDataWithPath:path withParamters:paramters withProgress:nil success:success failure:failure loadingInView:view showFaliureDescription:show];
+    return [self post:path paramters:paramters success:success failure:failure superView:view showFaliureDescription:NO];
 }
 
 

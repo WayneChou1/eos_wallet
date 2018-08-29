@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface ExchangeViewController : BaseViewController
+@interface ExchangeViewController : UITableViewController
 
 @end

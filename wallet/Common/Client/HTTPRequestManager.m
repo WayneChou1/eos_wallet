@@ -35,17 +35,17 @@ static HTTPRequestManager * defualt_monitor_shareMananger = nil;
     return defualt_shareMananger;
 }
 
-+ (instancetype)shareMonitorManager {
-    
-    static dispatch_once_t onceToken;
-    _dispatch_once(&onceToken, ^{
-        
-        if (defualt_monitor_shareMananger == nil) {
-            defualt_monitor_shareMananger = [[self alloc] initWithBaseURL:[NSURL URLWithString:eos_monitor_base_url]];
-        }
-    });
-    return defualt_monitor_shareMananger;
-}
+//+ (instancetype)shareMonitorManager {
+//
+//    static dispatch_once_t onceToken;
+//    _dispatch_once(&onceToken, ^{
+//
+//        if (defualt_monitor_shareMananger == nil) {
+//            defualt_monitor_shareMananger = [[self alloc] initWithBaseURL:[NSURL URLWithString:eos_monitor_base_url]];
+//        }
+//    });
+//    return defualt_monitor_shareMananger;
+//}
 
 #pragma mark 重写
 - (instancetype)initWithBaseURL:(NSURL *)url {
@@ -98,7 +98,7 @@ static HTTPRequestManager * defualt_monitor_shareMananger = nil;
     MBProgressHUD *hud;
     if (view) hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     
-    [[HTTPRequestManager shareManager] GET:@"http://eosmonitor.io/api/v1/account/zzzzzzzzzzss/actions?action=transfer&page=1&pagesize=10" parameters:paramters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [[HTTPRequestManager shareManager] GET:path parameters:paramters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (hud) [hud hideAnimated:YES];
         
         wLog(@"responseObject = %@",responseObject);

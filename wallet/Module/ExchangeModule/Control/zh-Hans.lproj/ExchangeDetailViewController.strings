@@ -1,0 +1,21 @@
+
+/* Class = "UIButton"; normalTitle = "复制 URL"; ObjectID = "0hu-ah-Wuy"; */
+"0hu-ah-Wuy.normalTitle" = "复制 URL";
+
+/* Class = "UILabel"; text = "发款方"; ObjectID = "Hoc-ZG-hBX"; */
+"Hoc-ZG-hBX.text" = "发款方";
+
+/* Class = "UILabel"; text = "收款方"; ObjectID = "ITc-Qj-nXY"; */
+"ITc-Qj-nXY.text" = "收款方";
+
+/* Class = "UILabel"; text = "交易时间"; ObjectID = "LFt-ir-ar2"; */
+"LFt-ir-ar2.text" = "交易时间";
+
+/* Class = "UILabel"; text = "备注"; ObjectID = "cid-tv-2QU"; */
+"cid-tv-2QU.text" = "备注";
+
+/* Class = "UILabel"; text = "交易号"; ObjectID = "ef1-EU-HN2"; */
+"ef1-EU-HN2.text" = "交易号";
+
+/* Class = "UILabel"; text = "区块"; ObjectID = "fwa-nY-892"; */
+"fwa-nY-892.text" = "区块";

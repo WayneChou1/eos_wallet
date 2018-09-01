@@ -7,9 +7,11 @@
 //
 
 #import "ExchangeViewController.h"
+#import "ExchangeDetailViewController.h"
 #import "ExchangeCell.h"
 #import "AccountManager.h"
 #import "Exchange.h"
+#import "Exchange_2.h"
 
 @interface ExchangeViewController () <UITableViewDelegate,UITableViewDataSource>
 
@@ -58,6 +60,24 @@
                 [self.tableView reloadData];
             }
         } failure:nil];
+        
+//        [[HTTPRequestManager shareManager] post:eos_get_actions paramters:@{@"account_name":a.accountName} success:^(BOOL isSuccess, id responseObject) {
+//            if (isSuccess) {
+//                if ([responseObject isKindOfClass:[NSDictionary class]]) {
+//                    if ([[responseObject objectForKey:@"actions"] isKindOfClass:[NSArray class]]) {
+//                        for (NSDictionary *dic in [responseObject objectForKey:@"actions"]) {
+//                            if ([dic isKindOfClass:[NSDictionary class]]) {
+//                                Exchange *exchange = [Exchange yy_modelWithDictionary:dic];
+//                                [self.dataArr addObject:exchange];
+//                            }
+//                        }
+//                        [self.tableView reloadData];
+//                    }
+//                }
+//            }
+//        } failure:^(NSError *error) {
+//
+//        }];
     }
 }
 
@@ -84,9 +104,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ExchangeCell *cell = [tableView dequeueReusableCellWithIdentifier:[ExchangeCell cellIdentifier] forIndexPath:indexPath];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.exchange = self.dataArr[indexPath.row];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    ExchangeDetailViewController *VC = [[ExchangeDetailViewController alloc] initWithExchange:self.dataArr[indexPath.row]];
+    [self.navigationController pushViewController:VC animated:YES];
 }
 
 

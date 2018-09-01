@@ -12,7 +12,7 @@
 #import <AVFoundation/AVAssetExportSession.h>
 #import "UIImage+Compression.h"
 
-static NSString * const base_url = @"http://mainnet.eoscanada.com/";
+static NSString * const base_url = @"http://eos.greymass.com/";
 static NSString * const eos_monitor_base_url = @"http://eosmonitor.io/api/v1/account/";
 
 static CGFloat delay = 1.5;

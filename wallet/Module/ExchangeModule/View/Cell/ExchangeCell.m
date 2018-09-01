@@ -52,6 +52,33 @@
         self.amoutLab.textColor = kWarning_Text_Color;
         self.amoutLab.text = [NSString stringWithFormat:@"-%@",exchange.quantity];
     }
+    
+//    self.tokenLab.text = [exchange.action_trace.act.data.quantity componentsSeparatedByString:@" "].lastObject;
+//    
+//    // 时间格式化
+//    NSDate *blockDate = [NSDate dateFromISO8601String:exchange.block_time];
+//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//    dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm";
+//    self.timeLab.text = [dateFormatter stringFromDate:blockDate];
+//    
+//    // 判断是否是本地账号
+//    BOOL isReceive = NO;
+//    NSArray <Account *> *accountArr = [[AccountManager shareManager] selectAllAccounts];
+//    for (Account *a in accountArr) {
+//        if ([a.accountName isEqualToString:exchange.action_trace.act.data.to]) {
+//            isReceive = YES;
+//        }else if ([a.accountName isEqualToString:exchange.action_trace.act.data.from]) {
+//            isReceive = NO;
+//        }
+//    }
+//    
+//    if (isReceive) {
+//        self.amoutLab.textColor = kMain_Color;
+//        self.amoutLab.text = [NSString stringWithFormat:@"+%@",exchange.action_trace.act.data.quantity];
+//    }else{
+//        self.amoutLab.textColor = kWarning_Text_Color;
+//        self.amoutLab.text = [NSString stringWithFormat:@"-%@",exchange.action_trace.act.data.quantity];
+//    }
 }
 
 @end

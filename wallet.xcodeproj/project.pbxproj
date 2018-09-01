@@ -76,6 +76,8 @@
 		F60226F0212B012B0086B2EB /* WalletQRViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F60226EE212B012B0086B2EB /* WalletQRViewController.xib */; };
 		F60316E4212D94E1001E9A34 /* WalletQRView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F60316E3212D94E1001E9A34 /* WalletQRView.xib */; };
 		F60316E7212D94ED001E9A34 /* WalletQRView.m in Sources */ = {isa = PBXBuildFile; fileRef = F60316E6212D94ED001E9A34 /* WalletQRView.m */; };
+		F60349CC213A510600FF6582 /* EosFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F60349CB213A510600FF6582 /* EosFramework.framework */; };
+		F60349CD213AA8DD00FF6582 /* ExchangeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F60349CF213AA8DD00FF6582 /* ExchangeDetailViewController.xib */; };
 		F609B7082136DCF8002B6A24 /* HTTPRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F609B7072136DCF7002B6A24 /* HTTPRequestManager.m */; };
 		F609B70D2136E3BC002B6A24 /* Exchange.m in Sources */ = {isa = PBXBuildFile; fileRef = F609B70C2136E3BC002B6A24 /* Exchange.m */; };
 		F609B7132136E785002B6A24 /* ExchangeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F609B7112136E785002B6A24 /* ExchangeCell.m */; };
@@ -84,9 +86,10 @@
 		F60AC941212C660600A19D55 /* QRModelPanInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = F60AC940212C660600A19D55 /* QRModelPanInteractiveTransition.m */; };
 		F60AEA24212A597C000D310C /* WalletDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F60AEA23212A597C000D310C /* WalletDetailViewController.m */; };
 		F6128F6721357B7700E03583 /* Sha256.m in Sources */ = {isa = PBXBuildFile; fileRef = F6128F6621357B7700E03583 /* Sha256.m */; };
-		F6128F6D21357E0100E03583 /* EosFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6128F6C21357E0100E03583 /* EosFramework.framework */; };
 		F616E90D2132DA7B00B60FAA /* ScanQRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F616E90C2132DA7B00B60FAA /* ScanQRViewController.m */; };
 		F616E9102132DE5600B60FAA /* EditorView.m in Sources */ = {isa = PBXBuildFile; fileRef = F616E90F2132DE5500B60FAA /* EditorView.m */; };
+		F68110782138441D00DA3822 /* Exchange_2.m in Sources */ = {isa = PBXBuildFile; fileRef = F68110772138441D00DA3822 /* Exchange_2.m */; };
+		F681107C2138493600DA3822 /* ExchangeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F681107A2138493600DA3822 /* ExchangeDetailViewController.m */; };
 		F6F81C3D212A60F000737503 /* WalletNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F81C3B212A60F000737503 /* WalletNameCell.m */; };
 		F6F81C3E212A60F000737503 /* WalletNameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6F81C3C212A60F000737503 /* WalletNameCell.xib */; };
 		F6F81C42212A611D00737503 /* WalletPswHintCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F81C40212A611D00737503 /* WalletPswHintCell.m */; };
@@ -242,6 +245,10 @@
 		F60316E3212D94E1001E9A34 /* WalletQRView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletQRView.xib; sourceTree = "<group>"; };
 		F60316E5212D94ED001E9A34 /* WalletQRView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WalletQRView.h; sourceTree = "<group>"; };
 		F60316E6212D94ED001E9A34 /* WalletQRView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WalletQRView.m; sourceTree = "<group>"; };
+		F60349CB213A510600FF6582 /* EosFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EosFramework.framework; sourceTree = "<group>"; };
+		F60349CE213AA8DD00FF6582 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ExchangeDetailViewController.xib; sourceTree = "<group>"; };
+		F60349D1213AA8E300FF6582 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ExchangeDetailViewController.strings; sourceTree = "<group>"; };
+		F60349D3213AA8E400FF6582 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ExchangeDetailViewController.strings"; sourceTree = "<group>"; };
 		F609B7062136DCF7002B6A24 /* HTTPRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPRequestManager.h; sourceTree = "<group>"; };
 		F609B7072136DCF7002B6A24 /* HTTPRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPRequestManager.m; sourceTree = "<group>"; };
 		F609B70B2136E3BC002B6A24 /* Exchange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Exchange.h; sourceTree = "<group>"; };
@@ -257,11 +264,14 @@
 		F60AEA23212A597C000D310C /* WalletDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WalletDetailViewController.m; sourceTree = "<group>"; };
 		F6128F6521357B7700E03583 /* Sha256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sha256.h; sourceTree = "<group>"; };
 		F6128F6621357B7700E03583 /* Sha256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sha256.m; sourceTree = "<group>"; };
-		F6128F6C21357E0100E03583 /* EosFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EosFramework.framework; sourceTree = "<group>"; };
 		F616E90B2132DA7B00B60FAA /* ScanQRViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScanQRViewController.h; sourceTree = "<group>"; };
 		F616E90C2132DA7B00B60FAA /* ScanQRViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScanQRViewController.m; sourceTree = "<group>"; };
 		F616E90E2132DE5500B60FAA /* EditorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditorView.h; sourceTree = "<group>"; };
 		F616E90F2132DE5500B60FAA /* EditorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditorView.m; sourceTree = "<group>"; };
+		F68110762138441D00DA3822 /* Exchange_2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Exchange_2.h; sourceTree = "<group>"; };
+		F68110772138441D00DA3822 /* Exchange_2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Exchange_2.m; sourceTree = "<group>"; };
+		F68110792138493600DA3822 /* ExchangeDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExchangeDetailViewController.h; sourceTree = "<group>"; };
+		F681107A2138493600DA3822 /* ExchangeDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExchangeDetailViewController.m; sourceTree = "<group>"; };
 		F6F81C3A212A60F000737503 /* WalletNameCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WalletNameCell.h; sourceTree = "<group>"; };
 		F6F81C3B212A60F000737503 /* WalletNameCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WalletNameCell.m; sourceTree = "<group>"; };
 		F6F81C3C212A60F000737503 /* WalletNameCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletNameCell.xib; sourceTree = "<group>"; };
@@ -279,7 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1827FFBC238CE3E9ECBD27AC /* libPods-wallet.a in Frameworks */,
-				F6128F6D21357E0100E03583 /* EosFramework.framework in Frameworks */,
+				F60349CC213A510600FF6582 /* EosFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -749,7 +759,7 @@
 		B2581278351EEB34E25C22AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F6128F6C21357E0100E03583 /* EosFramework.framework */,
+				F60349CB213A510600FF6582 /* EosFramework.framework */,
 				07FBD7D85EBA520E4A386C83 /* libPods-wallet.a */,
 			);
 			name = Frameworks;
@@ -772,6 +782,8 @@
 			children = (
 				F609B70B2136E3BC002B6A24 /* Exchange.h */,
 				F609B70C2136E3BC002B6A24 /* Exchange.m */,
+				F68110762138441D00DA3822 /* Exchange_2.h */,
+				F68110772138441D00DA3822 /* Exchange_2.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -781,6 +793,9 @@
 			children = (
 				627449F920FC8AC8003F61C8 /* ExchangeViewController.h */,
 				627449FA20FC8AC8003F61C8 /* ExchangeViewController.m */,
+				F68110792138493600DA3822 /* ExchangeDetailViewController.h */,
+				F681107A2138493600DA3822 /* ExchangeDetailViewController.m */,
+				F60349CF213AA8DD00FF6582 /* ExchangeDetailViewController.xib */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -958,6 +973,7 @@
 				627449D220FC3E76003F61C8 /* BootPageViewController.xib in Resources */,
 				627449DA20FC5677003F61C8 /* Wallet.bundle in Resources */,
 				F60226EB212AFD760086B2EB /* WalletSendViewController.xib in Resources */,
+				F60349CD213AA8DD00FF6582 /* ExchangeDetailViewController.xib in Resources */,
 				626665AC210955CD0034E3C0 /* ImportAccountViewController.xib in Resources */,
 				628D919C211149DF00F66845 /* TransactionViewController.xib in Resources */,
 			);
@@ -1027,6 +1043,7 @@
 				6275DC2D2134F8C800C3CB43 /* NSDate+ExFoundation.m in Sources */,
 				F609B70D2136E3BC002B6A24 /* Exchange.m in Sources */,
 				62824B84210FF92000BCFB18 /* AccountInfo.m in Sources */,
+				F681107C2138493600DA3822 /* ExchangeDetailViewController.m in Sources */,
 				627449BE20FC2E8E003F61C8 /* UIImage+Compression.m in Sources */,
 				627449F820FC8908003F61C8 /* ProfileViewController.m in Sources */,
 				F60226EF212B012B0086B2EB /* WalletQRViewController.m in Sources */,
@@ -1038,6 +1055,7 @@
 				F609B7082136DCF8002B6A24 /* HTTPRequestManager.m in Sources */,
 				627449CA20FC3BE1003F61C8 /* BaseViewController.m in Sources */,
 				62824B88211003D300BCFB18 /* Account.mm in Sources */,
+				F68110782138441D00DA3822 /* Exchange_2.m in Sources */,
 				627449DE20FC7C69003F61C8 /* TabBarViewController.m in Sources */,
 				628D91A52111512100F66845 /* WalletCell.m in Sources */,
 				626665B92109AAFC0034E3C0 /* InputPwdView.m in Sources */,
@@ -1125,6 +1143,16 @@
 				627449F520FC8351003F61C8 /* zh-Hans */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		F60349CF213AA8DD00FF6582 /* ExchangeDetailViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F60349CE213AA8DD00FF6582 /* Base */,
+				F60349D1213AA8E300FF6582 /* en */,
+				F60349D3213AA8E400FF6582 /* zh-Hans */,
+			);
+			name = ExchangeDetailViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1246,6 +1274,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 77E456B01360F88E9DD02092 /* Pods-wallet.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -1262,10 +1291,64 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.eos.wallet;
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/DZNEmptyDataSet\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/IQKeyboardManager\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/WCDB\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/YYModel\"",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"DZNEmptyDataSet\"",
+					"-l\"IQKeyboardManager\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"Masonry\"",
+					"-l\"SDWebImage\"",
+					"-l\"WCDB\"",
+					"-l\"YYModel\"",
+					"-l\"c++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zzw.wallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "arm64 armv7s";
 			};
 			name = Debug;
 		};
@@ -1273,6 +1356,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0FCEAD0FB9C1749D3968A337 /* Pods-wallet.release.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -1289,10 +1373,65 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.eos.wallet;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/DZNEmptyDataSet\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/IQKeyboardManager\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/WCDB\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/YYModel\"",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"DZNEmptyDataSet\"",
+					"-l\"IQKeyboardManager\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"Masonry\"",
+					"-l\"SDWebImage\"",
+					"-l\"WCDB\"",
+					"-l\"YYModel\"",
+					"-l\"c++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zzw.wallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "arm64 armv7s";
 			};
 			name = Release;
 		};

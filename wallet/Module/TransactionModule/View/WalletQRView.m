@@ -8,7 +8,7 @@
 
 #import "WalletQRView.h"
 #import <CoreImage/CoreImage.h>
-#import "UIImage+Compression.h"
+#import "UIImage+Filter.h"
 
 static CGFloat arrow_width_offset = 15.0;
 static CGFloat arrow_height_offset = 8.0;
@@ -117,28 +117,13 @@ static CGFloat top_offset = 40.0;
 #pragma mark - createQRCode
 
 - (UIImage *)createImageWithString:(NSString *)str {
-    // 1.实例化二维码滤镜
-    CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
-    // 2.恢复滤镜的默认属性（因为滤镜可能保存上一次的属性）
-    [filter setDefaults];
-    
-    // 3.讲字符串转换为NSData
-    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
-    
-    // 4.通过KVO设置滤镜inputMessage数据
-    [filter setValue:data forKey:@"inputMessage"];
-    
-    // 5.通过了滤镜输出的图像
-    CIImage *outputImage = [filter outputImage];
-    
-    // 6.因为生成的二维码模糊，所以通过createNonInterpolatedUIImageFormCIImage:outputImage来获得高清的二维码图片
-    return [UIImage getErWeiMaImageFormCIImage:outputImage withSize:200];
+    return [UIImage createImageWithString:str filterWithName:CIQRCode];
 }
 
 #pragma mark - btnOnClick
 
 - (IBAction)copyBtnOnClick:(id)sender {
-    [MBProgressHUD zj_showViewAfterSecondWithView:self title:@"复制成功" afterSecond:0.5];
+    [MBProgressHUD zj_showViewAfterSecondWithView:self title:kLocalizable(@"复制成功") afterSecond:0.5];
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
     pasteboard.string = self.addressLab.text;
 }

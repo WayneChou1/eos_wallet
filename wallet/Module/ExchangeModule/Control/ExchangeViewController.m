@@ -23,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Exchange";
+    self.title = kLocalizable(@"交易");
     [self setUpTableView];
 }
 
@@ -34,6 +34,15 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self loadData];
+    [self setNav];
+}
+
+- (void)setNav {
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    self.navigationController.navigationBar.subviews.firstObject.alpha = 1;
+    [self.navigationController.navigationBar setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                 kLight_Text_Color, NSForegroundColorAttributeName, [UIFont systemFontOfSize:17], NSFontAttributeName, nil]];
 }
 
 #pragma mark - loadData
@@ -112,6 +121,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     ExchangeDetailViewController *VC = [[ExchangeDetailViewController alloc] initWithExchange:self.dataArr[indexPath.row]];
+    VC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:VC animated:YES];
 }
 

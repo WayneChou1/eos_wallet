@@ -90,7 +90,6 @@ static CGFloat header_height = 200.0;
     UIBarButtonItem *exchangeItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Wallet.bundle/main/wallet_exchange"] style:0 target:self action:@selector(exchangeWallet:)];
     self.navigationItem.leftBarButtonItem = exchangeItem;
     
-    self.navigationController.navigationBar.translucent = YES;
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor clearColor]] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     _barImageView = self.navigationController.navigationBar.subviews.firstObject;

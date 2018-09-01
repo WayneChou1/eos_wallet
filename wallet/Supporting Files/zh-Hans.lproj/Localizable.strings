@@ -67,4 +67,6 @@
 "Turn off the light" = "关闭灯光";
 
 /* 交易记录 */
-"Exchange" = "交易记录";
+"Exchange" = "交易";
+"Transaction Record" = "交易详情";
+

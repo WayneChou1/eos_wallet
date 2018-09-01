@@ -88,6 +88,7 @@
 		F6128F6721357B7700E03583 /* Sha256.m in Sources */ = {isa = PBXBuildFile; fileRef = F6128F6621357B7700E03583 /* Sha256.m */; };
 		F616E90D2132DA7B00B60FAA /* ScanQRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F616E90C2132DA7B00B60FAA /* ScanQRViewController.m */; };
 		F616E9102132DE5600B60FAA /* EditorView.m in Sources */ = {isa = PBXBuildFile; fileRef = F616E90F2132DE5500B60FAA /* EditorView.m */; };
+		F61A1551213AFE070084B2F4 /* UIImage+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = F61A1550213AFE070084B2F4 /* UIImage+Filter.m */; };
 		F68110782138441D00DA3822 /* Exchange_2.m in Sources */ = {isa = PBXBuildFile; fileRef = F68110772138441D00DA3822 /* Exchange_2.m */; };
 		F681107C2138493600DA3822 /* ExchangeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F681107A2138493600DA3822 /* ExchangeDetailViewController.m */; };
 		F6F81C3D212A60F000737503 /* WalletNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F81C3B212A60F000737503 /* WalletNameCell.m */; };
@@ -268,6 +269,8 @@
 		F616E90C2132DA7B00B60FAA /* ScanQRViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScanQRViewController.m; sourceTree = "<group>"; };
 		F616E90E2132DE5500B60FAA /* EditorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditorView.h; sourceTree = "<group>"; };
 		F616E90F2132DE5500B60FAA /* EditorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditorView.m; sourceTree = "<group>"; };
+		F61A154F213AFE070084B2F4 /* UIImage+Filter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Filter.h"; sourceTree = "<group>"; };
+		F61A1550213AFE070084B2F4 /* UIImage+Filter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Filter.m"; sourceTree = "<group>"; };
 		F68110762138441D00DA3822 /* Exchange_2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Exchange_2.h; sourceTree = "<group>"; };
 		F68110772138441D00DA3822 /* Exchange_2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Exchange_2.m; sourceTree = "<group>"; };
 		F68110792138493600DA3822 /* ExchangeDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExchangeDetailViewController.h; sourceTree = "<group>"; };
@@ -454,6 +457,8 @@
 				627449B720FC2E8E003F61C8 /* UIImage+Compression.m */,
 				627449DF20FC7CD7003F61C8 /* UIImage+Color.h */,
 				627449E020FC7CD7003F61C8 /* UIImage+Color.m */,
+				F61A154F213AFE070084B2F4 /* UIImage+Filter.h */,
+				F61A1550213AFE070084B2F4 /* UIImage+Filter.m */,
 				627449CB20FC3C6E003F61C8 /* UIColor+Code.h */,
 				627449CC20FC3C6E003F61C8 /* UIColor+Code.m */,
 				62623AD620FEE43200663644 /* UIView+Xib.h */,
@@ -1086,6 +1091,7 @@
 				6265F83521085356003D8561 /* InputTextField.m in Sources */,
 				62824B9C2110149A00BCFB18 /* Base64.m in Sources */,
 				626665B62109A8A10034E3C0 /* NSString+Hash.m in Sources */,
+				F61A1551213AFE070084B2F4 /* UIImage+Filter.m in Sources */,
 				F616E90D2132DA7B00B60FAA /* ScanQRViewController.m in Sources */,
 				62A0F6F320FD950F00472772 /* BaseTableViewCell.m in Sources */,
 				6274498220FC2E46003F61C8 /* AppDelegate.m in Sources */,

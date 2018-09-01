@@ -26,7 +26,7 @@
     }
     
     self.navigationController.navigationBar.translucent = YES;
-    [self.navigationBar setTintColor:kMain_Color];
+//    [self.navigationBar setTintColor:kMain_Color];
     [self.navigationBar setBarTintColor:kBar_Backgroud_Color];
     [self.navigationBar setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
                                                  kLight_Text_Color, NSForegroundColorAttributeName, [UIFont systemFontOfSize:17], NSFontAttributeName, nil]];

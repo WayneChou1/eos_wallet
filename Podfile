@@ -10,5 +10,6 @@ pod 'YYModel'
 pod 'DZNEmptyDataSet'
 pod 'WCDB'
 pod 'IQKeyboardManager'
+pod 'MJRefresh'
 
 end

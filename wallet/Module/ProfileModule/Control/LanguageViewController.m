@@ -41,11 +41,11 @@
     self.dataArr = @[@[
                          @{
                              @"titleName":kLocalizable(@"中文"),
-                             @"language":CNS
+                             @"language":kZh_Hans
                              },
                          @{
                              @"titleName":kLocalizable(@"英文"),
-                             @"language":EN
+                             @"language":kEn
                              }
                          ]
                      ];
@@ -94,7 +94,7 @@
     cell.textLabel.text = [dic objectForKey:@"titleName"];
     cell.indentationWidth = 12.0;
     
-    if ([[dic objectForKey:@"language"] isEqualToString:kTmp]) {
+    if ([[dic objectForKey:@"language"] isEqualToString:[[LocalizedHelper standardHelper] currentLanguage]]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
         _current = indexPath.row;
     }else{
@@ -151,14 +151,11 @@
     // 选中的语言
     NSString *selLanguage = [dic objectForKey:@"language"];
     // 本地语言
-    NSString *language = kTmp;
+    NSString *language = [[LocalizedHelper standardHelper] currentLanguage];
     
     if ([language isEqualToString:selLanguage])  return;
     
-    [kUserDefault setObject:selLanguage forKey:kLangeuage_Set];
-    [kUserDefault synchronize];
-    
-    wLog(@"path ==== %@",[[NSBundle mainBundle] pathForResource:kTmp ofType:@"lproj"]);
+    [[LocalizedHelper standardHelper] setUserLanguage:selLanguage];
     
     [self resetRootViewController];
 }

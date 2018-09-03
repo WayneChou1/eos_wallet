@@ -7,85 +7,85 @@
 */
 
 /* 标签栏 */
-"Asset" = "Asset";
-"Profile" = "Profile";
+"资产" = "Asset";
+"我的" = "Profile";
 "Exchange" = "Exchange";
 
 /* 主页 */
-"Empty Token!" = "Empty Token!";
-"Empty Account!" = "Empty Account!";
-"Create" = "Create";
-"Insert" = "Insert";
+"没有相关资产！" = "Empty Token!";
+"没有相关账号！" = "Empty Account!";
+"创建钱包" = "Create";
+"导入账号" = "Insert";
 
 /* 钱包 */
-"Name" = "Name";
-"New Password" = "New Password";
-"Confirm Password" = "Confirm Password";
-"Create Wallet" = "Create Wallet";
-"Create Success" = "Create Success";
-"Delete" = "Delete";
-"Wallet Manager" = "Wallet Manager";
-"Password Hint" = "Password Hint";
-"Change Password" = "Change Password";
-"Export Private Key" = "Export Private Key";
+"钱包名称" = "Name";
+"钱包密码" = "New Password";
+"请确认钱包密码" = "Confirm Password";
+"创建钱包" = "Create Wallet";
+"创建成功！" = "Create Success";
+"删除" = "Delete";
+"钱包管理" = "Wallet Manager";
+"密码提示" = "Password Hint";
+"修改密码" = "Change Password";
+"导出私钥" = "Export Private Key";
 
-"The wallet cannot be empty!"="The wallet cannot be empty!";
-"Passwod cannot be empty!"="Passwod cannot be empty!";
-"Entered passwords differ!"="Entered passwords differ!";
-"Local wallet name cannot repeat"="Local wallet name cannot repeat";
+"钱包名称不能为空!"="The wallet cannot be empty!";
+"密码不能为空!"="Passwod cannot be empty!";
+"两次输入的密码不一致!"="Entered passwords differ!";
+"本地钱包名不可重复!"="Local wallet name cannot repeat";
 
-"Input wallet password" = "Input wallet password";
-"Cancel" = "Cancel";
-"Confirm" = "Confirm";
-"Password error" = "Password error";
-"Input Your Password Prompt" = "Input Your Password Prompt";
+"请输入钱包密码" = "Input wallet password";
+"取消" = "Cancel";
+"确定" = "Confirm";
+"密码错误" = "Password error";
+"请输入密码提示" = "Input Your Password Prompt";
 
-"Account error" = "Account error";
-"Keys input error" = "Keys input error";
+"账号名输入错误" = "Account error";
+"私钥格式有误" = "Keys input error";
 
-"Owner key input error" = "Owner key input error";
-"Active key input error" = "Active key input error";
+"Owner key 输入有误" = "Owner key input error";
+"Active key 输入有误" = "Active key input error";
 
 /* 导入私钥 */
-"I have carefully read and agree to the terms of service and privacy." = "I have carefully read and agree to the terms of service and privacy.";
-"Import" = "Import";
-"Import your account" = "Import your account";
-"Import your ownerkey" = "Import your ownerkey";
-"Import your activekey" = "Import your activekey";
+"我已经仔细阅读并同意服务及隐私条款" = "I have carefully read and agree to the terms of service and privacy.";
+"导入" = "Import";
+"输入账号" = "Import your account";
+"输入ownerkey" = "Import your ownerkey";
+"输入activekey" = "Import your activekey";
 
 /* 交易 */
-"Save" = "Save";
-"Copy" = "Copy";
-"Copy Success" = "Copy Success";
-"Receivind Account" = "Receivind Account";
-"Amount" = "Amount";
-"MEMO" = "MEMO";
-"Send" = "Send";
-"Please check the private key" = "Please check the private key";
+"保存" = "Save";
+"复制" = "Copy";
+"复制成功" = "Copy Success";
+"转账账号" = "Receivind Account";
+"填写数额" = "Amount";
+"添加备注" = "MEMO";
+"确认转账" = "Send";
+"请检查私钥是否正确" = "Please check the private key";
 
 /* 扫码 */
-"Turn on the light" = "Turn on the light";
-"Turn off the light" = "Turn off the light";
+"开启灯光" = "Turn on the light";
+"关闭灯光" = "Turn off the light";
 
 /* 交易记录 */
-"Exchange" = "Exchange";
-"Transaction Record" = "Transaction Record";
+"交易" = "Exchange";
+"交易详情" = "Transaction Record";
 
 /* 我的 */
-"Settings" = "Settings";
-"Faq" = "Faq";
-"About us" = "About us";
-"Rate wallet eos" = "Rate wallet eos";
+"设置" = "Settings";
+"帮助" = "Faq";
+"关于我们" = "About us";
+"给我们点赞" = "Rate wallet eos";
 
-"Language" = "Language";
-"Web3 Setting" = "Web3 Setting";
-"Touch ID" = "Touch ID";
+"多语言" = "Language";
+"Web3 设置" = "Web3 Setting";
+"指纹登录" = "Touch ID";
 
 /* Touch ID */
-"Scan your fingerprint on the device scanner to continue" = "Scan your fingerprint on the device scanner to continue";
-"Use passwrod" = "Use passwrod";
+"通过Home键验证已有手机指纹" = "Scan your fingerprint on the device scanner to continue";
+"使用密码" = "Use passwrod";
 
 /* 多语言 */
-"Chinese" = "Chinese";
-"English" = "English";
-"Save" = "Save";
+"中文" = "Chinese";
+"英文" = "English";
+"保存" = "Save";

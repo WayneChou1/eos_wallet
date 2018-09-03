@@ -6,86 +6,86 @@
   Copyright © 2018年 eos. All rights reserved.
 */
 /* 标签栏 */
-"Asset" = "资产";
-"Profile" = "我的";
-"Exchange" = "交易";
+"资产" = "资产";
+"我的" = "我的";
+"交易" = "交易";
 
 /* 主页 */
-"Empty Token!" = "没有相关资产！";
-"Empty Account!" = "没有相关账号！";
-"Create" = "创建钱包";
-"Insert" = "导入账号";
+"没有相关资产！" = "没有相关资产！";
+"没有相关账号！" = "没有相关账号！";
+"创建钱包" = "创建钱包";
+"导入账号" = "导入账号";
 
 /* 钱包 */
-"Name" = "钱包名称";
-"New Password" = "钱包密码";
-"Confirm Password" = "请确认钱包密码";
-"Create Wallet" = "创建钱包";
-"Create Success" = "创建成功！";
-"Delete" = "删除";
-"Wallet Manager" = "钱包管理";
-"Password Hint" = "密码提示";
-"Change Password" = "修改密码";
-"Export Private Key" = "导出私钥";
+"钱包名称" = "钱包名称";
+"钱包密码" = "钱包密码";
+"请确认钱包密码" = "请确认钱包密码";
+"创建钱包" = "创建钱包";
+"创建成功！" = "创建成功！";
+"删除" = "删除";
+"钱包管理" = "钱包管理";
+"密码提示" = "密码提示";
+"修改密码" = "修改密码";
+"导出私钥" = "导出私钥";
 
-"The wallet cannot be empty!" = "钱包名称不能为空!";
-"Passwod cannot be empty!" = "密码不能为空!";
-"Entered passwords differ!" = "两次输入的密码不一致!";
-"Local wallet name cannot repeat" = "本地钱包名不可重复!";
+"钱包名称不能为空!" = "钱包名称不能为空!";
+"密码不能为空!" = "密码不能为空!";
+"两次输入的密码不一致!" = "两次输入的密码不一致!";
+"本地钱包名不可重复!" = "本地钱包名不可重复!";
 
-"Input wallet password" = "请输入钱包密码";
-"Cancel" = "取消";
-"Confirm" = "确定";
-"Password error" = "密码错误";
-"Input Your Password Prompt" = "请输入密码提示";
+"请输入钱包密码" = "请输入钱包密码";
+"取消" = "取消";
+"确定" = "确定";
+"密码错误" = "密码错误";
+"请输入密码提示" = "请输入密码提示";
 
-"Account error" = "账号名输入错误";
-"Keys input error" = "私钥格式有误";
-"Owner key input error" = "Owner key 输入有误";
-"Active key input error" = "Active key 输入有误";
+"账号名输入错误" = "账号名输入错误";
+"私钥格式有误" = "私钥格式有误";
+"Owner key 输入有误" = "Owner key 输入有误";
+"Active key 输入有误" = "Active key 输入有误";
 
 /* 导入私钥 */
-"I have carefully read and agree to the terms of service and privacy." = "我已经仔细阅读并同意服务及隐私条款";
-"Import" = "导入";
-"Import your account" = "输入账号";
-"Import your ownerkey" = "输入ownerkey";
-"Import your activekey" = "输入activekey";
+"我已经仔细阅读并同意服务及隐私条款" = "我已经仔细阅读并同意服务及隐私条款";
+"导入" = "导入";
+"输入账号" = "输入账号";
+"输入ownerkey" = "输入ownerkey";
+"输入activekey" = "输入activekey";
 
 
 /* 交易 */
-"Save" = "保存";
-"Copy" = "复制";
-"Copy Success" = "复制成功";
-"Receivind Account" = "转账账号";
-"Amount" = "填写数额";
-"MEMO" = "添加备注";
-"Send" = "确认转账";
-"Please check the private key" = "请检查私钥是否正确";
+"保存" = "保存";
+"复制" = "复制";
+"复制成功" = "复制成功";
+"转账账号" = "转账账号";
+"填写数额" = "填写数额";
+"添加备注" = "添加备注";
+"确认转账" = "确认转账";
+"请检查私钥是否正确" = "请检查私钥是否正确";
 
 /* 扫码 */
-"Turn on the light" = "开启灯光";
-"Turn off the light" = "关闭灯光";
+"开启灯光" = "开启灯光";
+"关闭灯光" = "关闭灯光";
 
 /* 交易记录 */
-"Exchange" = "交易";
-"Transaction Record" = "交易详情";
+"交易" = "交易";
+"交易详情" = "交易详情";
 
 /* 我的 */
-"Settings" = "设置";
-"Faq" = "帮助";
-"About us" = "关于我们";
-"Rate wallet eos" = "给我们点赞";
+"设置" = "设置";
+"帮助" = "帮助";
+"关于我们" = "关于我们";
+"给我们点赞" = "给我们点赞";
 
-"Language" = "多语言";
-"Web3 Setting" = "Web3 设置";
-"Touch ID" = "指纹登录";
+"多语言" = "多语言";
+"Web3 设置" = "Web3 设置";
+"指纹登录" = "指纹登录";
 
 /* Touch ID */
-"Scan your fingerprint on the device scanner to continue" = "通过Home键验证已有手机指纹";
-"Use passwrod" = "使用密码";
+"通过Home键验证已有手机指纹" = "通过Home键验证已有手机指纹";
+"使用密码" = "使用密码";
 
 /* 多语言 */
-"Chinese" = "中文";
-"English" = "英文";
-"Save" = "保存";
+"中文" = "中文";
+"英文" = "英文";
+"保存" = "保存";
 

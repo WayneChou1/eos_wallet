@@ -19,6 +19,7 @@
 #import "DicKeyConst.h"
 #import "UIColor+Code.h"
 #import "MBProgressHUD+ZJExtension.h"
+#import "LocalizedHelper.h"
 
 #import <Masonry.h>
 #import <UIScrollView+EmptyDataSet.h>

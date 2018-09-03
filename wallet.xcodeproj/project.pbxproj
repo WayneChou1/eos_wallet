@@ -85,6 +85,7 @@
 		F60316E7212D94ED001E9A34 /* WalletQRView.m in Sources */ = {isa = PBXBuildFile; fileRef = F60316E6212D94ED001E9A34 /* WalletQRView.m */; };
 		F60349CC213A510600FF6582 /* EosFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F60349CB213A510600FF6582 /* EosFramework.framework */; };
 		F60349CD213AA8DD00FF6582 /* ExchangeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F60349CF213AA8DD00FF6582 /* ExchangeDetailViewController.xib */; };
+		F606839C213D7138007B3FEC /* LocalizedHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F606839B213D7138007B3FEC /* LocalizedHelper.m */; };
 		F609B7082136DCF8002B6A24 /* HTTPRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F609B7072136DCF7002B6A24 /* HTTPRequestManager.m */; };
 		F609B70D2136E3BC002B6A24 /* Exchange.m in Sources */ = {isa = PBXBuildFile; fileRef = F609B70C2136E3BC002B6A24 /* Exchange.m */; };
 		F609B7132136E785002B6A24 /* ExchangeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F609B7112136E785002B6A24 /* ExchangeCell.m */; };
@@ -269,6 +270,8 @@
 		F60349CE213AA8DD00FF6582 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ExchangeDetailViewController.xib; sourceTree = "<group>"; };
 		F60349D1213AA8E300FF6582 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ExchangeDetailViewController.strings; sourceTree = "<group>"; };
 		F60349D3213AA8E400FF6582 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ExchangeDetailViewController.strings"; sourceTree = "<group>"; };
+		F606839A213D7138007B3FEC /* LocalizedHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalizedHelper.h; sourceTree = "<group>"; };
+		F606839B213D7138007B3FEC /* LocalizedHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalizedHelper.m; sourceTree = "<group>"; };
 		F609B7062136DCF7002B6A24 /* HTTPRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPRequestManager.h; sourceTree = "<group>"; };
 		F609B7072136DCF7002B6A24 /* HTTPRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPRequestManager.m; sourceTree = "<group>"; };
 		F609B70B2136E3BC002B6A24 /* Exchange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Exchange.h; sourceTree = "<group>"; };
@@ -398,6 +401,8 @@
 			children = (
 				625B0A5221071EF000E9AB44 /* MD5Encrypt.h */,
 				625B0A5321071EF000E9AB44 /* MD5Encrypt.m */,
+				F606839A213D7138007B3FEC /* LocalizedHelper.h */,
+				F606839B213D7138007B3FEC /* LocalizedHelper.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -1108,6 +1113,7 @@
 				F609B70D2136E3BC002B6A24 /* Exchange.m in Sources */,
 				62824B84210FF92000BCFB18 /* AccountInfo.m in Sources */,
 				F681107C2138493600DA3822 /* ExchangeDetailViewController.m in Sources */,
+				F606839C213D7138007B3FEC /* LocalizedHelper.m in Sources */,
 				627449BE20FC2E8E003F61C8 /* UIImage+Compression.m in Sources */,
 				627449F820FC8908003F61C8 /* ProfileViewController.m in Sources */,
 				F60226EF212B012B0086B2EB /* WalletQRViewController.m in Sources */,

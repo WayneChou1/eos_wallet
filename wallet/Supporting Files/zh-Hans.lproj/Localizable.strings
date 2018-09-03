@@ -70,3 +70,22 @@
 "Exchange" = "交易";
 "Transaction Record" = "交易详情";
 
+/* 我的 */
+"Settings" = "设置";
+"Faq" = "帮助";
+"About us" = "关于我们";
+"Rate wallet eos" = "给我们点赞";
+
+"Language" = "多语言";
+"Web3 Setting" = "Web3 设置";
+"Touch ID" = "指纹登录";
+
+/* Touch ID */
+"Scan your fingerprint on the device scanner to continue" = "通过Home键验证已有手机指纹";
+"Use passwrod" = "使用密码";
+
+/* 多语言 */
+"Chinese" = "中文";
+"English" = "英文";
+"Save" = "保存";
+

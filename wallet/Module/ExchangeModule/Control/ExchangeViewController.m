@@ -71,6 +71,11 @@
     
     NSArray <Account *> *account = [[AccountManager shareManager] selectAllAccounts];
     
+    if (account.count == 0) {
+        [self.tableView.mj_footer endRefreshing];
+        [self.refreshControl endRefreshing];
+    }
+    
     for (Account *a in account) {
         NSString *url = eosmonitor(a.accountName, eos_get_transfer, pageStr, countStr);
         wLog(@"eos_get_transfer == %@",url);
@@ -149,6 +154,8 @@
         weakSelf.pageSize++;
         [weakSelf loadData:YES];
     }];
+    
+    
     MJRefreshAutoNormalFooter *footer = (MJRefreshAutoNormalFooter *)self.tableView.mj_footer;
     footer.stateLabel.font = kSys_font(13);
     footer.stateLabel.textColor = [UIColor darkGrayColor];

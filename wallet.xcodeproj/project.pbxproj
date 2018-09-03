@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		1827FFBC238CE3E9ECBD27AC /* libPods-wallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07FBD7D85EBA520E4A386C83 /* libPods-wallet.a */; };
+		6230E670213CDA430093A4D4 /* ProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6230E66E213CDA430093A4D4 /* ProfileCell.m */; };
+		6230E671213CDA430093A4D4 /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6230E66F213CDA430093A4D4 /* ProfileCell.xib */; };
+		6230E674213D00270093A4D4 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6230E673213D00270093A4D4 /* SettingViewController.m */; };
+		6230E678213D024C0093A4D4 /* SettingTouchIdCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6230E676213D024C0093A4D4 /* SettingTouchIdCell.m */; };
+		6230E679213D024C0093A4D4 /* SettingTouchIdCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6230E677213D024C0093A4D4 /* SettingTouchIdCell.xib */; };
+		6230E67D213D1FCE0093A4D4 /* EvaluatePolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6230E67C213D1FCE0093A4D4 /* EvaluatePolicy.m */; };
+		6230E680213D3A890093A4D4 /* LanguageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6230E67F213D3A890093A4D4 /* LanguageViewController.m */; };
 		625B0A4D21071C7A00E9AB44 /* WalletManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 625B0A4C21071C7A00E9AB44 /* WalletManager.mm */; };
 		625B0A5021071CBE00E9AB44 /* Wallet.mm in Sources */ = {isa = PBXBuildFile; fileRef = 625B0A4F21071CBE00E9AB44 /* Wallet.mm */; };
 		625B0A5421071EF000E9AB44 /* MD5Encrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 625B0A5321071EF000E9AB44 /* MD5Encrypt.m */; };
@@ -119,6 +126,18 @@
 /* Begin PBXFileReference section */
 		07FBD7D85EBA520E4A386C83 /* libPods-wallet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wallet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FCEAD0FB9C1749D3968A337 /* Pods-wallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wallet.release.xcconfig"; path = "Pods/Target Support Files/Pods-wallet/Pods-wallet.release.xcconfig"; sourceTree = "<group>"; };
+		6230E66D213CDA430093A4D4 /* ProfileCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileCell.h; sourceTree = "<group>"; };
+		6230E66E213CDA430093A4D4 /* ProfileCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileCell.m; sourceTree = "<group>"; };
+		6230E66F213CDA430093A4D4 /* ProfileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCell.xib; sourceTree = "<group>"; };
+		6230E672213D00270093A4D4 /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		6230E673213D00270093A4D4 /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		6230E675213D024C0093A4D4 /* SettingTouchIdCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingTouchIdCell.h; sourceTree = "<group>"; };
+		6230E676213D024C0093A4D4 /* SettingTouchIdCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingTouchIdCell.m; sourceTree = "<group>"; };
+		6230E677213D024C0093A4D4 /* SettingTouchIdCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingTouchIdCell.xib; sourceTree = "<group>"; };
+		6230E67B213D1FCE0093A4D4 /* EvaluatePolicy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvaluatePolicy.h; sourceTree = "<group>"; };
+		6230E67C213D1FCE0093A4D4 /* EvaluatePolicy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvaluatePolicy.m; sourceTree = "<group>"; };
+		6230E67E213D3A890093A4D4 /* LanguageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LanguageViewController.h; sourceTree = "<group>"; };
+		6230E67F213D3A890093A4D4 /* LanguageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LanguageViewController.m; sourceTree = "<group>"; };
 		625B0A4B21071C7A00E9AB44 /* WalletManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WalletManager.h; sourceTree = "<group>"; };
 		625B0A4C21071C7A00E9AB44 /* WalletManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WalletManager.mm; sourceTree = "<group>"; };
 		625B0A4E21071CBE00E9AB44 /* Wallet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Wallet.h; sourceTree = "<group>"; };
@@ -322,6 +341,41 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		6230E66B213CD9F10093A4D4 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				627449F620FC8908003F61C8 /* ProfileViewController.h */,
+				627449F720FC8908003F61C8 /* ProfileViewController.m */,
+				6230E672213D00270093A4D4 /* SettingViewController.h */,
+				6230E673213D00270093A4D4 /* SettingViewController.m */,
+				6230E67E213D3A890093A4D4 /* LanguageViewController.h */,
+				6230E67F213D3A890093A4D4 /* LanguageViewController.m */,
+			);
+			path = Control;
+			sourceTree = "<group>";
+		};
+		6230E66C213CD9FB0093A4D4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6230E66D213CDA430093A4D4 /* ProfileCell.h */,
+				6230E66E213CDA430093A4D4 /* ProfileCell.m */,
+				6230E66F213CDA430093A4D4 /* ProfileCell.xib */,
+				6230E675213D024C0093A4D4 /* SettingTouchIdCell.h */,
+				6230E676213D024C0093A4D4 /* SettingTouchIdCell.m */,
+				6230E677213D024C0093A4D4 /* SettingTouchIdCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6230E67A213D1F9D0093A4D4 /* TouchId */ = {
+			isa = PBXGroup;
+			children = (
+				6230E67B213D1FCE0093A4D4 /* EvaluatePolicy.h */,
+				6230E67C213D1FCE0093A4D4 /* EvaluatePolicy.m */,
+			);
+			path = TouchId;
+			sourceTree = "<group>";
+		};
 		625B0A4A21071C5B00E9AB44 /* Control */ = {
 			isa = PBXGroup;
 			children = (
@@ -431,6 +485,7 @@
 		627449B220FC2E8E003F61C8 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				6230E67A213D1F9D0093A4D4 /* TouchId */,
 				62824B85211003C400BCFB18 /* AccountDB */,
 				627A10DA210F065600D834AF /* WalletDB */,
 				6265F832210852D1003D8561 /* View */,
@@ -695,8 +750,8 @@
 		62A0F6E020FD77EC00472772 /* ProfileModule */ = {
 			isa = PBXGroup;
 			children = (
-				627449F620FC8908003F61C8 /* ProfileViewController.h */,
-				627449F720FC8908003F61C8 /* ProfileViewController.m */,
+				6230E66C213CD9FB0093A4D4 /* View */,
+				6230E66B213CD9F10093A4D4 /* Control */,
 			);
 			path = ProfileModule;
 			sourceTree = "<group>";
@@ -962,11 +1017,13 @@
 				6275DC34213529E800C3CB43 /* Javascript.html in Resources */,
 				F60226F0212B012B0086B2EB /* WalletQRViewController.xib in Resources */,
 				6274498A20FC2E4C003F61C8 /* Assets.xcassets in Resources */,
+				6230E679213D024C0093A4D4 /* SettingTouchIdCell.xib in Resources */,
 				628D91A62111512100F66845 /* WalletCell.xib in Resources */,
 				F6F81C43212A611D00737503 /* WalletPswHintCell.xib in Resources */,
 				62A0F6E520FD789400472772 /* MainHeaderView.xib in Resources */,
 				626665BB2109ABAC0034E3C0 /* InputPwdView.xib in Resources */,
 				62A0F6FD20FDC44000472772 /* MainNoDataView.xib in Resources */,
+				6230E671213CDA430093A4D4 /* ProfileCell.xib in Resources */,
 				62623AE120FEEEC800663644 /* CreateWalletViewController.xib in Resources */,
 				F6F81C48212A61BA00737503 /* WalletCommonCell.xib in Resources */,
 				627449F220FC8342003F61C8 /* Localizable.strings in Resources */,
@@ -1060,6 +1117,7 @@
 				F60AC941212C660600A19D55 /* QRModelPanInteractiveTransition.m in Sources */,
 				625B0A57210724E300E9AB44 /* Wallet+WCTTableCoding.mm in Sources */,
 				F609B7082136DCF8002B6A24 /* HTTPRequestManager.m in Sources */,
+				6230E680213D3A890093A4D4 /* LanguageViewController.m in Sources */,
 				627449CA20FC3BE1003F61C8 /* BaseViewController.m in Sources */,
 				62824B88211003D300BCFB18 /* Account.mm in Sources */,
 				F68110782138441D00DA3822 /* Exchange_2.m in Sources */,
@@ -1075,6 +1133,7 @@
 				62824BA52110446C00BCFB18 /* MainAssetCell.m in Sources */,
 				626665AB210955CD0034E3C0 /* ImportAccountViewController.m in Sources */,
 				627449FB20FC8AC8003F61C8 /* ExchangeViewController.m in Sources */,
+				6230E678213D024C0093A4D4 /* SettingTouchIdCell.m in Sources */,
 				62824B9B2110149A00BCFB18 /* AESCrypt.m in Sources */,
 				F609B7132136E785002B6A24 /* ExchangeCell.m in Sources */,
 				6274499020FC2E4C003F61C8 /* main.m in Sources */,
@@ -1083,6 +1142,7 @@
 				628D919F21114ECA00F66845 /* WalletManagerViewController.m in Sources */,
 				627449D120FC3E76003F61C8 /* BootPageViewController.m in Sources */,
 				62824B8B211003FA00BCFB18 /* Account+WCTTableCoding.mm in Sources */,
+				6230E67D213D1FCE0093A4D4 /* EvaluatePolicy.m in Sources */,
 				627449C520FC3646003F61C8 /* DicKeyConst.m in Sources */,
 				F60226EA212AFD760086B2EB /* WalletSendViewController.m in Sources */,
 				62824B9D2110149A00BCFB18 /* NSData+CommonCrypto.m in Sources */,
@@ -1100,9 +1160,11 @@
 				62623AD820FEE43200663644 /* UIView+Xib.m in Sources */,
 				627449BD20FC2E8E003F61C8 /* MBProgressHUD+ZJExtension.m in Sources */,
 				625B0A5021071CBE00E9AB44 /* Wallet.mm in Sources */,
+				6230E674213D00270093A4D4 /* SettingViewController.m in Sources */,
 				62824B8E2110041200BCFB18 /* AccountManager.mm in Sources */,
 				62824B9F2110149A00BCFB18 /* PBKDF2.m in Sources */,
 				F6F81C3D212A60F000737503 /* WalletNameCell.m in Sources */,
+				6230E670213CDA430093A4D4 /* ProfileCell.m in Sources */,
 				625B0A4D21071C7A00E9AB44 /* WalletManager.mm in Sources */,
 				628D919B211149DF00F66845 /* TransactionViewController.m in Sources */,
 				627449CD20FC3C6E003F61C8 /* UIColor+Code.m in Sources */,
@@ -1284,7 +1346,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DBVPS6244A;
 				ENABLE_BITCODE = YES;
@@ -1366,7 +1428,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DBVPS6244A;
 				ENABLE_BITCODE = YES;

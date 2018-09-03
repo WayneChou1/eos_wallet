@@ -13,3 +13,6 @@ extern  NSString *const kFirst_launch;
 
 /** 当前钱包uuid */
 extern  NSString *const kCurrent_wallet;
+
+/** Touch ID 是否开启 */
+extern  NSString *const kTouchId_on;

@@ -11,6 +11,7 @@
 
 #define kUserDefault [NSUserDefaults standardUserDefaults]
 #define kIs_First_Launch [kUserDefault boolForKey:kFirst_launch]
+#define kIs_TouchId_on [kUserDefault boolForKey:kTouchId_on]
 
 /** 设置颜色 */
 #define kColor(_hex) [UIColor colorWithHex:_hex]

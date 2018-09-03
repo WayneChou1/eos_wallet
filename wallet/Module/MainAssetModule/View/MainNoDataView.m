@@ -55,8 +55,16 @@
 }
 
 - (IBAction)createBtnOnClick:(UIButton *)sender {
-    if ([self.delegate respondsToSelector:@selector(needCreateWallet)]) {
-        [self.delegate needCreateWallet];
+    
+    if (_isNoWallet) {
+        if ([self.delegate respondsToSelector:@selector(needCreateWallet)]) {
+            [self.delegate needCreateWallet];
+        }
+    }else if (_isNoAccount) {
+        if ([self.delegate respondsToSelector:@selector(needInsertAccount)]) {
+            [self.delegate needInsertAccount];
+        }
     }
+    
 }
 @end

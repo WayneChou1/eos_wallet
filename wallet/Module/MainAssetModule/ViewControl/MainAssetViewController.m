@@ -8,6 +8,7 @@
 
 #import "MainAssetViewController.h"
 #import "CreateWalletViewController.h"
+#import "ImportAccountViewController.h"
 #import "WalletManagerViewController.h"
 #import "NavigationViewController.h"
 #import "TransactionViewController.h"
@@ -99,14 +100,36 @@ static CGFloat header_height = 200.0;
 - (void)reloadWallet {
     
     // 判断是否有钱包
-    if (kCurrentWallet) {
-        [self loadData];
-    }else{
+//    if (!isNoWallet && !isNoAccount) {
+//        [self.dataList removeAllObjects];
+//        self.tableView.emptyDataSetSource = self;
+//        self.tableView.emptyDataSetDelegate = self;
+//        [self.tableView reloadEmptyDataSet];
+//    }else{
+//        [self loadData];
+//    }
+    if ([self isNotAssetValidate]) {
         [self.dataList removeAllObjects];
         self.tableView.emptyDataSetSource = self;
         self.tableView.emptyDataSetDelegate = self;
         [self.tableView reloadEmptyDataSet];
+    }else{
+        [self loadData];
     }
+}
+
+- (BOOL)isNotAssetValidate {
+    BOOL isNoWallet = YES;
+    BOOL isNoAccount = YES;
+    
+    if (kCurrentWallet) {
+        isNoWallet = NO;
+        NSArray *accArr = [[AccountManager shareManager] selectAccountsFromWalletID:kCurrentWallet_UUID];
+        if (accArr.count > 0) {
+            isNoAccount = NO;
+        }
+    }
+    return isNoAccount || isNoWallet;
 }
 
 
@@ -152,12 +175,16 @@ static CGFloat header_height = 200.0;
 #pragma mark - UITableViewDataSource & UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return self.dataList.count;
 #warning 目前只支持EOS
-    if (kCurrentWallet) {
+//    if (kCurrentWallet) {
+//        return 1;
+//    }
+//    return 0;
+    if ([self isNotAssetValidate]) {
+        return 0;
+    }else{
         return 1;
     }
-    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -201,7 +228,7 @@ static CGFloat header_height = 200.0;
     if (kCurrentWallet) {
         isNoWallet = NO;
         NSArray *accArr = [[AccountManager shareManager] selectAccountsFromWalletID:kCurrentWallet_UUID];
-        if (accArr.count == 0 || !accArr) {
+        if (accArr.count > 0) {
             isNoAccount = NO;
         }
     }
@@ -220,6 +247,12 @@ static CGFloat header_height = 200.0;
 - (void)needCreateWallet {
     CreateWalletViewController *createVC = [[CreateWalletViewController alloc]init];
     NavigationViewController *navVC = [[NavigationViewController alloc]initWithRootViewController:createVC];
+    [self presentViewController:navVC animated:YES completion:nil];
+}
+
+- (void)needInsertAccount {
+    ImportAccountViewController *importVC = [[ImportAccountViewController alloc] init];
+    NavigationViewController *navVC = [[NavigationViewController alloc]initWithRootViewController:importVC];
     [self presentViewController:navVC animated:YES completion:nil];
 }
 

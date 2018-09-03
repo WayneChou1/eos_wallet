@@ -22,7 +22,14 @@
 #define kImageWithPath(_imageName) [UIImage imageWithContentsOfFile:kPath_resource(_imageName)]
 
 /** 国际化 */
-#define kLocalizable(_key) [[NSBundle mainBundle]localizedStringForKey:_key value:nil table:nil]
+
+#define kLangeuage_Set @"langeuage_set"
+#define CNS @"zh-Hans"
+#define EN @"en"
+
+#define kTmp [kUserDefault objectForKey:kLangeuage_Set]
+#define kLocalizableBundle [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:kTmp ofType:@"lproj"]]
+#define kLocalizable(_key) NSLocalizedStringFromTableInBundle(_key, nil, kLocalizableBundle, nil)
 
 /** 默认背景颜色 */
 #define kBackgroud_Color [UIColor colorWithHex:0xF8F8F8]

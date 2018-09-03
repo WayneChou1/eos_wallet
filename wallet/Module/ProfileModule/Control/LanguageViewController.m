@@ -7,7 +7,9 @@
 //
 
 #import "LanguageViewController.h"
+#import "TabBarViewController.h"
 #import "BaseTableViewCell.h"
+#import "AppDelegate.h"
 
 @interface LanguageViewController (){
     NSInteger _current;
@@ -39,9 +41,11 @@
     self.dataArr = @[@[
                          @{
                              @"titleName":kLocalizable(@"中文"),
+                             @"language":CNS
                              },
                          @{
                              @"titleName":kLocalizable(@"英文"),
+                             @"language":EN
                              }
                          ]
                      ];
@@ -57,7 +61,16 @@
 }
 
 - (void)setNav {
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:kLocalizable(@"保存") style:UIBarButtonItemStyleDone target:self action:@selector(saveItemOnClick:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:kLocalizable(@"保存") style:UIBarButtonItemStylePlain target:self action:@selector(saveItemOnClick:)];
+}
+
+
+#pragma mark - 重新设置keyWindow
+
+-(void)resetRootViewController {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    UIWindow *window = appDelegate.window;
+    window.rootViewController = [[TabBarViewController alloc] init];
 }
 
 #pragma mark - Table view data source
@@ -80,6 +93,13 @@
     cell.textLabel.textAlignment = NSTextAlignmentLeft;
     cell.textLabel.text = [dic objectForKey:@"titleName"];
     cell.indentationWidth = 12.0;
+    
+    if ([[dic objectForKey:@"language"] isEqualToString:kTmp]) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        _current = indexPath.row;
+    }else{
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     
     return cell;
 }
@@ -126,6 +146,21 @@
 
 - (void)saveItemOnClick:(UIBarButtonItem *)item {
     
+    NSDictionary *dic = self.dataArr[self.tableView.indexPathForSelectedRow.section][self.tableView.indexPathForSelectedRow.row];
+    
+    // 选中的语言
+    NSString *selLanguage = [dic objectForKey:@"language"];
+    // 本地语言
+    NSString *language = kTmp;
+    
+    if ([language isEqualToString:selLanguage])  return;
+    
+    [kUserDefault setObject:selLanguage forKey:kLangeuage_Set];
+    [kUserDefault synchronize];
+    
+    wLog(@"path ==== %@",[[NSBundle mainBundle] pathForResource:kTmp ofType:@"lproj"]);
+    
+    [self resetRootViewController];
 }
 
 @end

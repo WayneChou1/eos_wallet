@@ -459,6 +459,7 @@
 				6274498120FC2E46003F61C8 /* AppDelegate.m */,
 				6274498920FC2E4C003F61C8 /* Assets.xcassets */,
 				6274498E20FC2E4C003F61C8 /* Info.plist */,
+				627449F420FC8342003F61C8 /* Localizable.strings */,
 				627449C020FC2E9E003F61C8 /* Supporting Files */,
 			);
 			path = wallet;
@@ -554,7 +555,6 @@
 				627449C120FC2EA9003F61C8 /* PrefixHeader.pch */,
 				6274498F20FC2E4C003F61C8 /* main.m */,
 				627449D920FC5677003F61C8 /* Wallet.bundle */,
-				627449F420FC8342003F61C8 /* Localizable.strings */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";

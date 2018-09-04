@@ -94,6 +94,7 @@
 		F60349CC213A510600FF6582 /* EosFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F60349CB213A510600FF6582 /* EosFramework.framework */; };
 		F60349CD213AA8DD00FF6582 /* ExchangeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F60349CF213AA8DD00FF6582 /* ExchangeDetailViewController.xib */; };
 		F606839C213D7138007B3FEC /* LocalizedHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F606839B213D7138007B3FEC /* LocalizedHelper.m */; };
+		F6073BD9213EAFEB00825322 /* PrivacyPolicyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6073BD8213EAFEB00825322 /* PrivacyPolicyViewController.m */; };
 		F609B7082136DCF8002B6A24 /* HTTPRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F609B7072136DCF7002B6A24 /* HTTPRequestManager.m */; };
 		F609B70D2136E3BC002B6A24 /* Exchange.m in Sources */ = {isa = PBXBuildFile; fileRef = F609B70C2136E3BC002B6A24 /* Exchange.m */; };
 		F609B7132136E785002B6A24 /* ExchangeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F609B7112136E785002B6A24 /* ExchangeCell.m */; };
@@ -291,6 +292,8 @@
 		F60349CE213AA8DD00FF6582 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ExchangeDetailViewController.xib; sourceTree = "<group>"; };
 		F606839A213D7138007B3FEC /* LocalizedHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalizedHelper.h; sourceTree = "<group>"; };
 		F606839B213D7138007B3FEC /* LocalizedHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalizedHelper.m; sourceTree = "<group>"; };
+		F6073BD7213EAFEB00825322 /* PrivacyPolicyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrivacyPolicyViewController.h; sourceTree = "<group>"; };
+		F6073BD8213EAFEB00825322 /* PrivacyPolicyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrivacyPolicyViewController.m; sourceTree = "<group>"; };
 		F609B7062136DCF7002B6A24 /* HTTPRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPRequestManager.h; sourceTree = "<group>"; };
 		F609B7072136DCF7002B6A24 /* HTTPRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPRequestManager.m; sourceTree = "<group>"; };
 		F609B70B2136E3BC002B6A24 /* Exchange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Exchange.h; sourceTree = "<group>"; };
@@ -392,6 +395,8 @@
 				6230DA5A213E1AF600850853 /* Web3ViewController.m */,
 				6230DA6B213E579A00850853 /* AboutUsViewController.h */,
 				6230DA6C213E579A00850853 /* AboutUsViewController.m */,
+				F6073BD7213EAFEB00825322 /* PrivacyPolicyViewController.h */,
+				F6073BD8213EAFEB00825322 /* PrivacyPolicyViewController.m */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -1202,6 +1207,7 @@
 				62824B9D2110149A00BCFB18 /* NSData+CommonCrypto.m in Sources */,
 				F616E9102132DE5600B60FAA /* EditorView.m in Sources */,
 				F60AEA24212A597C000D310C /* WalletDetailViewController.m in Sources */,
+				F6073BD9213EAFEB00825322 /* PrivacyPolicyViewController.m in Sources */,
 				6275DC2A2134F85B00C3CB43 /* BlockChain.m in Sources */,
 				F60AC93E212C5AAC00A19D55 /* QRModalTransition.m in Sources */,
 				6265F83521085356003D8561 /* InputTextField.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import "HTTPRequestManager.h"
+#import "Web3UrlHelper.h"
 #import <AVFoundation/AVAsset.h>
 #import <AVFoundation/AVMediaFormat.h>
 #import <AVFoundation/AVAssetExportSession.h>
@@ -22,30 +23,53 @@ static CGFloat timeoutInterval = 10.0;
 
 static HTTPRequestManager * defualt_monitor_shareMananger = nil;
 static HTTPRequestManager * defualt_shareMananger = nil;
+static HTTPRequestManager * defualt_normal_shareMananger = nil;
+
+static dispatch_once_t onceToken;
+static dispatch_once_t onceToken_normal;
+static dispatch_once_t onceToken_monitor;
 
 + (instancetype)shareManager {
-    
-    static dispatch_once_t onceToken;
     _dispatch_once(&onceToken, ^{
-        
         if (defualt_shareMananger == nil) {
-            defualt_shareMananger = [[self alloc] initWithBaseURL:[NSURL URLWithString:base_url]];
+            NSString *webUrl = [[Web3UrlHelper standardHelper] currentWebUrl];
+            if (webUrl) {
+                defualt_shareMananger = [[self alloc] initWithBaseURL:[NSURL URLWithString:webUrl]];
+            }else{
+                defualt_shareMananger = [[self alloc] initWithBaseURL:[NSURL URLWithString:base_url]];
+            }
         }
     });
+    wLog(@"eos_monitor_base_url ===== %@",defualt_shareMananger.baseURL.absoluteString);
     return defualt_shareMananger;
 }
 
++ (void)deallocManager{
+    // 销毁单例
+    defualt_shareMananger = nil;
+    onceToken=0l;
+}
+
+
 + (instancetype)shareMonitorManager {
-
-    static dispatch_once_t onceToken;
-    _dispatch_once(&onceToken, ^{
-
+    
+    _dispatch_once(&onceToken_monitor, ^{
         if (defualt_monitor_shareMananger == nil) {
             defualt_monitor_shareMananger = [[self alloc] initWithBaseURL:[NSURL URLWithString:eos_monitor_base_url]];
         }
     });
     wLog(@"eos_monitor_base_url ===== %@",defualt_monitor_shareMananger.baseURL.absoluteString);
     return defualt_monitor_shareMananger;
+}
+
++ (instancetype)shareNormalManager {
+    _dispatch_once(&onceToken_normal, ^{
+        if (defualt_normal_shareMananger == nil) {
+            defualt_normal_shareMananger = [[self alloc] initWithBaseURL:nil];
+        }
+    });
+    wLog(@"eos_monitor_base_url ===== %@",defualt_normal_shareMananger.baseURL.absoluteString);
+    return defualt_normal_shareMananger;
 }
 
 #pragma mark 重写

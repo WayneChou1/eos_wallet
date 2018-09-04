@@ -13,12 +13,19 @@
 
 @interface ExchangeDetailViewController ()
 
+
+@property (weak, nonatomic) IBOutlet UILabel *fromTipLab;
+@property (weak, nonatomic) IBOutlet UILabel *toTipLab;
+@property (weak, nonatomic) IBOutlet UILabel *memoTipLab;
+@property (weak, nonatomic) IBOutlet UILabel *transactionTipLab;
+@property (weak, nonatomic) IBOutlet UILabel *timeTipLab;
+@property (weak, nonatomic) IBOutlet UIButton *copBtn;
+
 @property (weak, nonatomic) IBOutlet UILabel *amountLab;
 @property (weak, nonatomic) IBOutlet UILabel *sendAccountLab;
 @property (weak, nonatomic) IBOutlet UILabel *receivedAccountLab;
 @property (weak, nonatomic) IBOutlet UILabel *memoLab;
 @property (weak, nonatomic) IBOutlet UILabel *hashLab;
-@property (weak, nonatomic) IBOutlet UILabel *blockLab;
 @property (weak, nonatomic) IBOutlet UILabel *timeLab;
 @property (weak, nonatomic) IBOutlet UIImageView *qrImgV;
 @property (weak, nonatomic) IBOutlet UIScrollView *backgroundView;
@@ -42,10 +49,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpSubViews];
+    [self setNeedsStatusBarAppearanceUpdate];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -79,6 +91,14 @@
     } else {
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
+    
+    self.fromTipLab.text = kLocalizable(@"发款方");
+    self.toTipLab.text = kLocalizable(@"收款方");
+    self.memoTipLab.text = kLocalizable(@"备注");
+    self.transactionTipLab.text = kLocalizable(@"交易号");
+    self.timeTipLab.text = kLocalizable(@"交易时间");
+    [self.copBtn setTitle:kLocalizable(@"复制 URL") forState:UIControlStateNormal];
+    
 }
 
 #pragma mark - btnOnClick

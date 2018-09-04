@@ -26,7 +26,15 @@ typedef NS_ENUM(NSUInteger, HTTPMethod) {
  */
 + (instancetype)shareManager;
 
+
+/**
+ * 销毁单例
+ */
++ (void)deallocManager;
+
 + (instancetype)shareMonitorManager;
+
++ (instancetype)shareNormalManager;
 #pragma mark - GET 请求网络数据
 /**
  *  请求网络数据

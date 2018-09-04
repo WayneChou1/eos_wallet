@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		1827FFBC238CE3E9ECBD27AC /* libPods-wallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07FBD7D85EBA520E4A386C83 /* libPods-wallet.a */; };
+		6230DA5B213E1AF600850853 /* Web3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6230DA5A213E1AF600850853 /* Web3ViewController.m */; };
+		6230DA5D213E1D4900850853 /* WebList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6230DA5C213E1D4900850853 /* WebList.plist */; };
+		6230DA61213E21CD00850853 /* Web3Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6230DA5F213E21CD00850853 /* Web3Cell.m */; };
+		6230DA62213E21CD00850853 /* Web3Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6230DA60213E21CD00850853 /* Web3Cell.xib */; };
+		6230DA65213E2A8D00850853 /* Web3UrlHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6230DA64213E2A8D00850853 /* Web3UrlHelper.m */; };
+		6230DA6E213E579A00850853 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6230DA6C213E579A00850853 /* AboutUsViewController.m */; };
+		6230DA73213E7B3500850853 /* AboutUsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6230DA72213E7B3500850853 /* AboutUsHeaderView.xib */; };
+		6230DA77213E7C4A00850853 /* AboutUsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6230DA76213E7C4A00850853 /* AboutUsHeaderView.m */; };
 		6230E670213CDA430093A4D4 /* ProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6230E66E213CDA430093A4D4 /* ProfileCell.m */; };
 		6230E671213CDA430093A4D4 /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6230E66F213CDA430093A4D4 /* ProfileCell.xib */; };
 		6230E674213D00270093A4D4 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6230E673213D00270093A4D4 /* SettingViewController.m */; };
@@ -127,6 +135,19 @@
 /* Begin PBXFileReference section */
 		07FBD7D85EBA520E4A386C83 /* libPods-wallet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wallet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FCEAD0FB9C1749D3968A337 /* Pods-wallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wallet.release.xcconfig"; path = "Pods/Target Support Files/Pods-wallet/Pods-wallet.release.xcconfig"; sourceTree = "<group>"; };
+		6230DA59213E1AF600850853 /* Web3ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Web3ViewController.h; sourceTree = "<group>"; };
+		6230DA5A213E1AF600850853 /* Web3ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Web3ViewController.m; sourceTree = "<group>"; };
+		6230DA5C213E1D4900850853 /* WebList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = WebList.plist; sourceTree = "<group>"; };
+		6230DA5E213E21CD00850853 /* Web3Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Web3Cell.h; sourceTree = "<group>"; };
+		6230DA5F213E21CD00850853 /* Web3Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Web3Cell.m; sourceTree = "<group>"; };
+		6230DA60213E21CD00850853 /* Web3Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Web3Cell.xib; sourceTree = "<group>"; };
+		6230DA63213E2A8D00850853 /* Web3UrlHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Web3UrlHelper.h; sourceTree = "<group>"; };
+		6230DA64213E2A8D00850853 /* Web3UrlHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Web3UrlHelper.m; sourceTree = "<group>"; };
+		6230DA6B213E579A00850853 /* AboutUsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
+		6230DA6C213E579A00850853 /* AboutUsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
+		6230DA72213E7B3500850853 /* AboutUsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutUsHeaderView.xib; sourceTree = "<group>"; };
+		6230DA75213E7C4A00850853 /* AboutUsHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutUsHeaderView.h; sourceTree = "<group>"; };
+		6230DA76213E7C4A00850853 /* AboutUsHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutUsHeaderView.m; sourceTree = "<group>"; };
 		6230E66D213CDA430093A4D4 /* ProfileCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileCell.h; sourceTree = "<group>"; };
 		6230E66E213CDA430093A4D4 /* ProfileCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileCell.m; sourceTree = "<group>"; };
 		6230E66F213CDA430093A4D4 /* ProfileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCell.xib; sourceTree = "<group>"; };
@@ -268,8 +289,6 @@
 		F60316E6212D94ED001E9A34 /* WalletQRView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WalletQRView.m; sourceTree = "<group>"; };
 		F60349CB213A510600FF6582 /* EosFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EosFramework.framework; sourceTree = "<group>"; };
 		F60349CE213AA8DD00FF6582 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ExchangeDetailViewController.xib; sourceTree = "<group>"; };
-		F60349D1213AA8E300FF6582 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ExchangeDetailViewController.strings; sourceTree = "<group>"; };
-		F60349D3213AA8E400FF6582 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ExchangeDetailViewController.strings"; sourceTree = "<group>"; };
 		F606839A213D7138007B3FEC /* LocalizedHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalizedHelper.h; sourceTree = "<group>"; };
 		F606839B213D7138007B3FEC /* LocalizedHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalizedHelper.m; sourceTree = "<group>"; };
 		F609B7062136DCF7002B6A24 /* HTTPRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPRequestManager.h; sourceTree = "<group>"; };
@@ -344,6 +363,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		6230DA74213E7C2600850853 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6230E66D213CDA430093A4D4 /* ProfileCell.h */,
+				6230E66E213CDA430093A4D4 /* ProfileCell.m */,
+				6230E66F213CDA430093A4D4 /* ProfileCell.xib */,
+				6230E675213D024C0093A4D4 /* SettingTouchIdCell.h */,
+				6230E676213D024C0093A4D4 /* SettingTouchIdCell.m */,
+				6230E677213D024C0093A4D4 /* SettingTouchIdCell.xib */,
+				6230DA5E213E21CD00850853 /* Web3Cell.h */,
+				6230DA5F213E21CD00850853 /* Web3Cell.m */,
+				6230DA60213E21CD00850853 /* Web3Cell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		6230E66B213CD9F10093A4D4 /* Control */ = {
 			isa = PBXGroup;
 			children = (
@@ -353,6 +388,10 @@
 				6230E673213D00270093A4D4 /* SettingViewController.m */,
 				6230E67E213D3A890093A4D4 /* LanguageViewController.h */,
 				6230E67F213D3A890093A4D4 /* LanguageViewController.m */,
+				6230DA59213E1AF600850853 /* Web3ViewController.h */,
+				6230DA5A213E1AF600850853 /* Web3ViewController.m */,
+				6230DA6B213E579A00850853 /* AboutUsViewController.h */,
+				6230DA6C213E579A00850853 /* AboutUsViewController.m */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -360,12 +399,10 @@
 		6230E66C213CD9FB0093A4D4 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6230E66D213CDA430093A4D4 /* ProfileCell.h */,
-				6230E66E213CDA430093A4D4 /* ProfileCell.m */,
-				6230E66F213CDA430093A4D4 /* ProfileCell.xib */,
-				6230E675213D024C0093A4D4 /* SettingTouchIdCell.h */,
-				6230E676213D024C0093A4D4 /* SettingTouchIdCell.m */,
-				6230E677213D024C0093A4D4 /* SettingTouchIdCell.xib */,
+				6230DA74213E7C2600850853 /* Cell */,
+				6230DA75213E7C4A00850853 /* AboutUsHeaderView.h */,
+				6230DA76213E7C4A00850853 /* AboutUsHeaderView.m */,
+				6230DA72213E7B3500850853 /* AboutUsHeaderView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -403,6 +440,8 @@
 				625B0A5321071EF000E9AB44 /* MD5Encrypt.m */,
 				F606839A213D7138007B3FEC /* LocalizedHelper.h */,
 				F606839B213D7138007B3FEC /* LocalizedHelper.m */,
+				6230DA63213E2A8D00850853 /* Web3UrlHelper.h */,
+				6230DA64213E2A8D00850853 /* Web3UrlHelper.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -464,7 +503,6 @@
 				6274498120FC2E46003F61C8 /* AppDelegate.m */,
 				6274498920FC2E4C003F61C8 /* Assets.xcassets */,
 				6274498E20FC2E4C003F61C8 /* Info.plist */,
-				627449F420FC8342003F61C8 /* Localizable.strings */,
 				627449C020FC2E9E003F61C8 /* Supporting Files */,
 			);
 			path = wallet;
@@ -556,10 +594,12 @@
 		627449C020FC2E9E003F61C8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				627449F420FC8342003F61C8 /* Localizable.strings */,
 				6275DC30213529E800C3CB43 /* JavascriptFile */,
 				627449C120FC2EA9003F61C8 /* PrefixHeader.pch */,
 				6274498F20FC2E4C003F61C8 /* main.m */,
 				627449D920FC5677003F61C8 /* Wallet.bundle */,
+				6230DA5C213E1D4900850853 /* WebList.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -1021,6 +1061,7 @@
 				6275DC33213529E800C3CB43 /* Eos.js in Resources */,
 				6275DC34213529E800C3CB43 /* Javascript.html in Resources */,
 				F60226F0212B012B0086B2EB /* WalletQRViewController.xib in Resources */,
+				6230DA5D213E1D4900850853 /* WebList.plist in Resources */,
 				6274498A20FC2E4C003F61C8 /* Assets.xcassets in Resources */,
 				6230E679213D024C0093A4D4 /* SettingTouchIdCell.xib in Resources */,
 				628D91A62111512100F66845 /* WalletCell.xib in Resources */,
@@ -1038,9 +1079,11 @@
 				F60316E4212D94E1001E9A34 /* WalletQRView.xib in Resources */,
 				62824BA62110446C00BCFB18 /* MainAssetCell.xib in Resources */,
 				627449D220FC3E76003F61C8 /* BootPageViewController.xib in Resources */,
+				6230DA62213E21CD00850853 /* Web3Cell.xib in Resources */,
 				627449DA20FC5677003F61C8 /* Wallet.bundle in Resources */,
 				F60226EB212AFD760086B2EB /* WalletSendViewController.xib in Resources */,
 				F60349CD213AA8DD00FF6582 /* ExchangeDetailViewController.xib in Resources */,
+				6230DA73213E7B3500850853 /* AboutUsHeaderView.xib in Resources */,
 				626665AC210955CD0034E3C0 /* ImportAccountViewController.xib in Resources */,
 				628D919C211149DF00F66845 /* TransactionViewController.xib in Resources */,
 			);
@@ -1125,9 +1168,13 @@
 				F609B7082136DCF8002B6A24 /* HTTPRequestManager.m in Sources */,
 				6230E680213D3A890093A4D4 /* LanguageViewController.m in Sources */,
 				627449CA20FC3BE1003F61C8 /* BaseViewController.m in Sources */,
+				6230DA5B213E1AF600850853 /* Web3ViewController.m in Sources */,
 				62824B88211003D300BCFB18 /* Account.mm in Sources */,
 				F68110782138441D00DA3822 /* Exchange_2.m in Sources */,
+				6230DA61213E21CD00850853 /* Web3Cell.m in Sources */,
 				627449DE20FC7C69003F61C8 /* TabBarViewController.m in Sources */,
+				6230DA65213E2A8D00850853 /* Web3UrlHelper.m in Sources */,
+				6230DA77213E7C4A00850853 /* AboutUsHeaderView.m in Sources */,
 				628D91A52111512100F66845 /* WalletCell.m in Sources */,
 				626665B92109AAFC0034E3C0 /* InputPwdView.m in Sources */,
 				62A0F6E820FD7EF200472772 /* MainHeaderView.m in Sources */,
@@ -1145,6 +1192,7 @@
 				6274499020FC2E4C003F61C8 /* main.m in Sources */,
 				627A0FE3210E9AE100D834AF /* NSString+RegularExp.m in Sources */,
 				62A0F6FC20FDC44000472772 /* MainNoDataView.m in Sources */,
+				6230DA6E213E579A00850853 /* AboutUsViewController.m in Sources */,
 				628D919F21114ECA00F66845 /* WalletManagerViewController.m in Sources */,
 				627449D120FC3E76003F61C8 /* BootPageViewController.m in Sources */,
 				62824B8B211003FA00BCFB18 /* Account+WCTTableCoding.mm in Sources */,
@@ -1225,8 +1273,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				F60349CE213AA8DD00FF6582 /* Base */,
-				F60349D1213AA8E300FF6582 /* en */,
-				F60349D3213AA8E400FF6582 /* zh-Hans */,
 			);
 			name = ExchangeDetailViewController.xib;
 			sourceTree = "<group>";

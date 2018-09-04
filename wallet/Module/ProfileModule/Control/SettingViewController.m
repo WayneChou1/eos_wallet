@@ -8,6 +8,7 @@
 
 #import "SettingViewController.h"
 #import "LanguageViewController.h"
+#import "Web3ViewController.h"
 #import "SettingTouchIdCell.h"
 #import "EvaluatePolicy.h"
 
@@ -18,6 +19,10 @@
 @end
 
 @implementation SettingViewController
+
+- (instancetype)initWithStyle:(UITableViewStyle)style {
+    return [super initWithStyle:UITableViewStyleGrouped];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,17 +35,13 @@
     [super didReceiveMemoryWarning];
 }
 
-- (instancetype)initWithStyle:(UITableViewStyle)style {
-    return [super initWithStyle:UITableViewStyleGrouped];
-}
-
 - (void)loadData {
     self.dataArr = @[@[
                          @{
                            @"titleName":kLocalizable(@"多语言"),
                            },
                          @{
-                             @"titleName":kLocalizable(@"Web3 设置"),
+                             @"titleName":kLocalizable(@"节点设置"),
                            }
                          ]
                      ,@[
@@ -120,7 +121,7 @@
         if (indexPath.row == 0) {
             VC = [[LanguageViewController alloc] init];
         }else if (indexPath.row == 1) {
-            
+            VC = [[Web3ViewController alloc] init];
         }
     }
     

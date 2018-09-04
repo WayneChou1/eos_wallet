@@ -8,6 +8,7 @@
 
 #import "ProfileViewController.h"
 #import "SettingViewController.h"
+#import "AboutUsViewController.h"
 #import "ProfileCell.h"
 
 @interface ProfileViewController ()
@@ -18,6 +19,10 @@
 
 @implementation ProfileViewController
 
+- (instancetype)initWithStyle:(UITableViewStyle)style {
+    return [super initWithStyle:UITableViewStyleGrouped];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = kLocalizable(@"我的");
@@ -27,10 +32,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-}
-
-- (instancetype)initWithStyle:(UITableViewStyle)style {
-    return [super initWithStyle:UITableViewStyleGrouped];
 }
 
 - (void)loadData {
@@ -111,7 +112,7 @@
         if (indexPath.row == 0) {
             
         }else if (indexPath.row == 1) {
-            
+            VC = [[AboutUsViewController alloc] init];
         }else if (indexPath.row == 2) {
             
         }

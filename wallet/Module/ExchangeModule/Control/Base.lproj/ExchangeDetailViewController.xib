@@ -14,12 +14,18 @@
             <connections>
                 <outlet property="amountLab" destination="1xz-15-uSg" id="eo1-8r-jkg"/>
                 <outlet property="backgroundView" destination="LjE-4z-uWn" id="2mF-13-TQ2"/>
+                <outlet property="copBtn" destination="0hu-ah-Wuy" id="sZH-dn-u4V"/>
+                <outlet property="fromTipLab" destination="Hoc-ZG-hBX" id="0Ja-8t-kTe"/>
                 <outlet property="hashLab" destination="VAI-4A-Dij" id="vsy-PW-Pil"/>
                 <outlet property="memoLab" destination="19C-be-oc1" id="h9C-rf-mho"/>
+                <outlet property="memoTipLab" destination="cid-tv-2QU" id="GUW-Ul-mUT"/>
                 <outlet property="qrImgV" destination="9PX-sV-GmS" id="DpL-G5-7YK"/>
                 <outlet property="receivedAccountLab" destination="bIf-Wu-2n9" id="rgO-fP-2T4"/>
                 <outlet property="sendAccountLab" destination="uDW-DI-qHK" id="VSX-4Q-zIA"/>
                 <outlet property="timeLab" destination="SDp-AB-Czb" id="kXc-he-hUj"/>
+                <outlet property="timeTipLab" destination="LFt-ir-ar2" id="1V6-YX-BwJ"/>
+                <outlet property="toTipLab" destination="ITc-Qj-nXY" id="zOB-yW-rcc"/>
+                <outlet property="transactionTipLab" destination="ef1-EU-HN2" id="veQ-7W-SAI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

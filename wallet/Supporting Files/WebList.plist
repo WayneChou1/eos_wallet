@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>operated</key>
+		<string>greymass</string>
+		<key>url</key>
+		<string>https://eos.greymass.com</string>
+	</dict>
+	<dict>
+		<key>operated</key>
+		<string>EOS Cafe</string>
+		<key>url</key>
+		<string>https://mainnet.eoscalgary.io</string>
+	</dict>
+	<dict>
+		<key>operated</key>
+		<string>EOS New York</string>
+		<key>url</key>
+		<string>https://api.eosnewyork.io</string>
+	</dict>
+	<dict>
+		<key>operated</key>
+		<string>EOS Detroit</string>
+		<key>url</key>
+		<string>https://api.eosdetroit.io</string>
+	</dict>
+	<dict>
+		<key>operated</key>
+		<string> HK EOS</string>
+		<key>url</key>
+		<string>http://api.hkeos.com</string>
+	</dict>
+	<dict>
+		<key>operated</key>
+		<string>CryptoLions</string>
+		<key>url</key>
+		<string>https://bp.cryptolions.io</string>
+	</dict>
+	<dict>
+		<key>operated</key>
+		<string>EOS Emerge Poland</string>
+		<key>url</key>
+		<string>http://dc1.eosemerge.io:8888</string>
+	</dict>
+	<dict>
+		<key>operated</key>
+		<string>EOS Emerge Poland</string>
+		<key>url</key>
+		<string>https://dc1.eosemerge.io:5443</string>
+	</dict>
+	<dict>
+		<key>operated</key>
+		<string>EOS Dublin</string>
+		<key>url</key>
+		<string>https://api1.eosdublin.io</string>
+	</dict>
+	<dict>
+		<key>operated</key>
+		<string>EOS Dublin</string>
+		<key>url</key>
+		<string>https://api2.eosdublin.io</string>
+	</dict>
+	<dict>
+		<key>operated</key>
+		<string>EOS Cannon</string>
+		<key>url</key>
+		<string>https://mainnet.eoscannon.io</string>
+	</dict>
+	<dict>
+		<key>operated</key>
+		<string>Privex (privexinceos)</string>
+		<key>url</key>
+		<string>https://eos-api.privex.io</string>
+	</dict>
+	<dict>
+		<key>operated</key>
+		<string>Block Matrix</string>
+		<key>url</key>
+		<string>https://eosapi.blockmatrix.network</string>
+	</dict>
+	<dict>
+		<key>operated</key>
+		<string>EOSeoul</string>
+		<key>url</key>
+		<string>https://user-api.eoseoul.io</string>
+	</dict>
+	<dict>
+		<key>operated</key>
+		<string>Bitspace</string>
+		<key>url</key>
+		<string>https://api.eos.bitspace.no</string>
+	</dict>
+	<dict>
+		<key>operated</key>
+		<string>EOS Flare</string>
+		<key>url</key>
+		<string>https://node.eosflare.io</string>
+	</dict>
+	<dict>
+		<key>operated</key>
+		<string>Bitspace</string>
+		<key>url</key>
+		<string>https://api-eos.blckchnd.com</string>
+	</dict>
+</array>
+</plist>

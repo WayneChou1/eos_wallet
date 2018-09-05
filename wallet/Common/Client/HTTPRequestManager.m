@@ -14,7 +14,7 @@
 #import "UIImage+Compression.h"
 
 static NSString * const base_url = @"http://eos.greymass.com/";
-static NSString * const eos_monitor_base_url = @"http://eosmonitor.io/api/v1/account/";
+static NSString * const eos_monitor_base_url = @"https://api.eosmonitor.io/v1/";
 
 static CGFloat delay = 1.5;
 static CGFloat timeoutInterval = 10.0;
@@ -105,10 +105,10 @@ static dispatch_once_t onceToken_monitor;
  *  @param failure          请求失败的回调
  */
 
-- (void)get:(NSString *)path paramters:(NSDictionary *)paramters success:(void (^)(BOOL, id))success failure:(void (^)(NSError *))failure superView:(UIView *)view showFaliureDescription:(BOOL)show {
+- (void)get:(NSString *)path paramters:(NSDictionary *)paramters success:(void (^)(BOOL, id))success failure:(void (^)(NSError *))failure superView:(UIView *)view showLoading:(BOOL)loading showFaliureDescription:(BOOL)show {
     
     MBProgressHUD *hud;
-    if (view) hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    if (view && loading) hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     
     [self GET:path parameters:paramters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (hud) [hud hideAnimated:YES];
@@ -127,11 +127,15 @@ static dispatch_once_t onceToken_monitor;
 }
 
 - (void)get:(NSString *)path paramters:(NSDictionary *)paramters success:(void (^)(BOOL, id))success failure:(void (^)(NSError *))failure {
-    [self get:path paramters:paramters success:success failure:failure superView:nil showFaliureDescription:nil];
+    [self get:path paramters:paramters success:success failure:failure superView:nil showLoading:NO showFaliureDescription:NO];
 }
 
 - (void)get:(NSString *)path paramters:(NSDictionary *)paramters success:(void (^)(BOOL, id))success failure:(void (^)(NSError *))failure superView:(UIView *)view {
-    [self get:path paramters:paramters success:success failure:failure superView:view showFaliureDescription:nil];
+    [self get:path paramters:paramters success:success failure:failure superView:view showLoading:NO showFaliureDescription:NO];
+}
+
+- (void)get:(NSString *)path paramters:(NSDictionary *)paramters success:(void (^)(BOOL, id))success failure:(void (^)(NSError *))failure superView:(UIView *)view showLoading:(BOOL)loading {
+    [self get:path paramters:paramters success:success failure:failure superView:view showLoading:loading showFaliureDescription:NO];
 }
 
 #pragma mark - POST 传送网络数据
@@ -148,10 +152,11 @@ static dispatch_once_t onceToken_monitor;
                        success:(void(^) (BOOL isSuccess, id responseObject))success
                        failure:(void(^) (NSError *error))failure
                      superView:(UIView *)view
+                   showLoading:(BOOL)loading
         showFaliureDescription:(BOOL)show{
     
     MBProgressHUD *hud;
-    if (view) hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    if (view && loading) hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     
     NSURLSessionDataTask *task = [self POST:path parameters:paramters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
@@ -162,6 +167,8 @@ static dispatch_once_t onceToken_monitor;
         if ([HTTPRequestManager validateResponseData:responseObject HttpURLResponse:task.response]) {
             if (IsNilOrNull(success)) return;
             success(YES,responseObject);
+        }else{
+            success(NO,responseObject);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
@@ -186,22 +193,28 @@ static dispatch_once_t onceToken_monitor;
  */
 - (NSURLSessionDataTask *)post:(NSString *)path
                      paramters:(NSDictionary *)paramters
-                      success:(void(^) (BOOL isSuccess, id responseObject))success
-                      failure:(void(^) (NSError *error))failure{
-    
-    return [self post:path paramters:paramters success:success failure:failure superView:nil showFaliureDescription:NO];
+                       success:(void(^) (BOOL isSuccess, id responseObject))success
+                       failure:(void(^) (NSError *error))failure {
+    return [self post:path paramters:paramters success:success failure:failure superView:nil showLoading:NO showFaliureDescription:NO];
 }
 
 - (NSURLSessionDataTask *)post:(NSString *)path
                      paramters:(NSDictionary *)paramters
-                     success:(void(^) (BOOL isSuccess, id responseObject))success
-                     failure:(void(^) (NSError *error))failure
-                   superView:(UIView *)view{
-    
-    return [self post:path paramters:paramters success:success failure:failure superView:view showFaliureDescription:NO];
+                       success:(void(^) (BOOL isSuccess, id responseObject))success
+                       failure:(void(^) (NSError *error))failure
+                     superView:(UIView *)view
+                   showLoading:(BOOL)loading {
+    return [self post:path paramters:paramters success:success failure:failure superView:view showLoading:loading showFaliureDescription:NO];
 }
 
-
+- (NSURLSessionDataTask *)post:(NSString *)path
+                     paramters:(NSDictionary *)paramters
+                       success:(void(^) (BOOL isSuccess, id responseObject))success
+                       failure:(void(^) (NSError *error))failure
+                     superView:(UIView *)view
+        showFaliureDescription:(BOOL)show {
+    return [self post:path paramters:paramters success:success failure:failure superView:view showLoading:NO showFaliureDescription:show];
+}
 
 #pragma mark POST 上传图片
 /**

@@ -106,7 +106,6 @@
 		F616E90D2132DA7B00B60FAA /* ScanQRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F616E90C2132DA7B00B60FAA /* ScanQRViewController.m */; };
 		F616E9102132DE5600B60FAA /* EditorView.m in Sources */ = {isa = PBXBuildFile; fileRef = F616E90F2132DE5500B60FAA /* EditorView.m */; };
 		F61A1551213AFE070084B2F4 /* UIImage+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = F61A1550213AFE070084B2F4 /* UIImage+Filter.m */; };
-		F68110782138441D00DA3822 /* Exchange_2.m in Sources */ = {isa = PBXBuildFile; fileRef = F68110772138441D00DA3822 /* Exchange_2.m */; };
 		F681107C2138493600DA3822 /* ExchangeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F681107A2138493600DA3822 /* ExchangeDetailViewController.m */; };
 		F6F81C3D212A60F000737503 /* WalletNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F81C3B212A60F000737503 /* WalletNameCell.m */; };
 		F6F81C3E212A60F000737503 /* WalletNameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6F81C3C212A60F000737503 /* WalletNameCell.xib */; };
@@ -315,8 +314,6 @@
 		F616E90F2132DE5500B60FAA /* EditorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditorView.m; sourceTree = "<group>"; };
 		F61A154F213AFE070084B2F4 /* UIImage+Filter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Filter.h"; sourceTree = "<group>"; };
 		F61A1550213AFE070084B2F4 /* UIImage+Filter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Filter.m"; sourceTree = "<group>"; };
-		F68110762138441D00DA3822 /* Exchange_2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Exchange_2.h; sourceTree = "<group>"; };
-		F68110772138441D00DA3822 /* Exchange_2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Exchange_2.m; sourceTree = "<group>"; };
 		F68110792138493600DA3822 /* ExchangeDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExchangeDetailViewController.h; sourceTree = "<group>"; };
 		F681107A2138493600DA3822 /* ExchangeDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExchangeDetailViewController.m; sourceTree = "<group>"; };
 		F6F81C3A212A60F000737503 /* WalletNameCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WalletNameCell.h; sourceTree = "<group>"; };
@@ -892,8 +889,6 @@
 			children = (
 				F609B70B2136E3BC002B6A24 /* Exchange.h */,
 				F609B70C2136E3BC002B6A24 /* Exchange.m */,
-				F68110762138441D00DA3822 /* Exchange_2.h */,
-				F68110772138441D00DA3822 /* Exchange_2.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1175,7 +1170,6 @@
 				627449CA20FC3BE1003F61C8 /* BaseViewController.m in Sources */,
 				6230DA5B213E1AF600850853 /* Web3ViewController.m in Sources */,
 				62824B88211003D300BCFB18 /* Account.mm in Sources */,
-				F68110782138441D00DA3822 /* Exchange_2.m in Sources */,
 				6230DA61213E21CD00850853 /* Web3Cell.m in Sources */,
 				627449DE20FC7C69003F61C8 /* TabBarViewController.m in Sources */,
 				6230DA65213E2A8D00850853 /* Web3UrlHelper.m in Sources */,

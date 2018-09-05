@@ -11,7 +11,7 @@
 #import "Web3UrlHelper.h"
 
 @interface Web3ViewController (){
-    NSInteger _current;
+    NSIndexPath *_current;
 }
 
 @property (copy, nonatomic) NSArray *dataArr;
@@ -70,24 +70,35 @@
     
     NSString *selUrl = [[Web3UrlHelper standardHelper] currentWebUrl];
     
-    // 如果本地没有缓存记录，默认为第一个
-    if (selUrl) {
-        if ([[dic objectForKey:@"url"] isEqualToString:selUrl]) {
+    
+    if (_current) {
+        if (_current == indexPath) {
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
             cell.urlLab.textColor = kMain_Color;
-            _current = indexPath.row;
-        }else{
+        }else if (selUrl){
             cell.accessoryType = UITableViewCellAccessoryNone;
             cell.urlLab.textColor = [UIColor darkGrayColor];
         }
     }else{
-        if (indexPath.row == 0) {
-            cell.accessoryType = UITableViewCellAccessoryCheckmark;
-            cell.urlLab.textColor = kMain_Color;
-            _current = indexPath.row;
+        // 如果本地没有缓存记录，默认为第一个
+        if (selUrl) {
+            if ([[dic objectForKey:@"url"] isEqualToString:selUrl]) {
+                cell.accessoryType = UITableViewCellAccessoryCheckmark;
+                cell.urlLab.textColor = kMain_Color;
+                _current = indexPath;
+            }else{
+                cell.accessoryType = UITableViewCellAccessoryNone;
+                cell.urlLab.textColor = [UIColor darkGrayColor];
+            }
         }else{
-            cell.accessoryType = UITableViewCellAccessoryNone;
-            cell.urlLab.textColor = [UIColor darkGrayColor];
+            if (indexPath.row == 0) {
+                cell.accessoryType = UITableViewCellAccessoryCheckmark;
+                cell.urlLab.textColor = kMain_Color;
+                _current = indexPath;
+            }else{
+                cell.accessoryType = UITableViewCellAccessoryNone;
+                cell.urlLab.textColor = [UIColor darkGrayColor];
+            }
         }
     }
     
@@ -96,7 +107,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if(indexPath.row == _current) return;
+    if(indexPath == _current) return;
     
     Web3Cell *newCell = [tableView cellForRowAtIndexPath:indexPath];
     
@@ -105,14 +116,14 @@
         newCell.urlLab.textColor = kMain_Color;
     }
     
-    NSIndexPath *oldIndexPath = [NSIndexPath indexPathForRow:_current inSection:0];
+    NSIndexPath *oldIndexPath = _current;
     
     Web3Cell *oldCell = [tableView cellForRowAtIndexPath:oldIndexPath];
     if(oldCell.accessoryType == UITableViewCellAccessoryCheckmark){
         oldCell.accessoryType = UITableViewCellAccessoryNone;
         oldCell.urlLab.textColor = [UIColor darkGrayColor];
     }
-    _current = indexPath.row;
+    _current = indexPath;
 }
 
 #pragma mark - btnOnClick

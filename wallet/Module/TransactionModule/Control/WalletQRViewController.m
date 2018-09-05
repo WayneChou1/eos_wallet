@@ -20,7 +20,7 @@ static CGFloat alpha = 0.9;
 
 @property (strong, nonatomic) UIVisualEffectView *visualView;
 @property (strong, nonatomic) WalletQRView *qrView;
-@property (copy, nonatomic) NSString *publicKey;
+@property (copy, nonatomic) NSString *account;
 
 @property (strong, nonatomic) QRModalTransition *presentTransition;
 @property (strong, nonatomic) QRModalTransition *dismissTransition;
@@ -34,10 +34,10 @@ static CGFloat alpha = 0.9;
     
 }
 
-- (instancetype)initWithPublicKey:(NSString *)publicKey {
+- (instancetype)initWithAccount:(NSString *)account {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
-        self.publicKey = publicKey;
+        self.account = account;
         
         self.transitioningDelegate = self;
         self.modalPresentationStyle = UIModalPresentationCustom;
@@ -86,7 +86,7 @@ static CGFloat alpha = 0.9;
     [self.visualView.contentView addSubview:visualEffectView];
     
     // 设置二维码
-    self.qrView = [[WalletQRView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) publickey:self.publicKey];
+    self.qrView = [[WalletQRView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) codeString:self.account];
     [self.view addSubview:self.qrView];
 }
 

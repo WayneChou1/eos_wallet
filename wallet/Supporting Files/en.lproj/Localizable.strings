@@ -54,6 +54,8 @@
 "输入activekey" = "Import your activekey";
 
 /* 交易 */
+"转账" = "Send";
+"收款" = "Receive";
 "保存" = "Save";
 "复制" = "Copy";
 "复制成功" = "Copy Success";

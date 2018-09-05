@@ -11,7 +11,6 @@
 #import "ExchangeCell.h"
 #import "AccountManager.h"
 #import "Exchange.h"
-#import "Exchange_2.h"
 #import <MJRefresh.h>
 
 @interface ExchangeViewController () <UITableViewDelegate,UITableViewDataSource>
@@ -82,7 +81,7 @@
         [[HTTPRequestManager shareMonitorManager] get:url paramters:nil success:^(BOOL isSuccess, id responseObject) {
             if (isSuccess) {
                 if ([responseObject isKindOfClass:[NSDictionary class]]) {
-                    if ([[responseObject objectForKey:@"data"] isKindOfClass:[NSArray class]]) {
+                    if ([[[responseObject objectForKey:@"data"] objectForKey:@"data"] isKindOfClass:[NSArray class]]) {
                         
                         // 如果是下拉，先清除数据
                         if (!more) {
@@ -93,11 +92,11 @@
                         }
                         
                         // 如果返回数据个数小于设定的个数，认为没有更多数据
-                        if ([[responseObject objectForKey:@"data"] count] < self.pageSize) {
+                        if ([[[responseObject objectForKey:@"data"] objectForKey:@"data"] count] < self.pageSize) {
                             [self.tableView.mj_footer endRefreshingWithNoMoreData];
                         }
                         
-                        for (NSDictionary *dic in [responseObject objectForKey:@"data"]) {
+                        for (NSDictionary *dic in [[responseObject objectForKey:@"data"] objectForKey:@"data"]) {
                             if ([dic isKindOfClass:[NSDictionary class]]) {
                                 Exchange *exchange = [Exchange yy_modelWithDictionary:dic];
                                 [self.dataArr addObject:exchange];
@@ -188,6 +187,11 @@
     ExchangeDetailViewController *VC = [[ExchangeDetailViewController alloc] initWithExchange:self.dataArr[indexPath.row]];
     VC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:VC animated:YES];
+    
+//    Exchange *m = self.dataArr[indexPath.row];
+//    ExchangeDetailViewController *VC = [[ExchangeDetailViewController alloc] initWithTransactionId:m.trx_id];
+//    VC.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController pushViewController:VC animated:YES];
 }
 
 

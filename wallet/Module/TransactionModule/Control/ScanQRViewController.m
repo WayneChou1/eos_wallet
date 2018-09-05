@@ -37,9 +37,19 @@ static NSString * const scan_line_move    = @"scanLineMove";
 @property (nonatomic,strong) CALayer *scanLayer;
 @property (nonatomic,assign)BOOL isCanReq;
 
+@property (nonatomic, copy) ScanCompleteHandler handler;
+
 @end
 
 @implementation ScanQRViewController
+
+- (instancetype)initWithHandler:(ScanCompleteHandler)handler {
+    self = [super initWithNibName:nil bundle:nil];
+    if (self) {
+        self.handler = handler;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -264,7 +274,14 @@ static NSString * const scan_line_move    = @"scanLineMove";
         //数组中包含的都是AVMetadataMachineReadableCodeObject 类型的对象，该对象中包含解码后的数据
         AVMetadataMachineReadableCodeObject *qrObject = [metadataObjects lastObject];
         //拿到扫描内容在这里进行个性化处理
-        NSLog(@"识别成功%@",qrObject.stringValue);
+        wLog(@"识别成功%@",qrObject.stringValue);
+        if (self.handler) {
+            
+            // 同步到主线程
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.handler(YES, qrObject.stringValue);
+            });
+        }
     }
 }
 
@@ -313,6 +330,12 @@ static NSString * const scan_line_move    = @"scanLineMove";
 #pragma mark - btnOnClick
 
 - (void)closeItemOnClick:(UIBarButtonItem *)item {
+    if (self.handler) {
+        // 同步到主线程
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.handler(NO, nil);
+        });
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

@@ -8,6 +8,10 @@
 
 #import "BaseViewController.h"
 
+typedef void(^ScanCompleteHandler)(BOOL success,NSString *codeString);
+
 @interface ScanQRViewController : BaseViewController
+
+- (instancetype)initWithHandler:(ScanCompleteHandler)handler;
 
 @end

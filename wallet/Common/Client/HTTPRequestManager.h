@@ -44,11 +44,13 @@ typedef NS_ENUM(NSUInteger, HTTPMethod) {
  *  @param success          请求成功的回调
  *  @param failure          请求失败的回调
  */
-- (void)get:(NSString *)path paramters:(NSDictionary *)paramters success:(void (^)(BOOL isSuccess, id responseObject))success failure:(void (^)(NSError *failure))failure superView:(UIView *)view showFaliureDescription:(BOOL)show;
+- (void)get:(NSString *)path paramters:(NSDictionary *)paramters success:(void (^)(BOOL, id))success failure:(void (^)(NSError *))failure superView:(UIView *)view showLoading:(BOOL)loading showFaliureDescription:(BOOL)show;
 
 - (void)get:(NSString *)path paramters:(NSDictionary *)paramters success:(void (^)(BOOL isSuccess, id responseObject))success failure:(void (^)(NSError *failure))failure;
 
 - (void)get:(NSString *)path paramters:(NSDictionary *)paramters success:(void (^)(BOOL isSuccess, id responseObject))success failure:(void (^)(NSError *failure))failure superView:(UIView *)view;
+
+- (void)get:(NSString *)path paramters:(NSDictionary *)paramters success:(void (^)(BOOL, id))success failure:(void (^)(NSError *))failure superView:(UIView *)view showLoading:(BOOL)loading;
 
 #pragma mark - POST 传送网络数据
 /**
@@ -64,6 +66,7 @@ typedef NS_ENUM(NSUInteger, HTTPMethod) {
                        success:(void(^) (BOOL isSuccess, id responseObject))success
                        failure:(void(^) (NSError *error))failure
                      superView:(UIView *)view
+                   showLoading:(BOOL)loading
         showFaliureDescription:(BOOL)show;
 
 - (NSURLSessionDataTask *)post:(NSString *)path
@@ -75,7 +78,15 @@ typedef NS_ENUM(NSUInteger, HTTPMethod) {
                      paramters:(NSDictionary *)paramters
                        success:(void(^) (BOOL isSuccess, id responseObject))success
                        failure:(void(^) (NSError *error))failure
-                     superView:(UIView *)view;
+                     superView:(UIView *)view
+                   showLoading:(BOOL)loading;
+
+- (NSURLSessionDataTask *)post:(NSString *)path
+                     paramters:(NSDictionary *)paramters
+                       success:(void(^) (BOOL isSuccess, id responseObject))success
+                       failure:(void(^) (NSError *error))failure
+                     superView:(UIView *)view
+        showFaliureDescription:(BOOL)show;
 
 #pragma mark POST 上传图片
 /**

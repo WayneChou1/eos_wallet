@@ -14,4 +14,6 @@
 
 - (instancetype)initWithExchange:(Exchange *)exchange;
 
+- (instancetype)initWithTransactionId:(NSString *)transactionId;
+
 @end

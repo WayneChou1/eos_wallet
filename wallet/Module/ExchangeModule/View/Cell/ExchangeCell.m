@@ -8,6 +8,7 @@
 
 #import "ExchangeCell.h"
 #import "AccountManager.h"
+#import "NSDate+ExFoundation.h"
 
 @interface ExchangeCell ()
 
@@ -31,26 +32,28 @@
 - (void)setExchange:(Exchange *)exchange {
     _exchange = exchange;
     
-    self.tokenLab.text = [exchange.quantity componentsSeparatedByString:@" "].lastObject;
-    self.timeLab.text = exchange.expiration;
+    self.tokenLab.text = [exchange.data.quantity componentsSeparatedByString:@" "].lastObject;
+    
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:exchange.expiration.doubleValue];
+    self.timeLab.text = [date stringFormate:@"yyyy-MM-dd HH:mm:ss"];
     
     // 判断是否是本地账号
     BOOL isReceive = NO;
     NSArray <Account *> *accountArr = [[AccountManager shareManager] selectAllAccounts];
     for (Account *a in accountArr) {
-        if ([a.accountName isEqualToString:exchange.to]) {
+        if ([a.accountName isEqualToString:exchange.data.to]) {
             isReceive = YES;
-        }else if ([a.accountName isEqualToString:exchange.from]) {
+        }else if ([a.accountName isEqualToString:exchange.data.from]) {
             isReceive = NO;
         }
     }
     
     if (isReceive) {
         self.amoutLab.textColor = kMain_Color;
-        self.amoutLab.text = [NSString stringWithFormat:@"+%@",exchange.quantity];
+        self.amoutLab.text = [NSString stringWithFormat:@"+%@",exchange.data.quantity];
     }else{
         self.amoutLab.textColor = kWarning_Text_Color;
-        self.amoutLab.text = [NSString stringWithFormat:@"-%@",exchange.quantity];
+        self.amoutLab.text = [NSString stringWithFormat:@"-%@",exchange.data.quantity];
     }
     
 //    self.tokenLab.text = [exchange.action_trace.act.data.quantity componentsSeparatedByString:@" "].lastObject;

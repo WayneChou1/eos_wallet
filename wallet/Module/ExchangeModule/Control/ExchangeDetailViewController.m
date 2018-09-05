@@ -10,6 +10,7 @@
 #import "Exchange.h"
 #import "UIImage+Color.h"
 #import "UIImage+Filter.h"
+#import "NSDate+ExFoundation.h"
 
 @interface ExchangeDetailViewController ()
 
@@ -31,7 +32,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *backgroundView;
 
 @property (strong, nonatomic) Exchange *exchange;
-
+@property (copy, nonatomic) NSString *transaction_id;
 
 @end
 
@@ -46,10 +47,31 @@
     return self;
 }
 
+- (instancetype)initWithTransactionId:(NSString *)transactionId {
+    self = [super initWithNibName:nil bundle:nil];
+    if (self) {
+        self.transaction_id = transactionId;
+        self.title = kLocalizable(@"交易详情");
+        [self loadData];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setUpSubViews];
     [self setNeedsStatusBarAppearanceUpdate];
+    
+    if (@available(iOS 11.0, *)) {
+        self.backgroundView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    } else {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
+    
+    [self setUpSubViews];
+    
+    if (self.exchange) {
+        [self reloadSubView];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -76,29 +98,41 @@
 }
 
 - (void)setUpSubViews {
-    if (self.exchange) {
-        self.amountLab.text = self.exchange.quantity;
-        self.sendAccountLab.text = self.exchange.from;
-        self.receivedAccountLab.text = self.exchange.to;
-        self.memoLab.text = self.exchange.mome;
-        self.hashLab.text = self.exchange.trx_id;
-        self.timeLab.text = self.exchange.expiration;
-        self.qrImgV.image = [UIImage createImageWithString:self.exchange.trx_id filterWithName:CIQRCode];
-    }
-    
-    if (@available(iOS 11.0, *)) {
-        self.backgroundView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-    } else {
-        self.automaticallyAdjustsScrollViewInsets = NO;
-    }
-    
     self.fromTipLab.text = kLocalizable(@"发款方");
     self.toTipLab.text = kLocalizable(@"收款方");
     self.memoTipLab.text = kLocalizable(@"备注");
     self.transactionTipLab.text = kLocalizable(@"交易号");
     self.timeTipLab.text = kLocalizable(@"交易时间");
     [self.copBtn setTitle:kLocalizable(@"复制 URL") forState:UIControlStateNormal];
-    
+}
+
+- (void)reloadSubView {
+    if (self.exchange) {
+        self.amountLab.text = self.exchange.data.quantity;
+        self.sendAccountLab.text = self.exchange.data.from;
+        self.receivedAccountLab.text = self.exchange.data.to;
+        self.memoLab.text = self.exchange.data.memo;
+        self.hashLab.text = self.exchange.trx_id;
+        NSDate *date = [NSDate dateWithTimeIntervalSince1970:self.exchange.expiration.doubleValue];
+        self.timeLab.text = [date stringFormate:@"yyyy-MM-dd HH:mm:ss"];
+        self.qrImgV.image = [UIImage createImageWithString:self.exchange.trx_id filterWithName:CIQRCode];
+    }
+}
+
+- (void)loadData {
+    [[HTTPRequestManager shareMonitorManager] get:eos_get_transaction_action(self.transaction_id) paramters:nil success:^(BOOL isSuccess, id responseObject) {
+        if (isSuccess) {
+            if ([[[responseObject objectForKey:@"data"] objectForKey:@"data"] isKindOfClass:[NSArray class]]) {
+                for (NSDictionary *dic in [[responseObject objectForKey:@"data"] objectForKey:@"data"]) {
+                    if ([dic isKindOfClass:[NSDictionary class]]) {
+                        Exchange *exchange = [Exchange yy_modelWithDictionary:dic];
+                        self.exchange = exchange;
+                        [self reloadSubView];
+                    }
+                }
+            }
+        }
+    } failure:nil superView:self.view showLoading:YES];
 }
 
 #pragma mark - btnOnClick

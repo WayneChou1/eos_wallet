@@ -32,7 +32,7 @@ static CGFloat top_offset = 40.0;
 @implementation WalletQRView
 
 
-- (instancetype)initWithFrame:(CGRect)frame publickey:(NSString *)publicKey {
+- (instancetype)initWithFrame:(CGRect)frame codeString:(NSString *)codeString {
     
     self = [super init];
     if (self) {
@@ -45,8 +45,8 @@ static CGFloat top_offset = 40.0;
             self.contentFrame = self.contentView.frame;
             self.frame = frame;
             self.backgroundColor = [UIColor clearColor];
-            self.addressLab.text = publicKey;
-            self.qrImageV.image = [self createImageWithString:publicKey];
+            self.addressLab.text = codeString;
+            self.qrImageV.image = [self createImageWithString:codeString];
             
             [self.copBtn setTitle:kLocalizable(@"复制") forState:UIControlStateNormal];
         }

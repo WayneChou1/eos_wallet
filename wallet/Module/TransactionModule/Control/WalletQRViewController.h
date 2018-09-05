@@ -14,10 +14,10 @@
 /**
  初始化方法
 
- @param publicKey 公钥
+ @param account 账号
  @return 实例对象
  */
-- (instancetype)initWithPublicKey:(NSString *)publicKey;
+- (instancetype)initWithAccount:(NSString *)account;
 
 - (void)show:(NSTimeInterval)duration present:(BOOL)present completion:(void(^)(void))completion;
 - (void)dismiss:(NSTimeInterval)duration completion:(void(^)(void))completion;

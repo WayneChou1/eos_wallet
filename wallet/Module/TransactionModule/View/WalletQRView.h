@@ -12,7 +12,7 @@ static NSTimeInterval duration = 0.35;
 
 @interface WalletQRView : UIView
 
-- (instancetype)initWithFrame:(CGRect)frame publickey:(NSString *)publicKey;
+- (instancetype)initWithFrame:(CGRect)frame codeString:(NSString *)codeString;
 
 -(void)panGestureAction:(UIPanGestureRecognizer *)gesture;
 

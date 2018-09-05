@@ -8,11 +8,19 @@
 
 #import "Exchange.h"
 
-@implementation data
+@implementation Data
 @end
 
-@implementation authorization
+@implementation Authorization
 @end
 
 @implementation Exchange
+
++ (NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass {
+    return @{
+             @"authorization":[Authorization class],
+             @"data":[Data class]
+             };
+}
+
 @end

@@ -8,15 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-@interface data : NSObject
+@interface Data : NSObject
 
 @property (copy, nonatomic) NSString *from;
 @property (copy, nonatomic) NSString *to;
 @property (copy, nonatomic) NSString *memo;
+@property (copy, nonatomic) NSString *quantity;
 
 @end
 
-@interface authorization : NSObject
+@interface Authorization : NSObject
 
 @property (copy, nonatomic) NSString *actor;
 @property (copy, nonatomic) NSString *permission;
@@ -25,16 +26,12 @@
 
 @interface Exchange : NSObject
 
-@property (copy, nonatomic) NSString *_id;
-@property (copy, nonatomic) NSString *account;
 @property (copy, nonatomic) NSString *action_num;
 @property (copy, nonatomic) NSString *expiration;
-@property (copy, nonatomic) NSString *from;
-@property (copy, nonatomic) NSString *mome;
+@property (copy, nonatomic) NSString *handler_account;
 @property (copy, nonatomic) NSString *name;
-@property (copy, nonatomic) NSString *quantity;
-@property (copy, nonatomic) NSString *to;
-@property (copy, nonatomic) NSString *transfer;
 @property (copy, nonatomic) NSString *trx_id;
+@property (strong, nonatomic) Authorization *authorization;
+@property (strong, nonatomic) Data *data;
 
 @end

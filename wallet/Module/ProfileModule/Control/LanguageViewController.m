@@ -12,7 +12,7 @@
 #import "AppDelegate.h"
 
 @interface LanguageViewController (){
-    NSInteger _current;
+    NSIndexPath *_current;
 }
 
 @property (copy, nonatomic) NSArray *dataArr;
@@ -94,13 +94,21 @@
     cell.textLabel.text = [dic objectForKey:@"titleName"];
     cell.indentationWidth = 12.0;
     
-    if ([[dic objectForKey:@"language"] isEqualToString:[[LocalizedHelper standardHelper] currentLanguage]]) {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        _current = indexPath.row;
-    }else{
-        cell.accessoryType = UITableViewCellAccessoryNone;
+    if (_current) {
+        if (_current == indexPath) {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        }else{
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
+    }else {
+        if ([[dic objectForKey:@"language"] isEqualToString:[[LocalizedHelper standardHelper] currentLanguage]]) {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            _current = indexPath;
+        }else{
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
     }
-    
+
     return cell;
 }
 
@@ -122,7 +130,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 //    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if(indexPath.row == _current)return;
+    if(indexPath == _current)return;
     
     UITableViewCell *newCell = [tableView cellForRowAtIndexPath:indexPath];
 
@@ -131,14 +139,14 @@
         newCell.textLabel.textColor = kMain_Color;
     }
     
-    NSIndexPath*oldIndexPath = [NSIndexPath indexPathForRow:_current inSection:0];
+    NSIndexPath*oldIndexPath = _current;
     
     UITableViewCell*oldCell = [tableView cellForRowAtIndexPath:oldIndexPath];
     if(oldCell.accessoryType == UITableViewCellAccessoryCheckmark){
         oldCell.accessoryType = UITableViewCellAccessoryNone;
         oldCell.textLabel.textColor = kDark_Text_Color;
     }
-    _current = indexPath.row;
+    _current = indexPath;
 }
 
 

@@ -17,6 +17,8 @@
 
 @property (nonatomic, strong) Account *account;
 @property (weak, nonatomic) IBOutlet UILabel *detailLab;
+@property (weak, nonatomic) IBOutlet UIButton *sendBtn;
+@property (weak, nonatomic) IBOutlet UIButton *receiveBtn;
 
 @end
 
@@ -43,6 +45,8 @@
 
 - (void)setUpSubViews {
 //    self.detailLab.text = self.account.core_liquid_balance;
+    [self.sendBtn setTitle:kLocalizable(@"转账") forState:UIControlStateNormal];
+    [self.receiveBtn setTitle:kLocalizable(@"收款") forState:UIControlStateNormal];
 }
 
 - (void)setNav {
@@ -53,8 +57,8 @@
 #pragma mark - btnOnClick
 
 - (IBAction)receiveBtnOnClick:(UIButton *)sender {
-    NSString *publicKey = self.account.ownerPublickKey;
-    WalletQRViewController *VC = [[WalletQRViewController alloc] initWithPublicKey:publicKey];
+    NSString *account = self.account.accountName;
+    WalletQRViewController *VC = [[WalletQRViewController alloc] initWithAccount:account];
     [self presentViewController:VC animated:YES completion:nil];
 }
 
@@ -64,7 +68,10 @@
 }
 
 - (void)QRItemOnClick:(UIBarButtonItem *)item {
-    ScanQRViewController *VC = [[ScanQRViewController alloc] init];
+    WEAK_SELF(weakSelf)
+    ScanQRViewController *VC = [[ScanQRViewController alloc] initWithHandler:^(BOOL success, NSString *codeString) {
+        
+    }];
     NavigationViewController *naVC = [[NavigationViewController alloc] initWithRootViewController:VC];
     [self.navigationController presentViewController:naVC animated:YES completion:nil];
 }

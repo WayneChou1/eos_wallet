@@ -7,6 +7,9 @@
 //
 
 #import "WalletSendViewController.h"
+#import "ExchangeDetailViewController.h"
+#import "ScanQRViewController.h"
+#import "NavigationViewController.h"
 #import "InputTextField.h"
 #import "InputPwdView.h"
 #import "AccountManager.h"
@@ -50,7 +53,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"";
+    self.title = kLocalizable(@"转账");
     [self setUpSubViews];
 }
 
@@ -83,6 +86,7 @@
 #pragma mark - transaction
 
 - (void)transfer {
+    
     [self getBinargs:^(id response) {
         if ([response isKindOfClass:[NSDictionary class]]) {
             NSDictionary *d = (NSDictionary *)response;
@@ -90,7 +94,6 @@
             
             [self getInfoSuccess:^(id response) {
                 BlockChain *model = [BlockChain yy_modelWithDictionary:response];// [@"data"]
-                
                 self.expiration = [[[NSDate dateFromString: model.head_block_time] dateByAddingTimeInterval: 30] formatterToISO8601];
                 self.ref_block_num = [NSString stringWithFormat:@"%@",model.head_block_num];
                 
@@ -98,7 +101,6 @@
                 [self.context evaluateScript:js];
                 JSValue *n = [self.context[@"readUint32"] callWithArguments:@[@8,VALIDATE_STRING(model.head_block_id) , @8]];
                 self.ref_block_prefix = [n toString];
-                
                 self.chain_Id = [NSData convertHexStrToData:model.chain_id];
                 wLog(@"get_block_info_success:%@, %@---%@-%@", self.expiration , self.ref_block_num, self.ref_block_prefix, self.chain_Id);
                 
@@ -106,7 +108,10 @@
                     if ([response isKindOfClass:[NSDictionary class]]) {
                         self.required_Publickey = response[@"required_keys"][0];
                         [self pushTransactionRequestOperationSuccess:^(id response) {
-                            
+                            if ([response isKindOfClass:[NSDictionary class]]) {
+                                ExchangeDetailViewController *VC = [[ExchangeDetailViewController alloc] initWithTransactionId:[response objectForKey:@"transaction_id"]];
+                                [self.navigationController pushViewController:VC animated:YES];
+                            }
                         }];
                     }
                 }];
@@ -118,42 +123,53 @@
 #pragma mark - 获取行动代码
 
 - (void)getBinargs:(void(^)(id response))handler {
+    
+    MBProgressHUD *hud1 = [MBProgressHUD zj_showHUDAddedToView:self.view title:nil animated:YES];
     [[HTTPRequestManager shareManager] post:eos_abi_json_to_bin paramters:[self getAbiJsonToBinParamters] success:^(BOOL isSuccess, id responseObject) {
-        if (isSuccess) {
-            handler(responseObject);
-        }
-    } failure:nil superView:self.view showFaliureDescription:YES];
-}
-
-#pragma mark - 获取最新区块
-
-- (void)getInfoSuccess:(void(^)(id response))handler{
-
-    [[HTTPRequestManager shareManager] post:eos_get_info paramters:nil success:^(BOOL isSuccess, id responseObject) {
+        [hud1 hideAnimated:YES];
         if (isSuccess) {
             handler(responseObject);
         }
     } failure:^(NSError *error) {
+        [hud1 hideAnimated:YES];
+    } superView:self.view showFaliureDescription:YES];
+}
+
+#pragma mark - 获取最新区块
+
+- (void)getInfoSuccess:(void(^)(id response))handler {
+    MBProgressHUD *hud2 = [MBProgressHUD zj_showHUDAddedToView:self.view title:kLocalizable(@"获取最新区块") animated:YES];
+    [[HTTPRequestManager shareManager] post:eos_get_info paramters:nil success:^(BOOL isSuccess, id responseObject) {
+        [hud2 hideAnimated:YES];
+        if (isSuccess) {
+            handler(responseObject);
+        }
+    } failure:^(NSError *error) {
+        [hud2 hideAnimated:YES];
         wLog(@"URL_GET_INFO_ERROR ==== %@",error.description);
-    }];
+    } superView:self.view showFaliureDescription:YES];
 }
 
 #pragma mark - 获取公钥
 
 - (void)getRequiredPublicKeyRequestOperationSuccess:(void(^)(id response))handler {
     wLog(@"URL_GET_REQUIRED_KEYS parameters ============ %@",[[self getPramatersForRequiredKeys] yy_modelToJSONString]);
+    MBProgressHUD *hud3 = [MBProgressHUD zj_showHUDAddedToView:self.view title:kLocalizable(@"获取相关公钥") animated:YES];
     [[HTTPRequestManager shareManager] post:eos_get_required_keys paramters:[self getPramatersForRequiredKeys] success:^(BOOL isSuccess, id responseObject) {
+        [hud3 hideAnimated:YES];
         if (isSuccess) {
             handler(responseObject);
         }
     } failure:^(NSError *error) {
+        [hud3 hideAnimated:YES];
         wLog(@"URL_GET_REQUIRED_KEYS ==== %@",error.description);
-    }];
+    } superView:self.view showFaliureDescription:YES];
 }
 
 #pragma mark -
 
 - (void)pushTransactionRequestOperationSuccess:(void(^)(id response))handler {
+    
     NSDictionary *transacDic = [self getPramatersForRequiredKeys];
     
     Account *accout = [[AccountManager shareManager] selectAccountsFromAccountName:self.account.accountName];
@@ -185,11 +201,16 @@
     [pushDic setObject:@"none" forKey:@"compression"];
     [pushDic setObject:@"00" forKey:@"packed_context_free_data"];
     
+    MBProgressHUD *hud4 = [MBProgressHUD zj_showHUDAddedToView:self.view title:kLocalizable(@"签名交易") animated:YES];
+    
     [[HTTPRequestManager shareManager] post:eos_push_transaction paramters:pushDic success:^(BOOL isSuccess, id responseObject) {
+        [hud4 hideAnimated:YES];
         if (isSuccess) {
             handler(responseObject);
         }
-    } failure:nil superView:self.view showFaliureDescription:YES];
+    } failure:^(NSError *error) {
+        [hud4 hideAnimated:YES];
+    } superView:self.view showFaliureDescription:YES];
 }
 
 #pragma mark - Get Paramter
@@ -258,7 +279,15 @@
 }
 
 - (void)scanBtnOnClick {
-    
+    WEAK_SELF(weakSelf)
+    ScanQRViewController *VC = [[ScanQRViewController alloc] initWithHandler:^(BOOL success, NSString *codeString) {
+        if (success) {
+            weakSelf.receiverTF.textField.text = codeString;
+        }
+        [weakSelf dismissViewControllerAnimated:YES completion:nil];
+    }];
+    NavigationViewController *naVC = [[NavigationViewController alloc] initWithRootViewController:VC];
+    [self presentViewController:naVC animated:YES completion:nil];
 }
 
 

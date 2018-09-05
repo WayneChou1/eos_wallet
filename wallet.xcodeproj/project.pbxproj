@@ -106,6 +106,8 @@
 		F616E90D2132DA7B00B60FAA /* ScanQRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F616E90C2132DA7B00B60FAA /* ScanQRViewController.m */; };
 		F616E9102132DE5600B60FAA /* EditorView.m in Sources */ = {isa = PBXBuildFile; fileRef = F616E90F2132DE5500B60FAA /* EditorView.m */; };
 		F61A1551213AFE070084B2F4 /* UIImage+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = F61A1550213AFE070084B2F4 /* UIImage+Filter.m */; };
+		F657F02321401E77008D101F /* MainHeaderView_2.m in Sources */ = {isa = PBXBuildFile; fileRef = F657F02221401E77008D101F /* MainHeaderView_2.m */; };
+		F657F02621401EA1008D101F /* MainHeaderView_2.xib in Resources */ = {isa = PBXBuildFile; fileRef = F657F02521401EA1008D101F /* MainHeaderView_2.xib */; };
 		F681107C2138493600DA3822 /* ExchangeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F681107A2138493600DA3822 /* ExchangeDetailViewController.m */; };
 		F6F81C3D212A60F000737503 /* WalletNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F81C3B212A60F000737503 /* WalletNameCell.m */; };
 		F6F81C3E212A60F000737503 /* WalletNameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6F81C3C212A60F000737503 /* WalletNameCell.xib */; };
@@ -314,6 +316,9 @@
 		F616E90F2132DE5500B60FAA /* EditorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditorView.m; sourceTree = "<group>"; };
 		F61A154F213AFE070084B2F4 /* UIImage+Filter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Filter.h"; sourceTree = "<group>"; };
 		F61A1550213AFE070084B2F4 /* UIImage+Filter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Filter.m"; sourceTree = "<group>"; };
+		F657F02121401E77008D101F /* MainHeaderView_2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainHeaderView_2.h; sourceTree = "<group>"; };
+		F657F02221401E77008D101F /* MainHeaderView_2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainHeaderView_2.m; sourceTree = "<group>"; };
+		F657F02521401EA1008D101F /* MainHeaderView_2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainHeaderView_2.xib; sourceTree = "<group>"; };
 		F68110792138493600DA3822 /* ExchangeDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExchangeDetailViewController.h; sourceTree = "<group>"; };
 		F681107A2138493600DA3822 /* ExchangeDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExchangeDetailViewController.m; sourceTree = "<group>"; };
 		F6F81C3A212A60F000737503 /* WalletNameCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WalletNameCell.h; sourceTree = "<group>"; };
@@ -829,6 +834,9 @@
 				62A0F6E620FD7EF200472772 /* MainHeaderView.h */,
 				62A0F6E720FD7EF200472772 /* MainHeaderView.m */,
 				62A0F6E420FD789400472772 /* MainHeaderView.xib */,
+				F657F02121401E77008D101F /* MainHeaderView_2.h */,
+				F657F02221401E77008D101F /* MainHeaderView_2.m */,
+				F657F02521401EA1008D101F /* MainHeaderView_2.xib */,
 				62A0F6FB20FDC44000472772 /* MainNoDataView.h */,
 				62A0F6F920FDC43F00472772 /* MainNoDataView.m */,
 				62A0F6FA20FDC44000472772 /* MainNoDataView.xib */,
@@ -1081,6 +1089,7 @@
 				627449D220FC3E76003F61C8 /* BootPageViewController.xib in Resources */,
 				6230DA62213E21CD00850853 /* Web3Cell.xib in Resources */,
 				627449DA20FC5677003F61C8 /* Wallet.bundle in Resources */,
+				F657F02621401EA1008D101F /* MainHeaderView_2.xib in Resources */,
 				F60226EB212AFD760086B2EB /* WalletSendViewController.xib in Resources */,
 				F60349CD213AA8DD00FF6582 /* ExchangeDetailViewController.xib in Resources */,
 				6230DA73213E7B3500850853 /* AboutUsHeaderView.xib in Resources */,
@@ -1200,6 +1209,7 @@
 				F60226EA212AFD760086B2EB /* WalletSendViewController.m in Sources */,
 				62824B9D2110149A00BCFB18 /* NSData+CommonCrypto.m in Sources */,
 				F616E9102132DE5600B60FAA /* EditorView.m in Sources */,
+				F657F02321401E77008D101F /* MainHeaderView_2.m in Sources */,
 				F60AEA24212A597C000D310C /* WalletDetailViewController.m in Sources */,
 				F6073BD9213EAFEB00825322 /* PrivacyPolicyViewController.m in Sources */,
 				6275DC2A2134F85B00C3CB43 /* BlockChain.m in Sources */,

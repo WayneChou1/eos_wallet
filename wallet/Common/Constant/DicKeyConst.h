@@ -16,3 +16,7 @@ extern  NSString *const kCurrent_wallet;
 
 /** Touch ID 是否开启 */
 extern  NSString *const kTouchId_on;
+
+/** 二维码前缀 **/
+extern NSString * const wallet_qr_account;
+extern NSString * const wallet_qr_trx;

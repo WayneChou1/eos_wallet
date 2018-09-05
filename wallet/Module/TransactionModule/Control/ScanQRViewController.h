@@ -10,6 +10,11 @@
 
 typedef void(^ScanCompleteHandler)(BOOL success,NSString *codeString);
 
+typedef NS_ENUM(NSInteger,ScanQRCodeType) {
+    ScanQRCodeTypeForAccount,
+    ScanQRCodeTypeForTrx,
+};
+
 @interface ScanQRViewController : BaseViewController
 
 - (instancetype)initWithHandler:(ScanCompleteHandler)handler;

@@ -146,6 +146,7 @@ static CGFloat header_height = 200.0;
     
     if (account) {
         self.info = account;
+        self.title = account.accountName;
         [self.tableView reloadData];
     }
     

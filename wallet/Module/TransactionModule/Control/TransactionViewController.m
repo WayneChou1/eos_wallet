@@ -70,7 +70,12 @@
 - (void)QRItemOnClick:(UIBarButtonItem *)item {
     WEAK_SELF(weakSelf)
     ScanQRViewController *VC = [[ScanQRViewController alloc] initWithHandler:^(BOOL success, NSString *codeString) {
+        [weakSelf dismissViewControllerAnimated:YES completion:nil];
         
+        if (success) {
+            WalletSendViewController *VC = [[WalletSendViewController alloc] initWithAccount:weakSelf.account receiverAccount:codeString];
+            [weakSelf.navigationController pushViewController:VC animated:YES];
+        }
     }];
     NavigationViewController *naVC = [[NavigationViewController alloc] initWithRootViewController:VC];
     [self.navigationController presentViewController:naVC animated:YES completion:nil];

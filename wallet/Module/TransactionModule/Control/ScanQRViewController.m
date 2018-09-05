@@ -277,6 +277,21 @@ static NSString * const scan_line_move    = @"scanLineMove";
         wLog(@"识别成功%@",qrObject.stringValue);
         if (self.handler) {
             
+//            NSArray *strArr = [qrObject.stringValue componentsSeparatedByString:@"="];
+//
+//            if (strArr.count == 2) {
+//                if (![strArr.firstObject isEqualToString:wallet_qr_account] && ![strArr.firstObject isEqualToString:wallet_qr_trx]) {
+//                    [MBProgressHUD zj_showViewAfterSecondWithView:self.view title:kLocalizable(@"无法识别此二维码") afterSecond:1.5];
+//                }else{
+//                    // 同步到主线程
+//                    dispatch_async(dispatch_get_main_queue(), ^{
+//                        self.handler(YES, strArr.lastObject);
+//                    });
+//                }
+//
+//            }else{
+//                [MBProgressHUD zj_showViewAfterSecondWithView:self.view title:kLocalizable(@"无法识别此二维码") afterSecond:1.5];
+//            }
             // 同步到主线程
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.handler(YES, qrObject.stringValue);

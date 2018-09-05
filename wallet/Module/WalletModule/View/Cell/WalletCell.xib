@@ -33,8 +33,14 @@
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pA8-tO-1M1">
+                        <rect key="frame" x="40" y="20" width="322" height="96"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WpT-qh-sus">
-                        <rect key="frame" x="20" y="121" width="150" height="0.0"/>
+                        <rect key="frame" x="20" y="126" width="150" height="0.0"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="150" id="gJS-Zt-jsj"/>
                         </constraints>
@@ -80,14 +86,18 @@
                     <constraint firstItem="hdK-3X-OTV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Awk-aN-yM3"/>
                     <constraint firstAttribute="bottom" secondItem="9ds-FP-mGD" secondAttribute="bottom" constant="15" id="D41-KX-GAK"/>
                     <constraint firstItem="75f-IC-8Tj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Dcx-By-QWz"/>
+                    <constraint firstItem="pA8-tO-1M1" firstAttribute="top" secondItem="75f-IC-8Tj" secondAttribute="top" id="EdR-jf-mhw"/>
                     <constraint firstItem="9ds-FP-mGD" firstAttribute="leading" secondItem="2ke-dN-Ohr" secondAttribute="trailing" constant="5" id="I47-Vz-pvQ"/>
                     <constraint firstItem="t14-y1-I6J" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Jue-9s-UXu"/>
+                    <constraint firstItem="pA8-tO-1M1" firstAttribute="leading" secondItem="75f-IC-8Tj" secondAttribute="trailing" constant="20" id="KUA-Ky-w0u"/>
+                    <constraint firstItem="Y1X-dS-TNi" firstAttribute="leading" secondItem="pA8-tO-1M1" secondAttribute="trailing" constant="20" id="Mug-Ne-Nni"/>
+                    <constraint firstItem="pA8-tO-1M1" firstAttribute="bottom" secondItem="75f-IC-8Tj" secondAttribute="bottom" id="NOg-tr-Hy3"/>
                     <constraint firstAttribute="trailing" secondItem="hdK-3X-OTV" secondAttribute="trailing" constant="10" id="O7t-Rz-aYQ"/>
                     <constraint firstItem="2ke-dN-Ohr" firstAttribute="bottom" secondItem="Ffj-lT-NNw" secondAttribute="bottom" id="Qbm-FG-yaH"/>
                     <constraint firstItem="Y1X-dS-TNi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="Two-mx-H3j"/>
-                    <constraint firstItem="WpT-qh-sus" firstAttribute="top" secondItem="75f-IC-8Tj" secondAttribute="bottom" constant="5" id="XzC-k8-Pgz"/>
+                    <constraint firstItem="WpT-qh-sus" firstAttribute="top" secondItem="75f-IC-8Tj" secondAttribute="bottom" constant="10" id="XzC-k8-Pgz"/>
                     <constraint firstItem="75f-IC-8Tj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="hSs-9z-YAJ"/>
-                    <constraint firstItem="t14-y1-I6J" firstAttribute="top" secondItem="WpT-qh-sus" secondAttribute="bottom" constant="20" id="i1O-PT-Zjx"/>
+                    <constraint firstItem="t14-y1-I6J" firstAttribute="top" secondItem="WpT-qh-sus" secondAttribute="bottom" constant="15" id="i1O-PT-Zjx"/>
                     <constraint firstItem="WpT-qh-sus" firstAttribute="leading" secondItem="75f-IC-8Tj" secondAttribute="leading" id="kh5-EQ-Nya"/>
                     <constraint firstItem="9ds-FP-mGD" firstAttribute="bottom" secondItem="2ke-dN-Ohr" secondAttribute="bottom" id="rDd-3R-h0G"/>
                     <constraint firstItem="Ffj-lT-NNw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="wFe-sT-tmS"/>
@@ -100,6 +110,7 @@
                 </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <connections>
+                <outlet property="accountLab" destination="pA8-tO-1M1" id="boB-0b-7C8"/>
                 <outlet property="addressLab" destination="WpT-qh-sus" id="Ovg-BJ-fek"/>
                 <outlet property="amountLab" destination="2ke-dN-Ohr" id="MwA-GL-877"/>
                 <outlet property="createTimeLab" destination="Ffj-lT-NNw" id="aAf-u8-Si6"/>

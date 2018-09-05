@@ -13,5 +13,6 @@
 @interface WalletSendViewController : BaseViewController
 
 - (instancetype)initWithAccount:(Account *)account;
+- (instancetype)initWithAccount:(Account *)account receiverAccount:(NSString *)receiverAccount;
 
 @end

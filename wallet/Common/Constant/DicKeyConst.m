@@ -16,3 +16,7 @@ NSString * const kCurrent_wallet = @"kCurrent_wallet";
 
 /** Touch ID 是否开启 */
 NSString * const kTouchId_on = @"kTouchId_on";
+
+/** 二维码前缀 **/
+NSString * const wallet_qr_account = @"account";
+NSString * const wallet_qr_trx = @"trx";

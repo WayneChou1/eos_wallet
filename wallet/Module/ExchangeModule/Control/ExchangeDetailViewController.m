@@ -103,7 +103,7 @@
     self.memoTipLab.text = kLocalizable(@"备注");
     self.transactionTipLab.text = kLocalizable(@"交易号");
     self.timeTipLab.text = kLocalizable(@"交易时间");
-    [self.copBtn setTitle:kLocalizable(@"复制 URL") forState:UIControlStateNormal];
+    [self.copBtn setTitle:kLocalizable(@"复制交易号") forState:UIControlStateNormal];
 }
 
 - (void)reloadSubView {
@@ -115,7 +115,7 @@
         self.hashLab.text = self.exchange.trx_id;
         NSDate *date = [NSDate dateWithTimeIntervalSince1970:self.exchange.expiration.doubleValue];
         self.timeLab.text = [date stringFormate:@"yyyy-MM-dd HH:mm:ss"];
-        self.qrImgV.image = [UIImage createImageWithString:self.exchange.trx_id filterWithName:CIQRCode];
+        self.qrImgV.image = [UIImage createImageWithString:[NSString stringWithFormat:@""] filterWithName:CIQRCode];
     }
 }
 

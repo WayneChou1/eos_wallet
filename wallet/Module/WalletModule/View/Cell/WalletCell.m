@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *addressLab;
 @property (weak, nonatomic) IBOutlet UILabel *amountLab;
 @property (weak, nonatomic) IBOutlet UILabel *createTimeLab;
+@property (weak, nonatomic) IBOutlet UILabel *accountLab;
 
 @end
 
@@ -39,6 +40,7 @@
     NSArray <Account*> *walletArr = [[AccountManager shareManager] selectAccountsFromWalletID:wallet.wallet.walletUUID];
     if (walletArr.count > 0) {
         self.addressLab.text = walletArr.firstObject.ownerPublickKey;
+        self.accountLab.text = walletArr.firstObject.accountName;
     }else{
         self.addressLab.text = @"";
     }

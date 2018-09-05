@@ -56,6 +56,7 @@
 /* 交易 */
 "转账" = "Send";
 "收款" = "Receive";
+"账号" = "Account";
 "保存" = "Save";
 "复制" = "Copy";
 "复制成功" = "Copy Success";
@@ -68,11 +69,12 @@
 /* 扫码 */
 "开启灯光" = "Turn on the light";
 "关闭灯光" = "Turn off the light";
+"无法识别此二维码" = "This QR code cannot be recognized";
 
 /* 交易记录 */
 "交易" = "Exchange";
 "交易详情" = "Transaction Record";
-"复制 URL" = "Copy URL";
+"复制交易号" = "Copy Trx";
 "发款方" = "From";
 "收款方" = "To";
 "交易时间" = "Transaction Time";

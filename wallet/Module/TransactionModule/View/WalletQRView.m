@@ -23,9 +23,11 @@ static CGFloat top_offset = 40.0;
 @property (weak, nonatomic) IBOutlet UILabel *addressLab;
 @property (weak, nonatomic) IBOutlet UIImageView *qrImageV;
 @property (weak, nonatomic) IBOutlet UIButton *copBtn;
+@property (strong, nonatomic) IBOutlet UIView *contentView;
+@property (weak, nonatomic) IBOutlet UILabel *accountLab;
 
 @property (assign, nonatomic) CGRect contentFrame;
-@property (strong, nonatomic) IBOutlet UIView *contentView;
+
 
 @end
 
@@ -49,6 +51,7 @@ static CGFloat top_offset = 40.0;
             self.qrImageV.image = [self createImageWithString:codeString];
             
             [self.copBtn setTitle:kLocalizable(@"复制") forState:UIControlStateNormal];
+            self.accountLab.text = kLocalizable(@"账号");
         }
     }
     

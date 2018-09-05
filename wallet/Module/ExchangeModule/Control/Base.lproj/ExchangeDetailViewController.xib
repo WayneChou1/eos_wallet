@@ -158,7 +158,7 @@
                                 <constraint firstAttribute="width" constant="80" id="dS2-Rv-FVj"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <state key="normal" title="复制 URL">
+                            <state key="normal" title="复制交易号">
                                 <color key="titleColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <userDefinedRuntimeAttributes>

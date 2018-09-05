@@ -13,6 +13,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WalletQRView">
             <connections>
+                <outlet property="accountLab" destination="pAw-In-Dpz" id="8LX-Q9-4pw"/>
                 <outlet property="addressLab" destination="1Dy-ZE-sd1" id="9Re-pf-KzS"/>
                 <outlet property="contentView" destination="Goi-VH-2Sq" id="Aas-bY-hhl"/>
                 <outlet property="copBtn" destination="Rjd-Vf-MUk" id="HLe-ir-2Ip"/>

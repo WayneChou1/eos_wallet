@@ -37,16 +37,22 @@
 @property (nonatomic, copy) NSString *binargs;
 
 @property (nonatomic, copy) NSString *password;
+@property (nonatomic, copy) NSString *receiverAccount;
 
 @end
 
 @implementation WalletSendViewController
 
 - (instancetype)initWithAccount:(Account *)account {
+    return [self initWithAccount:account receiverAccount:nil];
+}
+
+- (instancetype)initWithAccount:(Account *)account receiverAccount:(NSString *)receiverAccount{
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         self.account = account;
         self.title = @"EOS";
+        self.receiverAccount = receiverAccount;
     }
     return self;
 }
@@ -64,6 +70,7 @@
 - (void)setUpSubViews {
     self.receiverTF.textField.placeholder = kLocalizable(@"转账账号");
     self.receiverTF.shadowColor = kMain_Color;
+    self.receiverTF.textField.text = VALIDATE_STRING(self.receiverAccount);
     self.receiverTF.cornerRadius = 5.0;
     self.receiverTF.textField.keyboardType = UIKeyboardTypeASCIICapable;
     [self.receiverTF addTarget:self action:@selector(scanBtnOnClick) forControlEvents:UIControlEventTouchUpInside];

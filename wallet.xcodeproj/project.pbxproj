@@ -679,7 +679,7 @@
 			isa = PBXGroup;
 			children = (
 				62A0F6E320FD781500472772 /* View */,
-				62A0F6E220FD780800472772 /* ViewControl */,
+				62A0F6E220FD780800472772 /* Control */,
 			);
 			path = MainAssetModule;
 			sourceTree = "<group>";
@@ -818,13 +818,13 @@
 			path = ExchangeModule;
 			sourceTree = "<group>";
 		};
-		62A0F6E220FD780800472772 /* ViewControl */ = {
+		62A0F6E220FD780800472772 /* Control */ = {
 			isa = PBXGroup;
 			children = (
 				627449E320FC7ECD003F61C8 /* MainAssetViewController.h */,
 				627449E420FC7ECD003F61C8 /* MainAssetViewController.m */,
 			);
-			path = ViewControl;
+			path = Control;
 			sourceTree = "<group>";
 		};
 		62A0F6E320FD781500472772 /* View */ = {

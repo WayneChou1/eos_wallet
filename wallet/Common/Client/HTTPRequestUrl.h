@@ -9,12 +9,18 @@
 #ifndef HTTPRequestUrl_h
 #define HTTPRequestUrl_h
 
-#define eos_get_account @"v1/chain/get_account" // 获取账号信息
-#define eos_get_info @"v1/chain/get_info" // 获取区块信息
-#define eos_get_required_keys @"v1/chain/get_required_keys" // 获取公钥
-#define eos_push_transaction @"v1/chain/push_transaction" // 提交区块
-#define eos_abi_json_to_bin @"v1/chain/abi_json_to_bin" // 获取行动码
-#define eos_get_actions @"v1/history/get_actions" // 获取交易记录
+/** 获取账号信息 **/
+#define eos_get_account @"v1/chain/get_account"
+/** 获取区块信息 **/
+#define eos_get_info @"v1/chain/get_info"
+/** 获取公钥 **/
+#define eos_get_required_keys @"v1/chain/get_required_keys"
+/** 提交区块 **/
+#define eos_push_transaction @"v1/chain/push_transaction"
+/** 获取行动码 **/
+#define eos_abi_json_to_bin @"v1/chain/abi_json_to_bin"
+/** 获取交易记录 **/
+#define eos_get_actions @"v1/history/get_actions"
 
 
 // eosmonitor actions

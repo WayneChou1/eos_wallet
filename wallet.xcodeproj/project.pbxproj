@@ -106,6 +106,9 @@
 		F616E90D2132DA7B00B60FAA /* ScanQRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F616E90C2132DA7B00B60FAA /* ScanQRViewController.m */; };
 		F616E9102132DE5600B60FAA /* EditorView.m in Sources */ = {isa = PBXBuildFile; fileRef = F616E90F2132DE5500B60FAA /* EditorView.m */; };
 		F61A1551213AFE070084B2F4 /* UIImage+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = F61A1550213AFE070084B2F4 /* UIImage+Filter.m */; };
+		F6463B1F2145499A0002B282 /* ResourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6463B1E2145499A0002B282 /* ResourceViewController.m */; };
+		F6463B2521454A6F0002B282 /* ResourceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6463B2321454A6F0002B282 /* ResourceCell.m */; };
+		F6463B2621454A6F0002B282 /* ResourceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6463B2421454A6F0002B282 /* ResourceCell.xib */; };
 		F657F02321401E77008D101F /* MainHeaderView_2.m in Sources */ = {isa = PBXBuildFile; fileRef = F657F02221401E77008D101F /* MainHeaderView_2.m */; };
 		F657F02621401EA1008D101F /* MainHeaderView_2.xib in Resources */ = {isa = PBXBuildFile; fileRef = F657F02521401EA1008D101F /* MainHeaderView_2.xib */; };
 		F681107C2138493600DA3822 /* ExchangeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F681107A2138493600DA3822 /* ExchangeDetailViewController.m */; };
@@ -316,6 +319,11 @@
 		F616E90F2132DE5500B60FAA /* EditorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditorView.m; sourceTree = "<group>"; };
 		F61A154F213AFE070084B2F4 /* UIImage+Filter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Filter.h"; sourceTree = "<group>"; };
 		F61A1550213AFE070084B2F4 /* UIImage+Filter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Filter.m"; sourceTree = "<group>"; };
+		F6463B1D2145499A0002B282 /* ResourceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceViewController.h; sourceTree = "<group>"; };
+		F6463B1E2145499A0002B282 /* ResourceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceViewController.m; sourceTree = "<group>"; };
+		F6463B2221454A6F0002B282 /* ResourceCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceCell.h; sourceTree = "<group>"; };
+		F6463B2321454A6F0002B282 /* ResourceCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceCell.m; sourceTree = "<group>"; };
+		F6463B2421454A6F0002B282 /* ResourceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResourceCell.xib; sourceTree = "<group>"; };
 		F657F02121401E77008D101F /* MainHeaderView_2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainHeaderView_2.h; sourceTree = "<group>"; };
 		F657F02221401E77008D101F /* MainHeaderView_2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainHeaderView_2.m; sourceTree = "<group>"; };
 		F657F02521401EA1008D101F /* MainHeaderView_2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainHeaderView_2.xib; sourceTree = "<group>"; };
@@ -638,6 +646,7 @@
 				62A0F6E020FD77EC00472772 /* ProfileModule */,
 				627449E220FC7E3C003F61C8 /* MainAssetModule */,
 				627449C620FC3A66003F61C8 /* BootPageModule */,
+				F6463B1C214549250002B282 /* Resource */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -960,6 +969,34 @@
 			path = Animation;
 			sourceTree = "<group>";
 		};
+		F6463B1C214549250002B282 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				F6463B21214549F50002B282 /* View */,
+				F6463B20214549DE0002B282 /* Control */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		F6463B20214549DE0002B282 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				F6463B1D2145499A0002B282 /* ResourceViewController.h */,
+				F6463B1E2145499A0002B282 /* ResourceViewController.m */,
+			);
+			path = Control;
+			sourceTree = "<group>";
+		};
+		F6463B21214549F50002B282 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F6463B2221454A6F0002B282 /* ResourceCell.h */,
+				F6463B2321454A6F0002B282 /* ResourceCell.m */,
+				F6463B2421454A6F0002B282 /* ResourceCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1079,6 +1116,7 @@
 				62A0F6FD20FDC44000472772 /* MainNoDataView.xib in Resources */,
 				6230E671213CDA430093A4D4 /* ProfileCell.xib in Resources */,
 				62623AE120FEEEC800663644 /* CreateWalletViewController.xib in Resources */,
+				F6463B2621454A6F0002B282 /* ResourceCell.xib in Resources */,
 				F6F81C48212A61BA00737503 /* WalletCommonCell.xib in Resources */,
 				627449F220FC8342003F61C8 /* Localizable.strings in Resources */,
 				F6F81C3E212A60F000737503 /* WalletNameCell.xib in Resources */,
@@ -1204,6 +1242,7 @@
 				628D919F21114ECA00F66845 /* WalletManagerViewController.m in Sources */,
 				627449D120FC3E76003F61C8 /* BootPageViewController.m in Sources */,
 				62824B8B211003FA00BCFB18 /* Account+WCTTableCoding.mm in Sources */,
+				F6463B2521454A6F0002B282 /* ResourceCell.m in Sources */,
 				6230E67D213D1FCE0093A4D4 /* EvaluatePolicy.m in Sources */,
 				627449C520FC3646003F61C8 /* DicKeyConst.m in Sources */,
 				F60226EA212AFD760086B2EB /* WalletSendViewController.m in Sources */,
@@ -1218,6 +1257,7 @@
 				62824B9C2110149A00BCFB18 /* Base64.m in Sources */,
 				626665B62109A8A10034E3C0 /* NSString+Hash.m in Sources */,
 				F61A1551213AFE070084B2F4 /* UIImage+Filter.m in Sources */,
+				F6463B1F2145499A0002B282 /* ResourceViewController.m in Sources */,
 				F616E90D2132DA7B00B60FAA /* ScanQRViewController.m in Sources */,
 				62A0F6F320FD950F00472772 /* BaseTableViewCell.m in Sources */,
 				6274498220FC2E46003F61C8 /* AppDelegate.m in Sources */,

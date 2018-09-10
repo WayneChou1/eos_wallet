@@ -10,6 +10,7 @@
 #import "CreateWalletViewController.h"
 #import "ImportAccountViewController.h"
 #import "WalletManagerViewController.h"
+#import "ResourceViewController.h"
 #import "NavigationViewController.h"
 #import "TransactionViewController.h"
 #import "MainHeaderView.h"
@@ -23,7 +24,7 @@
 
 static CGFloat header_height = 140.0;
 
-@interface MainAssetViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate,MainNoDataPushDelegate>
+@interface MainAssetViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate,MainNoDataPushDelegate,MainHeaderDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *dataList;
@@ -57,6 +58,7 @@ static CGFloat header_height = 140.0;
 
 - (void)setUpHeaderView {
     self.headerView = [[MainHeaderView alloc] initHeaderViewWithFrame:CGRectMake(0, kOriginY, SCREEN_WIDTH, header_height)];
+    self.headerView.delegate = self;
     [self.tableView addSubview:self.headerView];
 }
 
@@ -72,8 +74,6 @@ static CGFloat header_height = 140.0;
     UIEdgeInsets insets = self.tableView.contentInset;
     
     self.tableView.contentInset = UIEdgeInsetsMake(insets.top + header_height, insets.left, insets.bottom, insets.right);
-//    wLog(@"contentInset == %@",NSStringFromUIEdgeInsets(self.tableView.contentInset));
-//    wLog(@"contentOffset == %@",NSStringFromCGPoint(self.tableView.contentOffset));
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     
     // 注册cell
@@ -168,11 +168,8 @@ static CGFloat header_height = 140.0;
 //        return 1;
 //    }
 //    return 0;
-    if ([self isNotAssetValidate]) {
-        return 0;
-    }else{
-        return 1;
-    }
+    if ([self isNotAssetValidate]) return 0;
+    else return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -201,8 +198,6 @@ static CGFloat header_height = 140.0;
     if (offsetY <= height - kOriginY) {
         self.headerView.frame = CGRectMake(0, offsetY + kOriginY, SCREEN_WIDTH, header_height);
     }
-//    wLog(@"offsetY == %f",offsetY);
-//    wLog(@"self.headerView.frame ==== %@",NSStringFromCGRect(self.headerView.frame));
 }
 
 #pragma mark - DZNEmptyDataSetSource
@@ -241,6 +236,21 @@ static CGFloat header_height = 140.0;
     ImportAccountViewController *importVC = [[ImportAccountViewController alloc] init];
     NavigationViewController *navVC = [[NavigationViewController alloc]initWithRootViewController:importVC];
     [self presentViewController:navVC animated:YES completion:nil];
+}
+
+
+#pragma mark - MainHeaderDelegate
+
+- (void)gotoMore {
+    
+    ResourceViewController *resourceVC;
+    if (self.accountInfo) {
+        resourceVC = [[ResourceViewController alloc] initWithAccountInfo:self.accountInfo];
+    }else if (self.info) {
+        resourceVC = [[ResourceViewController alloc] initWithAccountName:self.info.accountName];
+    }
+    resourceVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:resourceVC animated:YES];
 }
 
 #pragma mark - BtnOnClick

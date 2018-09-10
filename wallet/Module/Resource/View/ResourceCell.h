@@ -15,7 +15,7 @@
 @property (copy, nonatomic) NSString *used;
 @property (copy, nonatomic) NSString *weight;
 @property (copy, nonatomic) NSString *unit;
-@property (copy, nonatomic) NSString *description;
+@property (copy, nonatomic) NSString *dec;
 
 @end
 

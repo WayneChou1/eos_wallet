@@ -85,6 +85,8 @@
 		62A0F6F320FD950F00472772 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 62A0F6F220FD950F00472772 /* BaseTableViewCell.m */; };
 		62A0F6FC20FDC44000472772 /* MainNoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 62A0F6F920FDC43F00472772 /* MainNoDataView.m */; };
 		62A0F6FD20FDC44000472772 /* MainNoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62A0F6FA20FDC44000472772 /* MainNoDataView.xib */; };
+		62C40D8421463F7E00206AB1 /* TODOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C40D8221463F7E00206AB1 /* TODOViewController.m */; };
+		62C40D8521463F7E00206AB1 /* TODOViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62C40D8321463F7E00206AB1 /* TODOViewController.xib */; };
 		F60226EA212AFD760086B2EB /* WalletSendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F60226E8212AFD760086B2EB /* WalletSendViewController.m */; };
 		F60226EB212AFD760086B2EB /* WalletSendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F60226E9212AFD760086B2EB /* WalletSendViewController.xib */; };
 		F60226EF212B012B0086B2EB /* WalletQRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F60226ED212B012B0086B2EB /* WalletQRViewController.m */; };
@@ -282,6 +284,9 @@
 		62A0F6F920FDC43F00472772 /* MainNoDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNoDataView.m; sourceTree = "<group>"; };
 		62A0F6FA20FDC44000472772 /* MainNoDataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainNoDataView.xib; sourceTree = "<group>"; };
 		62A0F6FB20FDC44000472772 /* MainNoDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNoDataView.h; sourceTree = "<group>"; };
+		62C40D8121463F7E00206AB1 /* TODOViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TODOViewController.h; sourceTree = "<group>"; };
+		62C40D8221463F7E00206AB1 /* TODOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TODOViewController.m; sourceTree = "<group>"; };
+		62C40D8321463F7E00206AB1 /* TODOViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TODOViewController.xib; sourceTree = "<group>"; };
 		77E456B01360F88E9DD02092 /* Pods-wallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wallet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wallet/Pods-wallet.debug.xcconfig"; sourceTree = "<group>"; };
 		F60226E7212AFD760086B2EB /* WalletSendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WalletSendViewController.h; sourceTree = "<group>"; };
 		F60226E8212AFD760086B2EB /* WalletSendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WalletSendViewController.m; sourceTree = "<group>"; };
@@ -983,6 +988,9 @@
 			children = (
 				F6463B1D2145499A0002B282 /* ResourceViewController.h */,
 				F6463B1E2145499A0002B282 /* ResourceViewController.m */,
+				62C40D8121463F7E00206AB1 /* TODOViewController.h */,
+				62C40D8221463F7E00206AB1 /* TODOViewController.m */,
+				62C40D8321463F7E00206AB1 /* TODOViewController.xib */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -1124,6 +1132,7 @@
 				F609B7142136E785002B6A24 /* ExchangeCell.xib in Resources */,
 				F60316E4212D94E1001E9A34 /* WalletQRView.xib in Resources */,
 				62824BA62110446C00BCFB18 /* MainAssetCell.xib in Resources */,
+				62C40D8521463F7E00206AB1 /* TODOViewController.xib in Resources */,
 				627449D220FC3E76003F61C8 /* BootPageViewController.xib in Resources */,
 				6230DA62213E21CD00850853 /* Web3Cell.xib in Resources */,
 				627449DA20FC5677003F61C8 /* Wallet.bundle in Resources */,
@@ -1214,6 +1223,7 @@
 				625B0A57210724E300E9AB44 /* Wallet+WCTTableCoding.mm in Sources */,
 				F609B7082136DCF8002B6A24 /* HTTPRequestManager.m in Sources */,
 				6230E680213D3A890093A4D4 /* LanguageViewController.m in Sources */,
+				62C40D8421463F7E00206AB1 /* TODOViewController.m in Sources */,
 				627449CA20FC3BE1003F61C8 /* BaseViewController.m in Sources */,
 				6230DA5B213E1AF600850853 /* Web3ViewController.m in Sources */,
 				62824B88211003D300BCFB18 /* Account.mm in Sources */,
@@ -1448,6 +1458,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DBVPS6244A;
@@ -1530,6 +1541,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DBVPS6244A;

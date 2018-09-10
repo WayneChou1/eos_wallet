@@ -21,6 +21,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     
+    sleep(1.5);
+    
     // 集成IQ
     IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
     manager.enable = YES;

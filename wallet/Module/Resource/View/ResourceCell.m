@@ -25,6 +25,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.backgroundColor = [UIColor clearColor];
+    self.contentView.backgroundColor = [UIColor clearColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -36,7 +38,7 @@
     
     self.resourceNameLab.text = resource.resourceName;
     self.amountLab.text = resource.weight;
-    self.detailLab.text = resource.description;
+    self.detailLab.text = resource.dec;
     self.restLab.text = [NSString stringWithFormat:@"%@ %@ / %@ %@",resource.used,resource.unit,resource.max,resource.unit];
 }
 

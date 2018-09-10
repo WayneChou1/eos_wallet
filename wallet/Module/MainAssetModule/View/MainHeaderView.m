@@ -16,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *accountNameLab;
 @property (weak, nonatomic) IBOutlet UILabel *amountLab;
 @property (weak, nonatomic) IBOutlet UILabel *unitLab;
-
+@property (weak, nonatomic) IBOutlet UIButton *moreBtn;
 
 @end
 
@@ -56,6 +56,15 @@
         }
     }else{
         self.walletNameLab.text = kLocalizable(@"没有相关资产！");
+    }
+}
+
+
+#pragma mark - btnOnClick
+
+- (IBAction)moreBtnOnClick:(UIButton *)sender {
+    if ([self.delegate respondsToSelector:@selector(gotoMore)]) {
+        [self.delegate gotoMore];
     }
 }
 

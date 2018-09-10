@@ -42,15 +42,24 @@
                             <color key="textColor" red="0.22745098039215686" green="0.47058823529411764" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1J-0H-ry9">
+                            <rect key="frame" x="373" y="10" width="16" height="22"/>
+                            <state key="normal" image="Wallet.bundle/main/asset_more.png"/>
+                            <connections>
+                                <action selector="moreBtnOnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="By6-aO-1Ag"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Y1J-0H-ry9" secondAttribute="trailing" constant="15" id="982-o4-Qj8"/>
                         <constraint firstItem="sgk-3j-M4f" firstAttribute="top" secondItem="Yly-1f-8Ed" secondAttribute="bottom" constant="8" id="9mR-5v-868"/>
                         <constraint firstItem="Rvh-Rp-fgv" firstAttribute="top" secondItem="dTr-NA-Vbg" secondAttribute="top" id="AEJ-SX-bGX"/>
                         <constraint firstItem="Yly-1f-8Ed" firstAttribute="top" secondItem="jXq-5G-wcU" secondAttribute="top" constant="10" id="DUP-Tz-nXM"/>
                         <constraint firstAttribute="bottom" secondItem="Rvh-Rp-fgv" secondAttribute="bottom" constant="10" id="FX3-4h-w8O"/>
                         <constraint firstItem="sgk-3j-M4f" firstAttribute="leading" secondItem="Yly-1f-8Ed" secondAttribute="leading" id="Jfn-n1-Rlc"/>
                         <constraint firstItem="Rvh-Rp-fgv" firstAttribute="leading" secondItem="dTr-NA-Vbg" secondAttribute="trailing" constant="5" id="WK9-h3-soQ"/>
+                        <constraint firstItem="Y1J-0H-ry9" firstAttribute="top" secondItem="jXq-5G-wcU" secondAttribute="top" constant="10" id="g7b-Hs-nG0"/>
                         <constraint firstItem="Yly-1f-8Ed" firstAttribute="leading" secondItem="jXq-5G-wcU" secondAttribute="leading" constant="15" id="gNg-GP-Rne"/>
                         <constraint firstAttribute="trailing" secondItem="Rvh-Rp-fgv" secondAttribute="trailing" constant="15" id="xRA-3k-jQL"/>
                     </constraints>
@@ -72,10 +81,14 @@
             <connections>
                 <outlet property="accountNameLab" destination="sgk-3j-M4f" id="KHX-cq-oUn"/>
                 <outlet property="amountLab" destination="Rvh-Rp-fgv" id="EC7-KO-H1A"/>
+                <outlet property="moreBtn" destination="Y1J-0H-ry9" id="7eP-5s-61R"/>
                 <outlet property="unitLab" destination="dTr-NA-Vbg" id="h5A-5r-LyN"/>
                 <outlet property="walletNameLab" destination="Yly-1f-8Ed" id="ot8-hQ-wTK"/>
             </connections>
             <point key="canvasLocation" x="-24" y="357.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="Wallet.bundle/main/asset_more.png" width="16" height="16"/>
+    </resources>
 </document>

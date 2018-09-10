@@ -10,7 +10,15 @@
 
 @class Account;
 
+@protocol MainHeaderDelegate <NSObject>
+
+- (void)gotoMore;
+
+@end
+
 @interface MainHeaderView : UIView
+
+@property (weak, nonatomic) id <MainHeaderDelegate> delegate;
 
 - (instancetype)initHeaderViewWithFrame:(CGRect)frame;
 

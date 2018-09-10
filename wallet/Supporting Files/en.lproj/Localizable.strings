@@ -17,6 +17,13 @@
 "创建钱包" = "Create";
 "导入账号" = "Insert";
 
+/* 资源 */
+"资源" = "Resource";
+"可用 RAM" = "Available RAM";
+"可用 CPU" = "Available CPU";
+"可用 NET" = "Available NET";
+"开发中，敬请期待" = "To be continured";
+
 /* 钱包 */
 "钱包名称" = "Name";
 "钱包密码" = "New Password";

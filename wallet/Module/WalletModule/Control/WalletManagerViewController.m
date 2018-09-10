@@ -76,6 +76,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     WalletCell *cell = [tableView dequeueReusableCellWithIdentifier:[WalletCell cellIdentifier] forIndexPath:indexPath];
     cell.wallet = self.dataList[indexPath.section];
+    
     return cell;
 }
 
@@ -89,7 +90,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    WalletDetailViewController *VC = [[WalletDetailViewController alloc] initWithWallet:self.dataList[indexPath.row].wallet];
+    WalletDetailViewController *VC = [[WalletDetailViewController alloc] initWithWallet:self.dataList[indexPath.section].wallet];
     [self.navigationController pushViewController:VC animated:YES];
 }
 

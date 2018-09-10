@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *amountLab;
 @property (weak, nonatomic) IBOutlet UILabel *createTimeLab;
 @property (weak, nonatomic) IBOutlet UILabel *accountLab;
+@property (weak, nonatomic) IBOutlet UIView *tagView;
 
 @end
 
@@ -34,6 +35,7 @@
 
 - (void)setWallet:(WalletRequest *)wallet {
     _wallet = wallet;
+    
     self.walletNameLab.text = wallet.wallet.walletName;
     
     // 获取当前钱包的用户名
@@ -64,6 +66,8 @@
     }else{
         self.createTimeLab.text = @"";
     }
+    
+    self.tagView.hidden = ![wallet.wallet.walletUUID isEqualToString:kCurrentWallet_UUID];
 }
 
 @end

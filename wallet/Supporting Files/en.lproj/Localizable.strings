@@ -28,6 +28,7 @@
 "密码提示" = "Password Hint";
 "修改密码" = "Change Password";
 "导出私钥" = "Export Private Key";
+"设为主钱包" = "Main Wallet";
 
 "钱包名称不能为空!"="The wallet cannot be empty!";
 "密码不能为空!"="Passwod cannot be empty!";

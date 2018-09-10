@@ -21,7 +21,7 @@
 #import "AccountManager.h"
 #import "WalletManager.h"
 
-static CGFloat header_height = 200.0;
+static CGFloat header_height = 140.0;
 
 @interface MainAssetViewController () <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate,MainNoDataPushDelegate>
 
@@ -38,6 +38,7 @@ static CGFloat header_height = 200.0;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = kLocalizable(@"资产");
     [self setUpTableView];
     [self setUpHeaderView];
     [self setUpNav];
@@ -50,34 +51,29 @@ static CGFloat header_height = 200.0;
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self reloadWallet];
+    [self.headerView reloadSubViews];
 }
 
 
 - (void)setUpHeaderView {
-    self.headerView = [[MainHeaderView alloc]initHeaderViewWithFrame:CGRectMake(0, -header_height, SCREEN_WIDTH, header_height)];
+    self.headerView = [[MainHeaderView alloc] initHeaderViewWithFrame:CGRectMake(0, kOriginY, SCREEN_WIDTH, header_height)];
     [self.tableView addSubview:self.headerView];
 }
 
 
 - (void)setUpTableView {
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
+    
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.tableFooterView = [UIView new];
     self.tableView.rowHeight = 100;
     self.tableView.estimatedRowHeight = 100;
     self.tableView.backgroundColor = kBar_Backgroud_Color;
-    [self.view addSubview:self.tableView];
     
     UIEdgeInsets insets = self.tableView.contentInset;
-    self.tableView.contentInset = UIEdgeInsetsMake(header_height, insets.left, insets.bottom, insets.right);
-    if (@available(iOS 11.0, *)) {
-        wLog(@"adjustedContentInset == %@",NSStringFromUIEdgeInsets(self.tableView.adjustedContentInset));
-//        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        self.tableView.contentInset = UIEdgeInsetsMake(header_height - 64, insets.left, insets.bottom, insets.right);
-    }
     
+    self.tableView.contentInset = UIEdgeInsetsMake(insets.top + header_height, insets.left, insets.bottom, insets.right);
+//    wLog(@"contentInset == %@",NSStringFromUIEdgeInsets(self.tableView.contentInset));
+//    wLog(@"contentOffset == %@",NSStringFromCGPoint(self.tableView.contentOffset));
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     
     // 注册cell
@@ -100,19 +96,11 @@ static CGFloat header_height = 200.0;
 - (void)reloadWallet {
     
     // 判断是否有钱包
-//    if (!isNoWallet && !isNoAccount) {
-//        [self.dataList removeAllObjects];
-//        self.tableView.emptyDataSetSource = self;
-//        self.tableView.emptyDataSetDelegate = self;
-//        [self.tableView reloadEmptyDataSet];
-//    }else{
-//        [self loadData];
-//    }
     if ([self isNotAssetValidate]) {
         [self.dataList removeAllObjects];
         self.tableView.emptyDataSetSource = self;
         self.tableView.emptyDataSetDelegate = self;
-        [self.tableView reloadEmptyDataSet];
+        [self.tableView reloadData];
     }else{
         [self loadData];
     }
@@ -146,7 +134,6 @@ static CGFloat header_height = 200.0;
     
     if (account) {
         self.info = account;
-        self.navigationItem.title = account.accountName;
         [self.tableView reloadData];
     }
     
@@ -208,15 +195,14 @@ static CGFloat header_height = 200.0;
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
-//    wLog(@"contentInset == %@",NSStringFromUIEdgeInsets(self.tableView.contentInset));
-//    wLog(@"contentOffset == %@",NSStringFromCGPoint(self.tableView.contentOffset));
-    
     CGFloat offsetY = scrollView.contentOffset.y;
     CGFloat height = -header_height;
-    
-    if (offsetY <= height) {
-        self.headerView.frame = CGRectMake(0, offsetY, SCREEN_WIDTH, header_height);
+
+    if (offsetY <= height - kOriginY) {
+        self.headerView.frame = CGRectMake(0, offsetY + kOriginY, SCREEN_WIDTH, header_height);
     }
+//    wLog(@"offsetY == %f",offsetY);
+//    wLog(@"self.headerView.frame ==== %@",NSStringFromCGRect(self.headerView.frame));
 }
 
 #pragma mark - DZNEmptyDataSetSource

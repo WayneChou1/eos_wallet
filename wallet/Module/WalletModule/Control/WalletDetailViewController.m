@@ -13,6 +13,8 @@
 #import "Wallet.h"
 #import "WalletManager.h"
 
+static CGFloat footer_height = 40.0;
+
 @interface WalletDetailViewController () <UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -33,6 +35,7 @@
     [super viewDidLoad];
     [self setUpTableView];
     [self setNav];
+    [self setUpFooterView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,6 +51,7 @@
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [UIView new];
     self.tableView.backgroundColor = kBar_Backgroud_Color;
+    self.tableView.contentInset = UIEdgeInsetsMake(self.tableView.contentInset.top, self.tableView.contentInset.left, footer_height, self.tableView.contentInset.bottom);
     [self.view addSubview:self.tableView];
     
     [self.tableView registerNib:[UINib nibWithNibName:[WalletNameCell cellIdentifier] bundle:[NSBundle mainBundle]] forCellReuseIdentifier:[WalletNameCell cellIdentifier]];
@@ -64,6 +68,34 @@
 
 - (void)setNav {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:kLocalizable(@"保存") style:0 target:self action:@selector(saveItemOnClick:)];
+}
+
+- (void)setUpFooterView {
+    if ([kCurrentWallet_UUID isEqualToString:self.wallet.walletUUID]) {
+        UIButton *deleteBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - footer_height, SCREEN_WIDTH, footer_height)];
+        deleteBtn.backgroundColor = kMain_Color;
+        deleteBtn.titleLabel.font = kSys_font(13);
+        [deleteBtn setTitle:kLocalizable(@"删除") forState:UIControlStateNormal];
+        [deleteBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [deleteBtn addTarget:self action:@selector(deleteBtnOnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:deleteBtn];
+    }else{
+        UIButton *deleteBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - footer_height, SCREEN_WIDTH/2.0, footer_height)];
+        deleteBtn.backgroundColor = kMain_Color;
+        deleteBtn.titleLabel.font = kSys_font(13);
+        [deleteBtn setTitle:kLocalizable(@"删除") forState:UIControlStateNormal];
+        [deleteBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [deleteBtn addTarget:self action:@selector(deleteBtnOnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:deleteBtn];
+        
+        UIButton *setBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2.0, SCREEN_HEIGHT - footer_height, SCREEN_WIDTH/2.0, footer_height)];
+        setBtn.backgroundColor = [UIColor colorWithHex:0x88A1CC];
+        setBtn.titleLabel.font = kSys_font(13);
+        [setBtn setTitle:kLocalizable(@"设为主钱包") forState:UIControlStateNormal];
+        [setBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [setBtn addTarget:self action:@selector(setBtnOnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:setBtn];
+    }
 }
 
 #pragma mark - UITableViewDataSource
@@ -130,6 +162,24 @@
     if ([[WalletManager shareManager] updateWalletNameAndPswHintWithWallet:self.wallet]) {
         [self.navigationController popViewControllerAnimated:YES];
     }else{}
+}
+
+- (void)deleteBtnOnClick:(UIButton *)btn {
+    [[WalletManager shareManager] deleteWalletsWithUUID:self.wallet.walletUUID];
+    
+    NSArray <Wallet *> *walletArr = [[WalletManager shareManager] selectAllWallets];
+    if (walletArr.count > 0) {
+        // 选择第一个作为主钱包
+        [kUserDefault setObject:walletArr.firstObject.walletUUID forKey:kCurrent_wallet];
+        [kUserDefault synchronize];
+    }
+}
+
+- (void)setBtnOnClick:(UIButton *)btn {
+    // 保存uuid，作为最新钱包
+    [kUserDefault setObject:self.wallet.walletUUID forKey:kCurrent_wallet];
+    [kUserDefault synchronize];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

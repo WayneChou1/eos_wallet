@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class Account;
+
 @interface MainHeaderView : UIView
 
 - (instancetype)initHeaderViewWithFrame:(CGRect)frame;
+
+- (void)reloadSubViews;
 
 @end

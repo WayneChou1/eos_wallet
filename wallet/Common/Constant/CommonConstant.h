@@ -49,6 +49,12 @@
 /** 字体 */
 #define kSys_font(font) [UIFont systemFontOfSize:font]
 
+// 状态栏高度
+#define kRectOfStatusbarH [[UIApplication sharedApplication] statusBarFrame].size.height
+// 导航栏高度
+#define kRectOfNavigationbarH  self.navigationController.navigationBar.frame.size.height
+// 导航视图中可视区域（Y）
+#define kOriginY (kRectOfStatusbarH + kRectOfNavigationbarH)
 
 /** 当前钱包 */
 #define kCurrentWallet_UUID [kUserDefault objectForKey:kCurrent_wallet]

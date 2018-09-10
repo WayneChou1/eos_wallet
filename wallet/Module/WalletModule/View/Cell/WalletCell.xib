@@ -76,6 +76,19 @@
                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DG0-LY-e7f">
+                        <rect key="frame" x="366" y="24" width="8" height="8"/>
+                        <color key="backgroundColor" red="0.2274509804" green="0.47058823529999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="8" id="UW3-a7-8Xy"/>
+                            <constraint firstAttribute="width" constant="8" id="zY2-VE-bN6"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="hdK-3X-OTV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="3nF-IU-Fgv"/>
@@ -92,10 +105,12 @@
                     <constraint firstItem="pA8-tO-1M1" firstAttribute="leading" secondItem="75f-IC-8Tj" secondAttribute="trailing" constant="20" id="KUA-Ky-w0u"/>
                     <constraint firstItem="Y1X-dS-TNi" firstAttribute="leading" secondItem="pA8-tO-1M1" secondAttribute="trailing" constant="20" id="Mug-Ne-Nni"/>
                     <constraint firstItem="pA8-tO-1M1" firstAttribute="bottom" secondItem="75f-IC-8Tj" secondAttribute="bottom" id="NOg-tr-Hy3"/>
+                    <constraint firstItem="Y1X-dS-TNi" firstAttribute="leading" secondItem="DG0-LY-e7f" secondAttribute="trailing" constant="8" id="NoF-nQ-gXD"/>
                     <constraint firstAttribute="trailing" secondItem="hdK-3X-OTV" secondAttribute="trailing" constant="10" id="O7t-Rz-aYQ"/>
                     <constraint firstItem="2ke-dN-Ohr" firstAttribute="bottom" secondItem="Ffj-lT-NNw" secondAttribute="bottom" id="Qbm-FG-yaH"/>
                     <constraint firstItem="Y1X-dS-TNi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="Two-mx-H3j"/>
                     <constraint firstItem="WpT-qh-sus" firstAttribute="top" secondItem="75f-IC-8Tj" secondAttribute="bottom" constant="10" id="XzC-k8-Pgz"/>
+                    <constraint firstItem="Y1X-dS-TNi" firstAttribute="centerY" secondItem="DG0-LY-e7f" secondAttribute="centerY" id="aml-xR-YtG"/>
                     <constraint firstItem="75f-IC-8Tj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="hSs-9z-YAJ"/>
                     <constraint firstItem="t14-y1-I6J" firstAttribute="top" secondItem="WpT-qh-sus" secondAttribute="bottom" constant="15" id="i1O-PT-Zjx"/>
                     <constraint firstItem="WpT-qh-sus" firstAttribute="leading" secondItem="75f-IC-8Tj" secondAttribute="leading" id="kh5-EQ-Nya"/>
@@ -114,9 +129,10 @@
                 <outlet property="addressLab" destination="WpT-qh-sus" id="Ovg-BJ-fek"/>
                 <outlet property="amountLab" destination="2ke-dN-Ohr" id="MwA-GL-877"/>
                 <outlet property="createTimeLab" destination="Ffj-lT-NNw" id="aAf-u8-Si6"/>
+                <outlet property="tagView" destination="DG0-LY-e7f" id="cJU-9i-Xbx"/>
                 <outlet property="walletNameLab" destination="75f-IC-8Tj" id="oAs-Mc-4wH"/>
             </connections>
-            <point key="canvasLocation" x="-51" y="98"/>
+            <point key="canvasLocation" x="-352" y="62"/>
         </tableViewCell>
     </objects>
     <resources>

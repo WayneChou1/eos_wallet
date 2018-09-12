@@ -30,6 +30,13 @@
     [self.navigationBar setBarTintColor:kBar_Backgroud_Color];
     [self.navigationBar setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
                                                  kLight_Text_Color, NSForegroundColorAttributeName, [UIFont systemFontOfSize:17], NSFontAttributeName, nil]];
+    
+    // 隐藏返回按钮title
+    if (@available(iOS 11.0, *)) {
+        [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(-100,0) forBarMetrics:UIBarMetricsDefault];
+    }else {
+        [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60)forBarMetrics:UIBarMetricsDefault];
+    }
     // 隐藏分割线
     [self findNavBarBottomImage:self.navigationBar].hidden = YES;
     

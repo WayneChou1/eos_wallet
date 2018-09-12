@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="202"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kBx-4s-zHd">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_icon" translatesAutoresizingMaskIntoConstraints="NO" id="kBx-4s-zHd">
                     <rect key="frame" x="162" y="8" width="50" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="dn7-cx-wiz"/>
@@ -57,4 +57,7 @@
             <point key="canvasLocation" x="-139.5" y="586"/>
         </view>
     </objects>
+    <resources>
+        <image name="app_icon" width="60" height="60"/>
+    </resources>
 </document>

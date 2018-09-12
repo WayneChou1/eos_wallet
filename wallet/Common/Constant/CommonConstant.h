@@ -60,4 +60,7 @@
 #define kCurrentWallet_UUID [kUserDefault objectForKey:kCurrent_wallet]
 #define kCurrentWallet [[WalletManager shareManager] selectWalletsFromUUID:kCurrentWallet_UUID]
 
+/**  APPID */
+#define APPID @"1435906738"
+
 #endif /* CommonConstant_h */

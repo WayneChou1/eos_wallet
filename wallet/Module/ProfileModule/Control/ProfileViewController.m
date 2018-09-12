@@ -10,6 +10,7 @@
 #import "SettingViewController.h"
 #import "AboutUsViewController.h"
 #import "ProfileCell.h"
+#import <StoreKit/SKStoreReviewController.h>
 
 @interface ProfileViewController ()
 
@@ -114,11 +115,23 @@
         }else if (indexPath.row == 1) {
             VC = [[AboutUsViewController alloc] init];
         }else if (indexPath.row == 2) {
-            
+            [self showAppStoreReView];
+            return;
         }
     }
     VC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:VC animated:YES];
+}
+
+#pragma mark - Private
+- (void)showAppStoreReView{
+    Class SKSRC = NSClassFromString(@"SKStoreReviewController");
+    if (SKSRC) {
+        [SKSRC performSelector:@selector(requestReview)];
+    }else {
+        NSString * url = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@",APPID];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+    }
 }
 
 

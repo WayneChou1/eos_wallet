@@ -94,7 +94,7 @@
 "设置" = "Settings";
 "帮助" = "Faq";
 "关于我们" = "About us";
-"给我们点赞" = "Rate wallet eos";
+"给我们点赞" = "Rate PPWallet";
 
 "多语言" = "Language";
 "节点设置" = "Node Setting";
@@ -110,7 +110,7 @@
 "保存" = "Save";
 
 /* 关于我们 */
-"Wallet EOS 是一款移动端轻钱包APP，它旨在为普通用户提供一款安全、可靠、功能强大的数字资产钱包应用。目前钱包仅支持EOS，后续将添加ETH、BTC等，功能不断完善中，敬请期待" = "Wallet Eos 是一款移动端轻钱包APP，它旨在为普通用户提供一款安全、可靠、功能强大的数字资产钱包应用。目前钱包仅支持EOS，后续将添加ETH、BTC等，功能不断完善中，敬请期待";
+"PPWallet 是一款移动端轻钱包APP，它旨在为普通用户提供一款安全、可靠、功能强大的数字资产钱包应用。目前钱包仅支持EOS，后续将添加ETH、BTC等，功能不断完善中，敬请期待" = "PPWallet is a SPV, it is designed to provide ordinary users with a secure, reliable, powerful digital asset wallet applications. At present, wallet only supports EOS, and ETH and BTC will be added later.";
 "当前版本" = "current version";
 "隐私条款" = "Privacy Polic";
 "检测更新" = "Check for updates";

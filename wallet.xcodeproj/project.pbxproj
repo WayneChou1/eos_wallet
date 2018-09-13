@@ -95,6 +95,7 @@
 		F60316E7212D94ED001E9A34 /* WalletQRView.m in Sources */ = {isa = PBXBuildFile; fileRef = F60316E6212D94ED001E9A34 /* WalletQRView.m */; };
 		F60349CC213A510600FF6582 /* EosFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F60349CB213A510600FF6582 /* EosFramework.framework */; };
 		F60349CD213AA8DD00FF6582 /* ExchangeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F60349CF213AA8DD00FF6582 /* ExchangeDetailViewController.xib */; };
+		F60581B2214ABAFF00937BAB /* WalletExportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F60581B1214ABAFF00937BAB /* WalletExportViewController.m */; };
 		F606839C213D7138007B3FEC /* LocalizedHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F606839B213D7138007B3FEC /* LocalizedHelper.m */; };
 		F6073BD9213EAFEB00825322 /* PrivacyPolicyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6073BD8213EAFEB00825322 /* PrivacyPolicyViewController.m */; };
 		F609B7082136DCF8002B6A24 /* HTTPRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F609B7072136DCF7002B6A24 /* HTTPRequestManager.m */; };
@@ -301,6 +302,8 @@
 		F60316E6212D94ED001E9A34 /* WalletQRView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WalletQRView.m; sourceTree = "<group>"; };
 		F60349CB213A510600FF6582 /* EosFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EosFramework.framework; sourceTree = "<group>"; };
 		F60349CE213AA8DD00FF6582 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ExchangeDetailViewController.xib; sourceTree = "<group>"; };
+		F60581B0214ABAFF00937BAB /* WalletExportViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WalletExportViewController.h; sourceTree = "<group>"; };
+		F60581B1214ABAFF00937BAB /* WalletExportViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WalletExportViewController.m; sourceTree = "<group>"; };
 		F606839A213D7138007B3FEC /* LocalizedHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalizedHelper.h; sourceTree = "<group>"; };
 		F606839B213D7138007B3FEC /* LocalizedHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalizedHelper.m; sourceTree = "<group>"; };
 		F6073BD7213EAFEB00825322 /* PrivacyPolicyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrivacyPolicyViewController.h; sourceTree = "<group>"; };
@@ -453,6 +456,8 @@
 				628D919E21114ECA00F66845 /* WalletManagerViewController.m */,
 				F60AEA22212A597C000D310C /* WalletDetailViewController.h */,
 				F60AEA23212A597C000D310C /* WalletDetailViewController.m */,
+				F60581B0214ABAFF00937BAB /* WalletExportViewController.h */,
+				F60581B1214ABAFF00937BAB /* WalletExportViewController.m */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -1280,6 +1285,7 @@
 				62A0F6F320FD950F00472772 /* BaseTableViewCell.m in Sources */,
 				6274498220FC2E46003F61C8 /* AppDelegate.m in Sources */,
 				62623AD820FEE43200663644 /* UIView+Xib.m in Sources */,
+				F60581B2214ABAFF00937BAB /* WalletExportViewController.m in Sources */,
 				627449BD20FC2E8E003F61C8 /* MBProgressHUD+ZJExtension.m in Sources */,
 				625B0A5021071CBE00E9AB44 /* Wallet.mm in Sources */,
 				6230E674213D00270093A4D4 /* SettingViewController.m in Sources */,

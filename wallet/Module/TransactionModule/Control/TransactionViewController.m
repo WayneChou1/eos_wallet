@@ -49,7 +49,7 @@
     [super viewDidLoad];
     [self setUpSubViews];
     [self setUpTableView];
-    [self setNav];
+    [self setNavItem];
     
     self.pageSize = 20;
     self.page = 1;
@@ -60,6 +60,19 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self setNav];
+}
+
+- (void)setNav {
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    self.navigationController.navigationBar.subviews.firstObject.alpha = 1;
+    [self.navigationController.navigationBar setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                                      kLight_Text_Color, NSForegroundColorAttributeName, [UIFont systemFontOfSize:17], NSFontAttributeName, nil]];
+}
+
 #pragma mark - refreshControl Action
 
 - (void)handleRefresh:(id)sender{
@@ -67,7 +80,6 @@
     [self loadData:NO];
     [self.refreshControl endRefreshing];
 }
-
 
 #pragma mark - loadData
 
@@ -155,7 +167,7 @@
     [footer setTitle:[NSBundle mj_localizedStringForKey:MJRefreshAutoFooterNoMoreDataText] forState:MJRefreshStateNoMoreData];
 }
 
-- (void)setNav {
+- (void)setNavItem {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Wallet.bundle/transation/transation_setting_icon"] style:0 target:self action:@selector(QRItemOnClick:)];
 }
 

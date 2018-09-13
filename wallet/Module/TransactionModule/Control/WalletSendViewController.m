@@ -118,6 +118,15 @@
                             if ([response isKindOfClass:[NSDictionary class]]) {
                                 ExchangeDetailViewController *VC = [[ExchangeDetailViewController alloc] initWithTransactionId:[response objectForKey:@"transaction_id"]];
                                 [self.navigationController pushViewController:VC animated:YES];
+                                
+                                // 移除此control
+                                NSMutableArray *vcArr = [[NSMutableArray alloc] initWithArray:self.navigationController.viewControllers];
+                                for (UIViewController *v in self.navigationController.viewControllers) {
+                                    if ([v isKindOfClass:[self class]]) {
+                                        [vcArr removeObject:v];
+                                    }
+                                }
+                                self.navigationController.viewControllers = vcArr;
                             }
                         }];
                     }

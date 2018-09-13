@@ -32,7 +32,7 @@
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     NSString *app_Version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
     self.versionLab.text = [NSString stringWithFormat:@"%@ %@",kLocalizable(@"当前版本"),app_Version];
-    self.introduceLab.text = kLocalizable(@"Wallet Eos 是一款移动端轻钱包APP，它旨在为普通用户提供一款安全、可靠、功能强大的数字资产钱包应用。目前钱包仅支持EOS，后续将添加ETH、BTC等，功能不断完善中，敬请期待");
+    self.introduceLab.text = kLocalizable(@"PPWallet 是一款移动端轻钱包APP，它旨在为普通用户提供一款安全、可靠、功能强大的数字资产钱包应用。目前钱包仅支持EOS，后续将添加ETH、BTC等，功能不断完善中，敬请期待");
 }
 
 @end

@@ -9,8 +9,7 @@
 #import "AboutUsViewController.h"
 #import "BaseTableViewCell.h"
 #import "AboutUsHeaderView.h"
-
-static NSString * const APPID = @"";
+#import "PrivacyPolicyViewController.h"
 
 @interface AboutUsViewController ()
 
@@ -91,7 +90,7 @@ static NSString * const APPID = @"";
 
 
 - (void)loadData {
-    self.dataArr = @[kLocalizable(@"隐私条款"),kLocalizable(@"检测新版")];
+    self.dataArr = @[kLocalizable(@"隐私条款"),kLocalizable(@"检测更新")];
     [self.tableView reloadData];
 }
 
@@ -122,7 +121,8 @@ static NSString * const APPID = @"";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.row == 0) {
-        
+        PrivacyPolicyViewController *VC = [[PrivacyPolicyViewController alloc] init];
+        [self.navigationController pushViewController:VC animated:YES];
     }else if (indexPath.row == 1) {
         [self checkUpdate];
     }

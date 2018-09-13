@@ -108,6 +108,8 @@
 		F616E90D2132DA7B00B60FAA /* ScanQRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F616E90C2132DA7B00B60FAA /* ScanQRViewController.m */; };
 		F616E9102132DE5600B60FAA /* EditorView.m in Sources */ = {isa = PBXBuildFile; fileRef = F616E90F2132DE5500B60FAA /* EditorView.m */; };
 		F61A1551213AFE070084B2F4 /* UIImage+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = F61A1550213AFE070084B2F4 /* UIImage+Filter.m */; };
+		F63DC4FF21494F1A000E5DED /* PrivacyPolicyChinese.html in Resources */ = {isa = PBXBuildFile; fileRef = F63DC4FE21494F1A000E5DED /* PrivacyPolicyChinese.html */; };
+		F63DC5012149583E000E5DED /* PrivacyPolicyEnglish.html in Resources */ = {isa = PBXBuildFile; fileRef = F63DC5002149583E000E5DED /* PrivacyPolicyEnglish.html */; };
 		F6463B1F2145499A0002B282 /* ResourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6463B1E2145499A0002B282 /* ResourceViewController.m */; };
 		F6463B2521454A6F0002B282 /* ResourceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6463B2321454A6F0002B282 /* ResourceCell.m */; };
 		F6463B2621454A6F0002B282 /* ResourceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6463B2421454A6F0002B282 /* ResourceCell.xib */; };
@@ -324,6 +326,8 @@
 		F616E90F2132DE5500B60FAA /* EditorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditorView.m; sourceTree = "<group>"; };
 		F61A154F213AFE070084B2F4 /* UIImage+Filter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Filter.h"; sourceTree = "<group>"; };
 		F61A1550213AFE070084B2F4 /* UIImage+Filter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Filter.m"; sourceTree = "<group>"; };
+		F63DC4FE21494F1A000E5DED /* PrivacyPolicyChinese.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = PrivacyPolicyChinese.html; sourceTree = "<group>"; };
+		F63DC5002149583E000E5DED /* PrivacyPolicyEnglish.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = PrivacyPolicyEnglish.html; sourceTree = "<group>"; };
 		F6463B1D2145499A0002B282 /* ResourceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceViewController.h; sourceTree = "<group>"; };
 		F6463B1E2145499A0002B282 /* ResourceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceViewController.m; sourceTree = "<group>"; };
 		F6463B2221454A6F0002B282 /* ResourceCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceCell.h; sourceTree = "<group>"; };
@@ -712,6 +716,8 @@
 			children = (
 				6275DC31213529E800C3CB43 /* Eos.js */,
 				6275DC32213529E800C3CB43 /* Javascript.html */,
+				F63DC4FE21494F1A000E5DED /* PrivacyPolicyChinese.html */,
+				F63DC5002149583E000E5DED /* PrivacyPolicyEnglish.html */,
 			);
 			path = JavascriptFile;
 			sourceTree = "<group>";
@@ -1120,6 +1126,7 @@
 				628D91A62111512100F66845 /* WalletCell.xib in Resources */,
 				F6F81C43212A611D00737503 /* WalletPswHintCell.xib in Resources */,
 				62A0F6E520FD789400472772 /* MainHeaderView.xib in Resources */,
+				F63DC4FF21494F1A000E5DED /* PrivacyPolicyChinese.html in Resources */,
 				626665BB2109ABAC0034E3C0 /* InputPwdView.xib in Resources */,
 				62A0F6FD20FDC44000472772 /* MainNoDataView.xib in Resources */,
 				6230E671213CDA430093A4D4 /* ProfileCell.xib in Resources */,
@@ -1136,6 +1143,7 @@
 				627449D220FC3E76003F61C8 /* BootPageViewController.xib in Resources */,
 				6230DA62213E21CD00850853 /* Web3Cell.xib in Resources */,
 				627449DA20FC5677003F61C8 /* Wallet.bundle in Resources */,
+				F63DC5012149583E000E5DED /* PrivacyPolicyEnglish.html in Resources */,
 				F657F02621401EA1008D101F /* MainHeaderView_2.xib in Resources */,
 				F60226EB212AFD760086B2EB /* WalletSendViewController.xib in Resources */,
 				F60349CD213AA8DD00FF6582 /* ExchangeDetailViewController.xib in Resources */,

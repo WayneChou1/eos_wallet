@@ -10,8 +10,9 @@
 #import "BootPageViewController.h"
 #import "TabBarViewController.h"
 #import "WalletManager.h"
+#import <StoreKit/StoreKit.h>
 
-@interface AppDelegate ()
+@interface AppDelegate () <SKStoreProductViewControllerDelegate>
 
 @end
 
@@ -44,9 +45,18 @@
     self.window.rootViewController = [[TabBarViewController alloc]init];
     [self.window makeKeyAndVisible];
     
+    // 应用评分
+    [self showAppStoreReView];
+    
     return YES;
 }
 
+- (void)showAppStoreReView{
+    Class SKSRC = NSClassFromString(@"SKStoreReviewController");
+    if (SKSRC) {
+        [SKSRC performSelector:@selector(requestReview)];
+    }
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {}
 

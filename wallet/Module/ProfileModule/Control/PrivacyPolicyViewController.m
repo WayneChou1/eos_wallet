@@ -7,10 +7,11 @@
 //
 
 #import "PrivacyPolicyViewController.h"
+#import <WebKit/WebKit.h>
 
 @interface PrivacyPolicyViewController ()
 
-@property (strong, nonatomic) UITextView *tv;
+@property (strong, nonatomic) WKWebView *webView;
 
 @end
 
@@ -18,6 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = kLocalizable(@"隐私条款");
     [self setUpSubView];
 }
 
@@ -26,20 +28,28 @@
 }
 
 - (void)setUpSubView {
-    self.tv = [[UITextView alloc] init];
-    self.tv.font = kSys_font(13);
-    self.tv.textColor = kDark_Text_Color;
-    self.tv.editable = NO;
-    [self.view addSubview:self.tv];
+    self.webView = [[WKWebView alloc] init];
+    [self.view addSubview:self.webView];
     
-    [self.tv mas_makeConstraints:^(MASConstraintMaker *make) {
+    // 配置路径
+    NSString *path;
+    
+    // 本地语言
+    NSString *language = [[LocalizedHelper standardHelper] currentLanguage];
+    if ([language isEqualToString:kZh_Hans]) {
+        path = [[NSBundle mainBundle] pathForResource:@"PrivacyPolicyChinese.html" ofType:nil];
+    }else if ([language isEqualToString:kEn]){
+        path = [[NSBundle mainBundle] pathForResource:@"PrivacyPolicyEnglish.html" ofType:nil];
+    }
+    
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:path]]];
+    
+    [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view);
         make.bottom.equalTo(self.view);
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);
     }];
-    
-    self.tv.text = kLocalizable(@"");
 }
 
 

@@ -138,7 +138,7 @@
 #pragma mark - btnOnClick
 
 - (IBAction)copyBtnOnClick:(UIButton *)sender {
-    [MBProgressHUD zj_showViewAfterSecondWithView:self.view title:kLocalizable(@"复制成功") afterSecond:0.5];
+    [MBProgressHUD zj_showViewAfterSecondWithView:self.view title:kLocalizable(@"复制成功") afterSecond:1.5];
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
     pasteboard.string = self.hashLab.text;
 }

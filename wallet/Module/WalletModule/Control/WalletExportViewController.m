@@ -7,85 +7,93 @@
 //
 
 #import "WalletExportViewController.h"
+#import "WalletExportCell.h"
+#import "AccountManager.h"
 
-@interface WalletExportViewController ()
+@interface WalletExportViewController ()<RefreshPrivateDelegate>
+
+@property (copy, nonatomic) NSArray *dataArr;
+@property (strong, nonatomic) Account *account;
 
 @end
 
 @implementation WalletExportViewController
 
+- (instancetype)initWithAccount:(Account *)account {
+    self = [super initWithNibName:nil bundle:nil];
+    if (self) {
+        self.account = account;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = kLocalizable(@"导出");
+    [self setupTableView];
+    [self loadData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
+- (void)loadData {
+    Export *active = [[Export alloc] init];
+    active.permission = @"active";
+    active.publicKey = self.account.activePublickKey;
+    active.privateKey = self.account.activePrivatekKey;
+    active.showQR = NO;
+    
+    Export *owner = [[Export alloc] init];
+    owner.permission = @"owner";
+    owner.publicKey = self.account.ownerPublickKey;
+    owner.privateKey = self.account.ownerPrivatekKey;
+    owner.showQR = NO;
+    
+    self.dataArr = @[active,owner];
+    [self.tableView reloadData];
+}
+
+- (void)setupTableView {
+    self.tableView.tableFooterView = [UIView new];
+    self.tableView.backgroundColor = kBar_Backgroud_Color;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.estimatedRowHeight = 150.0;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    [self.tableView registerNib:[UINib nibWithNibName:[WalletExportCell cellIdentifier] bundle:[NSBundle mainBundle]] forCellReuseIdentifier:[WalletExportCell cellIdentifier]];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return self.dataArr.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return 1;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    WalletExportCell *cell = [tableView dequeueReusableCellWithIdentifier:[WalletExportCell cellIdentifier] forIndexPath:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.exp = self.dataArr[indexPath.section];
+    cell.delegate = self;
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    return [UIView new];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 10.0;
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+#pragma mark - RefreshPrivateDelegate
+
+- (void)refreshCell:(UITableViewCell *)cell {
+    [self.tableView reloadRowsAtIndexPaths:@[[self.tableView indexPathForCell:cell]] withRowAnimation:0];
 }
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

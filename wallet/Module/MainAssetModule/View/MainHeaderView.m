@@ -8,6 +8,7 @@
 
 #import "MainHeaderView.h"
 #import "AccountManager.h"
+#import "AccountInfo.h"
 #import "WalletManager.h"
 
 @interface MainHeaderView ()
@@ -51,7 +52,6 @@
         NSArray <Account *> *accArr = [[AccountManager shareManager] selectAccountsFromWalletID:kCurrentWallet_UUID];
         if (accArr.count > 0) {
             self.accountNameLab.text = accArr.firstObject.accountName;
-            [self loadUSD];
         }else{
             self.accountNameLab.text = kLocalizable(@"没有相关账号！");
         }
@@ -60,17 +60,28 @@
     }
 }
 
+#pragma mark - public
 
-- (void)loadUSD {
-    NSString *urlStr = @"https://bb.otcbtc.com/api/v2/trades";
-    [[HTTPRequestManager shareNormalManager] get:urlStr paramters:@{@"market":@"eosusdt",@"limit":@"1"} success:^(BOOL isSuccess, id responseObject) {
-        if ([responseObject isKindOfClass:[NSArray class]]) {
-            if ([[responseObject firstObject] isKindOfClass:[NSDictionary class]]) {
-                NSDictionary *dic = (NSDictionary *)[responseObject firstObject];
-                self.amountLab.text = [NSString stringWithFormat:@"≈ %@",[dic objectForKey:@"price"]];
+- (void)loadUSDWithAccountInfo:(AccountInfo *)accounInfo {
+    NSString *urlStr = @"https://api.coinmarketcap.com/v2/ticker/1765/";
+    [[HTTPRequestManager shareNormalManager] get:urlStr paramters:@{@"convert":@"CNY"} success:^(BOOL isSuccess, id responseObject) {
+        
+        if ([responseObject isKindOfClass:[NSDictionary class]]) {
+            if ([[responseObject objectForKey:@"data"] isKindOfClass:[NSDictionary class]]) {
+                if ([[[[responseObject objectForKey:@"data"] objectForKey:@"quotes"] objectForKey:@"CNY"] isKindOfClass:[NSDictionary class]]) {
+                    NSDictionary *dic = [[[responseObject objectForKey:@"data"] objectForKey:@"quotes"] objectForKey:@"CNY"];
+                    self.amountLab.text = [NSString stringWithFormat:@"≈ %.2f",[[dic objectForKey:@"price"] floatValue] * [accounInfo.core_liquid_balance floatValue]];
+                }
             }
         }
-    } failure:nil superView:[UIApplication sharedApplication].keyWindow showLoading:nil showFaliureDescription:YES];
+//        if ([responseObject isKindOfClass:[NSDictionary class]]) {
+//            if ([[responseObject firstObject] isKindOfClass:[NSDictionary class]]) {
+//                NSDictionary *dic = (NSDictionary *)[responseObject firstObject];
+//
+//                self.amountLab.text = [NSString stringWithFormat:@"≈ %.2f",[[dic objectForKey:@"price"] floatValue] * [accounInfo.core_liquid_balance floatValue]];
+//            }
+//        }
+    } failure:nil superView:nil showLoading:NO showFaliureDescription:NO];
 }
 
 #pragma mark - btnOnClick

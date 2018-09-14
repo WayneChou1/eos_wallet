@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WalletChangePSWViewController">
+            <connections>
+                <outlet property="NewTF" destination="grf-yi-aee" id="T3s-og-OQQ"/>
+                <outlet property="RepeatTF" destination="an0-LN-THw" id="tb2-8k-l8X"/>
+                <outlet property="changeBtn" destination="66X-g3-9EH" id="zA8-WZ-1hQ"/>
+                <outlet property="currentTF" destination="pIh-jQ-8ap" id="iVE-GA-vx4"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="icv-br-8FP">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pIh-jQ-8ap" customClass="InputTextField">
+                            <rect key="frame" x="50" y="50" width="275" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="nsV-5Q-Yuj"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="grf-yi-aee" customClass="InputTextField">
+                            <rect key="frame" x="50" y="125" width="275" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="eZi-46-vtO"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66X-g3-9EH">
+                            <rect key="frame" x="50" y="330" width="275" height="50"/>
+                            <color key="backgroundColor" red="0.2274509804" green="0.47058823529999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="0uI-0e-8Oh"/>
+                            </constraints>
+                            <state key="normal">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="changeBtnOnClick:" destination="-1" eventType="touchUpInside" id="ENl-AU-ChP"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="an0-LN-THw" customClass="InputTextField">
+                            <rect key="frame" x="50" y="200" width="275" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="SSr-Sa-SRa"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="66X-g3-9EH" secondAttribute="trailing" constant="50" id="6T9-pI-DgR"/>
+                        <constraint firstAttribute="bottom" secondItem="66X-g3-9EH" secondAttribute="bottom" constant="10" id="D4y-ZZ-4SG"/>
+                        <constraint firstItem="grf-yi-aee" firstAttribute="leading" secondItem="pIh-jQ-8ap" secondAttribute="leading" id="MW2-a1-ZQZ"/>
+                        <constraint firstItem="66X-g3-9EH" firstAttribute="leading" secondItem="icv-br-8FP" secondAttribute="leading" constant="50" id="NOx-Md-ygo"/>
+                        <constraint firstItem="grf-yi-aee" firstAttribute="trailing" secondItem="pIh-jQ-8ap" secondAttribute="trailing" id="OLy-TY-4Gi"/>
+                        <constraint firstItem="grf-yi-aee" firstAttribute="top" secondItem="pIh-jQ-8ap" secondAttribute="bottom" constant="25" id="Z0I-t8-XJJ"/>
+                        <constraint firstItem="an0-LN-THw" firstAttribute="trailing" secondItem="pIh-jQ-8ap" secondAttribute="trailing" id="bBZ-qQ-2sd"/>
+                        <constraint firstAttribute="trailing" secondItem="pIh-jQ-8ap" secondAttribute="trailing" constant="50" id="eLJ-yp-gvS"/>
+                        <constraint firstItem="pIh-jQ-8ap" firstAttribute="top" secondItem="icv-br-8FP" secondAttribute="top" constant="50" id="ohF-zw-tgP"/>
+                        <constraint firstItem="66X-g3-9EH" firstAttribute="centerX" secondItem="icv-br-8FP" secondAttribute="centerX" id="pYq-gl-uS0"/>
+                        <constraint firstItem="66X-g3-9EH" firstAttribute="top" secondItem="an0-LN-THw" secondAttribute="bottom" constant="80" id="qeB-D2-wIy"/>
+                        <constraint firstItem="pIh-jQ-8ap" firstAttribute="leading" secondItem="icv-br-8FP" secondAttribute="leading" constant="50" id="tGt-uG-2be"/>
+                        <constraint firstItem="an0-LN-THw" firstAttribute="top" secondItem="grf-yi-aee" secondAttribute="bottom" constant="25" id="xXR-RF-Efs"/>
+                        <constraint firstItem="an0-LN-THw" firstAttribute="leading" secondItem="pIh-jQ-8ap" secondAttribute="leading" id="xrI-A2-ax7"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="icv-br-8FP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="3ub-cV-EkM"/>
+                <constraint firstItem="icv-br-8FP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Vr7-6X-FnV"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="icv-br-8FP" secondAttribute="trailing" id="agK-Xo-pzc"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="icv-br-8FP" secondAttribute="bottom" id="nbY-4M-Knb"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+        </view>
+    </objects>
+</document>

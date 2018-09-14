@@ -42,6 +42,15 @@
 "两次输入的密码不一致!"="Entered passwords differ!";
 "本地钱包名不可重复!"="Local wallet name cannot repeat";
 
+"当前密码" = "Current Password";
+"新密码" = "New Password";
+"重复新密码" = "Repeat Password";
+"修改密码" = "Change Password";
+"修改" = "Change";
+"修改密码成功" = "Change Password Success";
+"修改密码失败" = "Change Password Failed";
+"旧密码错误" = "Current Password Error";
+
 "请输入钱包密码" = "Input wallet password";
 "取消" = "Cancel";
 "确定" = "Confirm";
@@ -53,6 +62,13 @@
 
 "Owner key 输入有误" = "Owner key input error";
 "Active key 输入有误" = "Active key input error";
+
+"公钥" = "Public Key";
+"私钥" = "Private Key";
+"角色" = "Role";
+"二维码" = "QR code";
+"明文" = "Plaint Text";
+"导出" = "Export";
 
 /* 导入私钥 */
 "我已经仔细阅读并同意服务及隐私条款" = "I have carefully read and agree to the terms of service and privacy.";

@@ -23,6 +23,10 @@
 		6230E679213D024C0093A4D4 /* SettingTouchIdCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6230E677213D024C0093A4D4 /* SettingTouchIdCell.xib */; };
 		6230E67D213D1FCE0093A4D4 /* EvaluatePolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6230E67C213D1FCE0093A4D4 /* EvaluatePolicy.m */; };
 		6230E680213D3A890093A4D4 /* LanguageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6230E67F213D3A890093A4D4 /* LanguageViewController.m */; };
+		62441156214B4573009986A8 /* WalletExportCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 62441154214B4573009986A8 /* WalletExportCell.m */; };
+		62441157214B4573009986A8 /* WalletExportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62441155214B4573009986A8 /* WalletExportCell.xib */; };
+		6244115B214B8FEF009986A8 /* WalletChangePSWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62441159214B8FEF009986A8 /* WalletChangePSWViewController.m */; };
+		6244115C214B8FEF009986A8 /* WalletChangePSWViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6244115A214B8FEF009986A8 /* WalletChangePSWViewController.xib */; };
 		625B0A4D21071C7A00E9AB44 /* WalletManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 625B0A4C21071C7A00E9AB44 /* WalletManager.mm */; };
 		625B0A5021071CBE00E9AB44 /* Wallet.mm in Sources */ = {isa = PBXBuildFile; fileRef = 625B0A4F21071CBE00E9AB44 /* Wallet.mm */; };
 		625B0A5421071EF000E9AB44 /* MD5Encrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 625B0A5321071EF000E9AB44 /* MD5Encrypt.m */; };
@@ -170,6 +174,12 @@
 		6230E67C213D1FCE0093A4D4 /* EvaluatePolicy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvaluatePolicy.m; sourceTree = "<group>"; };
 		6230E67E213D3A890093A4D4 /* LanguageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LanguageViewController.h; sourceTree = "<group>"; };
 		6230E67F213D3A890093A4D4 /* LanguageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LanguageViewController.m; sourceTree = "<group>"; };
+		62441153214B4573009986A8 /* WalletExportCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WalletExportCell.h; sourceTree = "<group>"; };
+		62441154214B4573009986A8 /* WalletExportCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WalletExportCell.m; sourceTree = "<group>"; };
+		62441155214B4573009986A8 /* WalletExportCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletExportCell.xib; sourceTree = "<group>"; };
+		62441158214B8FEF009986A8 /* WalletChangePSWViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WalletChangePSWViewController.h; sourceTree = "<group>"; };
+		62441159214B8FEF009986A8 /* WalletChangePSWViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WalletChangePSWViewController.m; sourceTree = "<group>"; };
+		6244115A214B8FEF009986A8 /* WalletChangePSWViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletChangePSWViewController.xib; sourceTree = "<group>"; };
 		625B0A4B21071C7A00E9AB44 /* WalletManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WalletManager.h; sourceTree = "<group>"; };
 		625B0A4C21071C7A00E9AB44 /* WalletManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WalletManager.mm; sourceTree = "<group>"; };
 		625B0A4E21071CBE00E9AB44 /* Wallet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Wallet.h; sourceTree = "<group>"; };
@@ -458,6 +468,9 @@
 				F60AEA23212A597C000D310C /* WalletDetailViewController.m */,
 				F60581B0214ABAFF00937BAB /* WalletExportViewController.h */,
 				F60581B1214ABAFF00937BAB /* WalletExportViewController.m */,
+				62441158214B8FEF009986A8 /* WalletChangePSWViewController.h */,
+				62441159214B8FEF009986A8 /* WalletChangePSWViewController.m */,
+				6244115A214B8FEF009986A8 /* WalletChangePSWViewController.xib */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -820,6 +833,9 @@
 				F6F81C44212A61BA00737503 /* WalletCommonCell.h */,
 				F6F81C45212A61BA00737503 /* WalletCommonCell.m */,
 				F6F81C46212A61BA00737503 /* WalletCommonCell.xib */,
+				62441153214B4573009986A8 /* WalletExportCell.h */,
+				62441154214B4573009986A8 /* WalletExportCell.m */,
+				62441155214B4573009986A8 /* WalletExportCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1124,6 +1140,7 @@
 			files = (
 				6275DC33213529E800C3CB43 /* Eos.js in Resources */,
 				6275DC34213529E800C3CB43 /* Javascript.html in Resources */,
+				62441157214B4573009986A8 /* WalletExportCell.xib in Resources */,
 				F60226F0212B012B0086B2EB /* WalletQRViewController.xib in Resources */,
 				6230DA5D213E1D4900850853 /* WebList.plist in Resources */,
 				6274498A20FC2E4C003F61C8 /* Assets.xcassets in Resources */,
@@ -1136,6 +1153,7 @@
 				62A0F6FD20FDC44000472772 /* MainNoDataView.xib in Resources */,
 				6230E671213CDA430093A4D4 /* ProfileCell.xib in Resources */,
 				62623AE120FEEEC800663644 /* CreateWalletViewController.xib in Resources */,
+				6244115C214B8FEF009986A8 /* WalletChangePSWViewController.xib in Resources */,
 				F6463B2621454A6F0002B282 /* ResourceCell.xib in Resources */,
 				F6F81C48212A61BA00737503 /* WalletCommonCell.xib in Resources */,
 				627449F220FC8342003F61C8 /* Localizable.strings in Resources */,
@@ -1244,11 +1262,13 @@
 				627449DE20FC7C69003F61C8 /* TabBarViewController.m in Sources */,
 				6230DA65213E2A8D00850853 /* Web3UrlHelper.m in Sources */,
 				6230DA77213E7C4A00850853 /* AboutUsHeaderView.m in Sources */,
+				62441156214B4573009986A8 /* WalletExportCell.m in Sources */,
 				628D91A52111512100F66845 /* WalletCell.m in Sources */,
 				626665B92109AAFC0034E3C0 /* InputPwdView.m in Sources */,
 				62A0F6E820FD7EF200472772 /* MainHeaderView.m in Sources */,
 				F60316E7212D94ED001E9A34 /* WalletQRView.m in Sources */,
 				625B0A5421071EF000E9AB44 /* MD5Encrypt.m in Sources */,
+				6244115B214B8FEF009986A8 /* WalletChangePSWViewController.m in Sources */,
 				F6F81C47212A61BA00737503 /* WalletCommonCell.m in Sources */,
 				62824B9E2110149A00BCFB18 /* NSObject+Extension.m in Sources */,
 				628D91A92111560B00F66845 /* WalletRequest.m in Sources */,

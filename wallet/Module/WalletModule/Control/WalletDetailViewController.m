@@ -7,11 +7,14 @@
 //
 
 #import "WalletDetailViewController.h"
+#import "WalletExportViewController.h"
+#import "WalletChangePSWViewController.h"
+#import "InputPwdView.h"
 #import "WalletNameCell.h"
 #import "WalletPswHintCell.h"
 #import "WalletCommonCell.h"
-#import "Wallet.h"
 #import "WalletManager.h"
+#import "AccountManager.h"
 
 static CGFloat footer_height = 40.0;
 
@@ -26,8 +29,10 @@ static CGFloat footer_height = 40.0;
 
 - (instancetype)initWithWallet:(Wallet *)wallet {
     self = [super initWithNibName:nil bundle:nil];
-    self.wallet = wallet;
-    self.title = wallet.walletName;
+    if (self) {
+        self.wallet = wallet;
+        self.title = wallet.walletName;
+    }
     return self;
 }
 
@@ -146,6 +151,29 @@ static CGFloat footer_height = 40.0;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.section == 0 && indexPath.row == 2) {
+        WalletChangePSWViewController *VC = [[WalletChangePSWViewController alloc] initWithWallet:self.wallet];
+        [self.navigationController pushViewController:VC animated:YES];
+    }
+    
+    if (indexPath.section == 1 && indexPath.row == 0) {
+        NSArray <Account *> *accArr = [[AccountManager shareManager] selectAccountsFromWalletID:self.wallet.walletUUID];
+        if (accArr.count >= 1) {
+            WEAK_SELF(weakSelf)
+            InputPwdView *inputView = [[InputPwdView alloc]initWithFrame:CGRectMake(0, 0, inputViewWidth, inputViewHeight)];
+            [inputView showInView:self.view handler:^(BOOL pwdValied, BOOL isCanceled, NSString *psw) {
+                if (!isCanceled) {
+                    if (pwdValied) {
+                        WalletExportViewController *VC = [[WalletExportViewController alloc] initWithAccount:accArr.firstObject];
+                        [weakSelf.navigationController pushViewController:VC animated:YES];
+                    }
+                }
+            }];
+        }else{
+            [MBProgressHUD zj_showViewAfterSecondWithView:self.view title:kLocalizable(@"没有相关资产！") afterSecond:1.5];
+        }
+    }
 }
 
 
@@ -159,7 +187,7 @@ static CGFloat footer_height = 40.0;
     self.wallet.walletName = nameCell.walletNameTF.text;
     self.wallet.pswHint = pswHintCell.pswHintTF.text;
     
-    if ([[WalletManager shareManager] updateWalletNameAndPswHintWithWallet:self.wallet]) {
+    if ([[WalletManager shareManager] updateWallet:self.wallet]) {
         [self.navigationController popViewControllerAnimated:YES];
     }else{}
 }

@@ -155,6 +155,7 @@ static CGFloat header_height = 140.0;
             self.accountInfo = info;
             self.accountInfo.localAccout = self.info;
             [self.tableView reloadData];
+            [self.headerView loadUSDWithAccountInfo:info];
         }
     } failure:nil superView:nil showFaliureDescription:YES];
 }

@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class Account;
+
 @interface WalletExportViewController : UITableViewController
+
+- (instancetype)initWithAccount:(Account *)account;
 
 @end

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class Account;
+@class AccountInfo;
 
 @protocol MainHeaderDelegate <NSObject>
 
@@ -23,5 +24,7 @@
 - (instancetype)initHeaderViewWithFrame:(CGRect)frame;
 
 - (void)reloadSubViews;
+
+- (void)loadUSDWithAccountInfo:(AccountInfo *)accounInfo;
 
 @end

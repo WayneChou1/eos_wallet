@@ -71,7 +71,7 @@
  @param wallet wallet
  @return 是否更新成功
  */
-- (BOOL)updateWalletNameAndPswHintWithWallet:(Wallet *)wallet;
+- (BOOL)updateWallet:(Wallet *)wallet;
 
 
 /**

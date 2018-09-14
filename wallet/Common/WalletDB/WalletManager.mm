@@ -90,11 +90,11 @@ static NSString * const DB_WCDB_NAME = @"wallet.db";
     return [_database getAllObjectsOfClass:Wallet.class fromTable:TABLE_WCDB_NAME];
 }
 
-- (BOOL)updateWalletNameAndPswHintWithWallet:(Wallet *)wallet {
+- (BOOL)updateWallet:(Wallet *)wallet {
     if (_database == nil) {
         [self creatDatabase];
     }
-    return[_database updateRowsInTable:TABLE_WCDB_NAME onProperties:{Wallet.walletName,Wallet.pswHint} withObject:wallet where:Wallet.ID == wallet.ID];
+    return[_database updateRowsInTable:TABLE_WCDB_NAME onProperties:{Wallet.walletName,Wallet.pswHint,Wallet.walletMD5pwd} withObject:wallet where:Wallet.ID == wallet.ID];
 }
 
 

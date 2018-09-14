@@ -77,7 +77,6 @@
     
     for (Account *a in account) {
         NSString *url = eosmonitor(a.accountName, eos_get_transfer, pageStr, countStr);
-        wLog(@"eos_get_transfer == %@",url);
         [[HTTPRequestManager shareMonitorManager] get:url paramters:nil success:^(BOOL isSuccess, id responseObject) {
             if (isSuccess) {
                 if ([responseObject isKindOfClass:[NSDictionary class]]) {

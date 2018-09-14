@@ -47,7 +47,7 @@ static CGFloat duration = 0.25;
 }
 
 - (void)setUpLightBtn {
-    CGFloat width = 80.0;
+    CGFloat width = 150.0;
     CGFloat height = 100.0;
     self.lightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     self.lightBtn.frame = CGRectMake(self.frame.size.width/2.0 - width/2.0, self.frame.size.height - height, width, height);
@@ -60,9 +60,19 @@ static CGFloat duration = 0.25;
     [self.lightBtn setTitleColor:kMain_Color forState:UIControlStateSelected];
     [self.lightBtn addTarget:self action:@selector(lightBtnOnClick:) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.lightBtn setTitleEdgeInsets:UIEdgeInsetsMake(self.lightBtn.imageView.frame.size.height + self.lightBtn.titleLabel.bounds.size.height + 10,-self.lightBtn.imageView.frame.size.width, 0.0,0.0)];//文字距离上边框的距离增加imageView的高度，距离左边框减少imageView的宽度，距离下边框和右边框距离不变
-    [self.lightBtn setImageEdgeInsets:UIEdgeInsetsMake(0.0, 0.0,0.0, -self.lightBtn.titleLabel.bounds.size.width)];//图片距离右边框距离减少图片的宽度，其它不边
-
+    CGSize titleSize;
+    if ([UIDevice currentDevice].systemVersion.floatValue >= 8.0) {
+        // 由于iOS8中titleLabel的size为0，用下面的这种设置
+        titleSize = self.lightBtn.titleLabel.intrinsicContentSize;
+    } else {
+        titleSize = self.lightBtn.titleLabel.frame.size;
+    }
+    CGSize imageSize = self.lightBtn.imageView.bounds.size;
+    //文字距离上边框的距离增加imageView的高度，距离左边框减少imageView的宽度，距离下边框和右边框距离不变
+    [self.lightBtn setTitleEdgeInsets:UIEdgeInsetsMake(imageSize.height + titleSize.height + 20,-imageSize.width, 0.0,0.0)];
+    //图片距离右边框距离减少图片的宽度，其它不变
+    [self.lightBtn setImageEdgeInsets:UIEdgeInsetsMake(0.0, 0.0,0.0, -titleSize.width)];
+    
     [self addSubview:self.lightBtn];
 }
 

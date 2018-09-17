@@ -11,5 +11,6 @@ pod 'DZNEmptyDataSet'
 pod 'WCDB'
 pod 'IQKeyboardManager'
 pod 'MJRefresh'
+pod 'Bugly'
 
 end

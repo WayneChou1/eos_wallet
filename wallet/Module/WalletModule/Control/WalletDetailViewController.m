@@ -77,15 +77,7 @@ static CGFloat footer_height = 40.0;
 
 - (void)setUpFooterView {
     if ([kCurrentWallet_UUID isEqualToString:self.wallet.walletUUID]) {
-        UIButton *deleteBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - footer_height, SCREEN_WIDTH, footer_height)];
-        deleteBtn.backgroundColor = kMain_Color;
-        deleteBtn.titleLabel.font = kSys_font(13);
-        [deleteBtn setTitle:kLocalizable(@"删除") forState:UIControlStateNormal];
-        [deleteBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [deleteBtn addTarget:self action:@selector(deleteBtnOnClick:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:deleteBtn];
-    }else{
-        UIButton *deleteBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - footer_height, SCREEN_WIDTH/2.0, footer_height)];
+        UIButton *deleteBtn = [[UIButton alloc] initWithFrame:CGRectZero];
         deleteBtn.backgroundColor = kMain_Color;
         deleteBtn.titleLabel.font = kSys_font(13);
         [deleteBtn setTitle:kLocalizable(@"删除") forState:UIControlStateNormal];
@@ -93,13 +85,43 @@ static CGFloat footer_height = 40.0;
         [deleteBtn addTarget:self action:@selector(deleteBtnOnClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:deleteBtn];
         
-        UIButton *setBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2.0, SCREEN_HEIGHT - footer_height, SCREEN_WIDTH/2.0, footer_height)];
+        [deleteBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(footer_height);
+            make.bottom.equalTo(self.view);
+            make.left.equalTo(self.view);
+            make.right.equalTo(self.view);
+        }];
+    }else{
+        UIButton *deleteBtn = [[UIButton alloc] initWithFrame:CGRectZero];
+        deleteBtn.backgroundColor = kMain_Color;
+        deleteBtn.titleLabel.font = kSys_font(13);
+        [deleteBtn setTitle:kLocalizable(@"删除") forState:UIControlStateNormal];
+        [deleteBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [deleteBtn addTarget:self action:@selector(deleteBtnOnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:deleteBtn];
+        
+        UIButton *setBtn = [[UIButton alloc] initWithFrame:CGRectZero];
         setBtn.backgroundColor = [UIColor colorWithHex:0x88A1CC];
         setBtn.titleLabel.font = kSys_font(13);
         [setBtn setTitle:kLocalizable(@"设为主钱包") forState:UIControlStateNormal];
         [setBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [setBtn addTarget:self action:@selector(setBtnOnClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:setBtn];
+        
+        [deleteBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(footer_height);
+            make.bottom.equalTo(self.view);
+            make.left.equalTo(self.view);
+            make.right.equalTo(setBtn.mas_left);
+        }];
+        
+        [setBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(footer_height);
+            make.bottom.equalTo(self.view);
+            make.right.equalTo(self.view);
+            make.width.equalTo(deleteBtn.mas_width);
+        }];
+        
     }
 }
 
@@ -193,14 +215,23 @@ static CGFloat footer_height = 40.0;
 }
 
 - (void)deleteBtnOnClick:(UIButton *)btn {
-    [[WalletManager shareManager] deleteWalletsWithUUID:self.wallet.walletUUID];
     
-    NSArray <Wallet *> *walletArr = [[WalletManager shareManager] selectAllWallets];
-    if (walletArr.count > 0) {
-        // 选择第一个作为主钱包
-        [kUserDefault setObject:walletArr.firstObject.walletUUID forKey:kCurrent_wallet];
-        [kUserDefault synchronize];
-    }
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:kLocalizable(@"是否删除此钱包") message:nil preferredStyle:1];
+    UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:kLocalizable(@"确定") style:0 handler:^(UIAlertAction * _Nonnull action) {
+        [[WalletManager shareManager] deleteWalletsWithUUID:self.wallet.walletUUID];
+        
+        NSArray <Wallet *> *walletArr = [[WalletManager shareManager] selectAllWallets];
+        if (walletArr.count > 0) {
+            // 选择第一个作为主钱包
+            [kUserDefault setObject:walletArr.firstObject.walletUUID forKey:kCurrent_wallet];
+            [kUserDefault synchronize];
+        }
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:kLocalizable(@"取消") style:0 handler:nil];
+    
+    [alert addAction:deleteAction];
+    [alert addAction:cancelAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)setBtnOnClick:(UIButton *)btn {

@@ -9,6 +9,7 @@
 #import "ProfileViewController.h"
 #import "SettingViewController.h"
 #import "AboutUsViewController.h"
+#import "FaqViewController.h"
 #import "ProfileCell.h"
 #import <StoreKit/SKStoreReviewController.h>
 
@@ -111,7 +112,7 @@
         }
     }else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
-            
+            VC = [[FaqViewController alloc] init];
         }else if (indexPath.row == 1) {
             VC = [[AboutUsViewController alloc] init];
         }else if (indexPath.row == 2) {

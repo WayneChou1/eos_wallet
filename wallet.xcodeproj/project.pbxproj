@@ -120,6 +120,7 @@
 		F6463B2621454A6F0002B282 /* ResourceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6463B2421454A6F0002B282 /* ResourceCell.xib */; };
 		F657F02321401E77008D101F /* MainHeaderView_2.m in Sources */ = {isa = PBXBuildFile; fileRef = F657F02221401E77008D101F /* MainHeaderView_2.m */; };
 		F657F02621401EA1008D101F /* MainHeaderView_2.xib in Resources */ = {isa = PBXBuildFile; fileRef = F657F02521401EA1008D101F /* MainHeaderView_2.xib */; };
+		F65B77B9214FEF2100532E23 /* FaqViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F65B77B8214FEF2100532E23 /* FaqViewController.m */; };
 		F681107C2138493600DA3822 /* ExchangeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F681107A2138493600DA3822 /* ExchangeDetailViewController.m */; };
 		F6F81C3D212A60F000737503 /* WalletNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F81C3B212A60F000737503 /* WalletNameCell.m */; };
 		F6F81C3E212A60F000737503 /* WalletNameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6F81C3C212A60F000737503 /* WalletNameCell.xib */; };
@@ -349,6 +350,8 @@
 		F657F02121401E77008D101F /* MainHeaderView_2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainHeaderView_2.h; sourceTree = "<group>"; };
 		F657F02221401E77008D101F /* MainHeaderView_2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainHeaderView_2.m; sourceTree = "<group>"; };
 		F657F02521401EA1008D101F /* MainHeaderView_2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainHeaderView_2.xib; sourceTree = "<group>"; };
+		F65B77B7214FEF2100532E23 /* FaqViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FaqViewController.h; sourceTree = "<group>"; };
+		F65B77B8214FEF2100532E23 /* FaqViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FaqViewController.m; sourceTree = "<group>"; };
 		F68110792138493600DA3822 /* ExchangeDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExchangeDetailViewController.h; sourceTree = "<group>"; };
 		F681107A2138493600DA3822 /* ExchangeDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExchangeDetailViewController.m; sourceTree = "<group>"; };
 		F6F81C3A212A60F000737503 /* WalletNameCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WalletNameCell.h; sourceTree = "<group>"; };
@@ -429,6 +432,8 @@
 				6230DA6C213E579A00850853 /* AboutUsViewController.m */,
 				F6073BD7213EAFEB00825322 /* PrivacyPolicyViewController.h */,
 				F6073BD8213EAFEB00825322 /* PrivacyPolicyViewController.m */,
+				F65B77B7214FEF2100532E23 /* FaqViewController.h */,
+				F65B77B8214FEF2100532E23 /* FaqViewController.m */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -1247,6 +1252,7 @@
 				627449BE20FC2E8E003F61C8 /* UIImage+Compression.m in Sources */,
 				627449F820FC8908003F61C8 /* ProfileViewController.m in Sources */,
 				F60226EF212B012B0086B2EB /* WalletQRViewController.m in Sources */,
+				F65B77B9214FEF2100532E23 /* FaqViewController.m in Sources */,
 				62623AE020FEEEC800663644 /* CreateWalletViewController.m in Sources */,
 				627449E820FC8005003F61C8 /* NavigationViewController.m in Sources */,
 				627449D820FC4169003F61C8 /* BootPageControl.m in Sources */,

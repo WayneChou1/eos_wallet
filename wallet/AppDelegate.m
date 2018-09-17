@@ -11,6 +11,9 @@
 #import "TabBarViewController.h"
 #import "WalletManager.h"
 #import <StoreKit/StoreKit.h>
+#import <Bugly/Bugly.h>
+
+static NSString * const buglyKey = @"00ccce3736";
 
 @interface AppDelegate () <SKStoreProductViewControllerDelegate>
 
@@ -48,6 +51,7 @@
     // 应用评分
     [self showAppStoreReView];
     
+    [Bugly startWithAppId:@"buglyKey"];
     return YES;
 }
 

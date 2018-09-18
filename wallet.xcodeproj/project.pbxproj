@@ -113,6 +113,7 @@
 		F616E90D2132DA7B00B60FAA /* ScanQRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F616E90C2132DA7B00B60FAA /* ScanQRViewController.m */; };
 		F616E9102132DE5600B60FAA /* EditorView.m in Sources */ = {isa = PBXBuildFile; fileRef = F616E90F2132DE5500B60FAA /* EditorView.m */; };
 		F61A1551213AFE070084B2F4 /* UIImage+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = F61A1550213AFE070084B2F4 /* UIImage+Filter.m */; };
+		F63BF3F121513F4F00CAF07A /* FaqViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F63BF3F021513F4F00CAF07A /* FaqViewController.xib */; };
 		F63DC4FF21494F1A000E5DED /* PrivacyPolicyChinese.html in Resources */ = {isa = PBXBuildFile; fileRef = F63DC4FE21494F1A000E5DED /* PrivacyPolicyChinese.html */; };
 		F63DC5012149583E000E5DED /* PrivacyPolicyEnglish.html in Resources */ = {isa = PBXBuildFile; fileRef = F63DC5002149583E000E5DED /* PrivacyPolicyEnglish.html */; };
 		F6463B1F2145499A0002B282 /* ResourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6463B1E2145499A0002B282 /* ResourceViewController.m */; };
@@ -340,6 +341,7 @@
 		F616E90F2132DE5500B60FAA /* EditorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditorView.m; sourceTree = "<group>"; };
 		F61A154F213AFE070084B2F4 /* UIImage+Filter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Filter.h"; sourceTree = "<group>"; };
 		F61A1550213AFE070084B2F4 /* UIImage+Filter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Filter.m"; sourceTree = "<group>"; };
+		F63BF3F021513F4F00CAF07A /* FaqViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FaqViewController.xib; sourceTree = "<group>"; };
 		F63DC4FE21494F1A000E5DED /* PrivacyPolicyChinese.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = PrivacyPolicyChinese.html; sourceTree = "<group>"; };
 		F63DC5002149583E000E5DED /* PrivacyPolicyEnglish.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = PrivacyPolicyEnglish.html; sourceTree = "<group>"; };
 		F6463B1D2145499A0002B282 /* ResourceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceViewController.h; sourceTree = "<group>"; };
@@ -434,6 +436,7 @@
 				F6073BD8213EAFEB00825322 /* PrivacyPolicyViewController.m */,
 				F65B77B7214FEF2100532E23 /* FaqViewController.h */,
 				F65B77B8214FEF2100532E23 /* FaqViewController.m */,
+				F63BF3F021513F4F00CAF07A /* FaqViewController.xib */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -1176,6 +1179,7 @@
 				F60226EB212AFD760086B2EB /* WalletSendViewController.xib in Resources */,
 				F60349CD213AA8DD00FF6582 /* ExchangeDetailViewController.xib in Resources */,
 				6230DA73213E7B3500850853 /* AboutUsHeaderView.xib in Resources */,
+				F63BF3F121513F4F00CAF07A /* FaqViewController.xib in Resources */,
 				626665AC210955CD0034E3C0 /* ImportAccountViewController.xib in Resources */,
 				628D919C211149DF00F66845 /* TransactionViewController.xib in Resources */,
 			);

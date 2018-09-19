@@ -89,6 +89,9 @@
 		62A0F6F320FD950F00472772 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 62A0F6F220FD950F00472772 /* BaseTableViewCell.m */; };
 		62A0F6FC20FDC44000472772 /* MainNoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 62A0F6F920FDC43F00472772 /* MainNoDataView.m */; };
 		62A0F6FD20FDC44000472772 /* MainNoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62A0F6FA20FDC44000472772 /* MainNoDataView.xib */; };
+		62A306AB2151EAEB00FE70F1 /* TencentContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62A306A92151EAEB00FE70F1 /* TencentContactViewController.m */; };
+		62A306AC2151EAEB00FE70F1 /* TencentContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62A306AA2151EAEB00FE70F1 /* TencentContactViewController.xib */; };
+		62A306AF2151EEC300FE70F1 /* TelegramContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62A306AE2151EEC300FE70F1 /* TelegramContactViewController.m */; };
 		62C40D8421463F7E00206AB1 /* TODOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C40D8221463F7E00206AB1 /* TODOViewController.m */; };
 		62C40D8521463F7E00206AB1 /* TODOViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62C40D8321463F7E00206AB1 /* TODOViewController.xib */; };
 		F60226EA212AFD760086B2EB /* WalletSendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F60226E8212AFD760086B2EB /* WalletSendViewController.m */; };
@@ -113,7 +116,6 @@
 		F616E90D2132DA7B00B60FAA /* ScanQRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F616E90C2132DA7B00B60FAA /* ScanQRViewController.m */; };
 		F616E9102132DE5600B60FAA /* EditorView.m in Sources */ = {isa = PBXBuildFile; fileRef = F616E90F2132DE5500B60FAA /* EditorView.m */; };
 		F61A1551213AFE070084B2F4 /* UIImage+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = F61A1550213AFE070084B2F4 /* UIImage+Filter.m */; };
-		F63BF3F121513F4F00CAF07A /* FaqViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F63BF3F021513F4F00CAF07A /* FaqViewController.xib */; };
 		F63DC4FF21494F1A000E5DED /* PrivacyPolicyChinese.html in Resources */ = {isa = PBXBuildFile; fileRef = F63DC4FE21494F1A000E5DED /* PrivacyPolicyChinese.html */; };
 		F63DC5012149583E000E5DED /* PrivacyPolicyEnglish.html in Resources */ = {isa = PBXBuildFile; fileRef = F63DC5002149583E000E5DED /* PrivacyPolicyEnglish.html */; };
 		F6463B1F2145499A0002B282 /* ResourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6463B1E2145499A0002B282 /* ResourceViewController.m */; };
@@ -299,6 +301,11 @@
 		62A0F6F920FDC43F00472772 /* MainNoDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNoDataView.m; sourceTree = "<group>"; };
 		62A0F6FA20FDC44000472772 /* MainNoDataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainNoDataView.xib; sourceTree = "<group>"; };
 		62A0F6FB20FDC44000472772 /* MainNoDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNoDataView.h; sourceTree = "<group>"; };
+		62A306A82151EAEB00FE70F1 /* TencentContactViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TencentContactViewController.h; sourceTree = "<group>"; };
+		62A306A92151EAEB00FE70F1 /* TencentContactViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TencentContactViewController.m; sourceTree = "<group>"; };
+		62A306AA2151EAEB00FE70F1 /* TencentContactViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TencentContactViewController.xib; sourceTree = "<group>"; };
+		62A306AD2151EEC300FE70F1 /* TelegramContactViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TelegramContactViewController.h; sourceTree = "<group>"; };
+		62A306AE2151EEC300FE70F1 /* TelegramContactViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TelegramContactViewController.m; sourceTree = "<group>"; };
 		62C40D8121463F7E00206AB1 /* TODOViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TODOViewController.h; sourceTree = "<group>"; };
 		62C40D8221463F7E00206AB1 /* TODOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TODOViewController.m; sourceTree = "<group>"; };
 		62C40D8321463F7E00206AB1 /* TODOViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TODOViewController.xib; sourceTree = "<group>"; };
@@ -341,7 +348,6 @@
 		F616E90F2132DE5500B60FAA /* EditorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditorView.m; sourceTree = "<group>"; };
 		F61A154F213AFE070084B2F4 /* UIImage+Filter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Filter.h"; sourceTree = "<group>"; };
 		F61A1550213AFE070084B2F4 /* UIImage+Filter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Filter.m"; sourceTree = "<group>"; };
-		F63BF3F021513F4F00CAF07A /* FaqViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FaqViewController.xib; sourceTree = "<group>"; };
 		F63DC4FE21494F1A000E5DED /* PrivacyPolicyChinese.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = PrivacyPolicyChinese.html; sourceTree = "<group>"; };
 		F63DC5002149583E000E5DED /* PrivacyPolicyEnglish.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = PrivacyPolicyEnglish.html; sourceTree = "<group>"; };
 		F6463B1D2145499A0002B282 /* ResourceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceViewController.h; sourceTree = "<group>"; };
@@ -436,7 +442,11 @@
 				F6073BD8213EAFEB00825322 /* PrivacyPolicyViewController.m */,
 				F65B77B7214FEF2100532E23 /* FaqViewController.h */,
 				F65B77B8214FEF2100532E23 /* FaqViewController.m */,
-				F63BF3F021513F4F00CAF07A /* FaqViewController.xib */,
+				62A306A82151EAEB00FE70F1 /* TencentContactViewController.h */,
+				62A306A92151EAEB00FE70F1 /* TencentContactViewController.m */,
+				62A306AA2151EAEB00FE70F1 /* TencentContactViewController.xib */,
+				62A306AD2151EEC300FE70F1 /* TelegramContactViewController.h */,
+				62A306AE2151EEC300FE70F1 /* TelegramContactViewController.m */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -1156,6 +1166,7 @@
 				628D91A62111512100F66845 /* WalletCell.xib in Resources */,
 				F6F81C43212A611D00737503 /* WalletPswHintCell.xib in Resources */,
 				62A0F6E520FD789400472772 /* MainHeaderView.xib in Resources */,
+				62A306AC2151EAEB00FE70F1 /* TencentContactViewController.xib in Resources */,
 				F63DC4FF21494F1A000E5DED /* PrivacyPolicyChinese.html in Resources */,
 				626665BB2109ABAC0034E3C0 /* InputPwdView.xib in Resources */,
 				62A0F6FD20FDC44000472772 /* MainNoDataView.xib in Resources */,
@@ -1179,7 +1190,6 @@
 				F60226EB212AFD760086B2EB /* WalletSendViewController.xib in Resources */,
 				F60349CD213AA8DD00FF6582 /* ExchangeDetailViewController.xib in Resources */,
 				6230DA73213E7B3500850853 /* AboutUsHeaderView.xib in Resources */,
-				F63BF3F121513F4F00CAF07A /* FaqViewController.xib in Resources */,
 				626665AC210955CD0034E3C0 /* ImportAccountViewController.xib in Resources */,
 				628D919C211149DF00F66845 /* TransactionViewController.xib in Resources */,
 			);
@@ -1301,10 +1311,12 @@
 				F60226EA212AFD760086B2EB /* WalletSendViewController.m in Sources */,
 				62824B9D2110149A00BCFB18 /* NSData+CommonCrypto.m in Sources */,
 				F616E9102132DE5600B60FAA /* EditorView.m in Sources */,
+				62A306AF2151EEC300FE70F1 /* TelegramContactViewController.m in Sources */,
 				F657F02321401E77008D101F /* MainHeaderView_2.m in Sources */,
 				F60AEA24212A597C000D310C /* WalletDetailViewController.m in Sources */,
 				F6073BD9213EAFEB00825322 /* PrivacyPolicyViewController.m in Sources */,
 				6275DC2A2134F85B00C3CB43 /* BlockChain.m in Sources */,
+				62A306AB2151EAEB00FE70F1 /* TencentContactViewController.m in Sources */,
 				F60AC93E212C5AAC00A19D55 /* QRModalTransition.m in Sources */,
 				6265F83521085356003D8561 /* InputTextField.m in Sources */,
 				62824B9C2110149A00BCFB18 /* Base64.m in Sources */,

@@ -8,6 +8,6 @@
 
 #import "TODOViewController.h"
 
-@interface FaqViewController : BaseViewController
+@interface FaqViewController : UITableViewController
 
 @end

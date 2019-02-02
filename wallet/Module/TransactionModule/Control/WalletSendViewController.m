@@ -217,6 +217,8 @@
     [pushDic setObject:@"none" forKey:@"compression"];
     [pushDic setObject:@"00" forKey:@"packed_context_free_data"];
     
+    wLog(@"pushDic ==== %@",pushDic);
+    
     MBProgressHUD *hud4 = [MBProgressHUD zj_showHUDAddedToView:self.view title:kLocalizable(@"签名交易") animated:YES];
     
     [[HTTPRequestManager shareManager] post:eos_push_transaction paramters:pushDic success:^(BOOL isSuccess, id responseObject) {
